@@ -50,10 +50,29 @@
 - npm packages: [MySQL2](https://github.com/sidorares/node-mysql2#readme), [Sequelize](https://sequelize.org/), [Express Handlebars](https://github.com/express-handlebars/express-handlebars), [express-session](https://github.com/expressjs/session#readme), [connect-session-sequeilize](https://github.com/mweibel/connect-session-sequelize), [dotenv](https://github.com/motdotla/dotenv#readme), [node.bcrypt.js](https://github.com/kelektiv/node.bcrypt.js#readme)
  - Payment Platform
 
-## Mock-up:
-![Homepage - Login](./client/assets/images/Homepage.min.svg)
+
+## **Mock-up:**
+# Homepage
+![Landing - Login](./client/assets/images/Homepage-50.jpg)
 
 
+# Feed
+![Homepage - Feed](./client/assets/images/feed-50.jpg)
+
+
+# Single Post
+![Post - single-post](./client/assets/images/single-post2-50.jpg)
+
+# User Profile
+![Profile - Section-examples](./client/assets/images/profile-50.jpg)
+
+
+# Create Post
+![Create-post - Forum](./client/assets/images/create-post-50.jpg)
+
+
+___________________________________________________
+## Section to finish later !!
 ### Live View:
 Heroku
 
