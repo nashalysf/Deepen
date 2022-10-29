@@ -51,7 +51,7 @@
  - Payment Platform
 
 ## Mock-up:
-![Homepage - Login](/../assets/images/Deepen-login.jpg)
+![Homepage - Login](./client/assets/images/Homepage.min.svg)
 
 
 ### Live View:
