@@ -30,8 +30,8 @@
   
 ## API’s:
 	* Google email for sign-up/login
-	* Free images library for user to use in: Post cover, User pic, and/or Profile hero. [Pexels maybe]
-  * GraphQL
+	* Free images library for user: Post cover, User pic, and/or Profile hero. [Pexels maybe]
+	* GraphQL
   
 ### Technologies:
 - HTML5 / CSS3
@@ -49,6 +49,10 @@
 - [MySQL](https://dev.mysql.com/doc/)
 - npm packages: [MySQL2](https://github.com/sidorares/node-mysql2#readme), [Sequelize](https://sequelize.org/), [Express Handlebars](https://github.com/express-handlebars/express-handlebars), [express-session](https://github.com/expressjs/session#readme), [connect-session-sequeilize](https://github.com/mweibel/connect-session-sequelize), [dotenv](https://github.com/motdotla/dotenv#readme), [node.bcrypt.js](https://github.com/kelektiv/node.bcrypt.js#readme)
  - Payment Platform
+
+## Mock-up:
+![Homepage - Login](/../assets/images/Deepen-login.jpg)
+
 
 ### Live View:
 Heroku
