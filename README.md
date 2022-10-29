@@ -42,13 +42,12 @@
 - Mongoose
 - GraphQL
 - Bcrypt
-- webpage 
-- IndexedDB
+- webpage
+- IndexedDB
 - JWT (Authentication)
 - [Node.js](https://nodejs.org/en/) ES6
 - [MySQL](https://dev.mysql.com/doc/)
-- npm packages: [MySQL2](https://github.com/sidorares/node-mysql2#readme), [Sequelize](https://sequelize.org/), [Express Handlebars](https://github.com/express-handlebars/express-handlebars), [express-session](https://github.com/expressjs/session#readme), [connect-session-sequeilize](https://github.com/mweibel/connect-session-sequelize), [dotenv](https://github.com/motdotla/dotenv#readme), [node.bcrypt.js](https://github.com/kelektiv/node.bcrypt.js#readme)
- - Payment Platform
+- Payment Platform
 
 
 ## **Mock-up:**
