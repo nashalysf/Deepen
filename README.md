@@ -48,6 +48,11 @@
 - [Node.js](https://nodejs.org/en/) ES6
 - Payment Platform
 
+## Brand: 
+* Name: Deepen - make more intense, stronger, or more marked.
+	* synonyms: intensify, heighten, expand, enhance, broaden.
+	
+* Image: 
 
 ## **Mock-up:**
 # Homepage
