@@ -46,7 +46,6 @@
 - IndexedDB
 - JWT (Authentication)
 - [Node.js](https://nodejs.org/en/) ES6
-- [MySQL](https://dev.mysql.com/doc/)
 - Payment Platform
 
 
