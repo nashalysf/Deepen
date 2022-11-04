@@ -16,9 +16,10 @@
   * Saved list
  
  ## Views:
- * Html: Landingpage / Login, Homepage (feed), Single-Post, Create/Edit Post, see Followers/Following list, Use Profile.
- * JS: User Profile section display (about, work, liked posts, saved posts).
- * CS: Boostrap.
+ * Html: `landingpage/login, user profile, homepage(feed), single-post, create/edit post, see followers/following list, search for followers and projects.`
+ * React: `user profile section display (about, work, liked posts, saved posts), image-view, interactive menu and user info` ...
+ * JS: btns, ...
+ * CS: Boostrap
  
  ## Controllers:
   * User: `create, edit, delete, getAll, get :id`
@@ -48,6 +49,14 @@
 - [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
 - [JWT](https://jwt.io/introduction) (Authentication)
 - Payment Platform
+
+#### Branches:
+  - main: 
+      skeleton and dependecies
+  - develop:
+      production enviroment
+  - feature/ :
+      staging enviroment
 _______________________________________
 ## **Brand**: 
 ### **Name**: 
@@ -63,21 +72,36 @@ Deepen - make more intense, stronger, or more marked.
 
 ## **Mock-up:**
 # Homepage
+   * Access to: login(email or username) password auth, sign-up || (google login api)
+
 ![Landing - Login](./client/src/images/Homepage-50.jpg)
 
 
 # Feed
+  * Access to: donation(platform), user profile, all projects, user-follow projects, single post, follow, user profile.
+
 ![Homepage - Feed](./client/src/images/feed-50.jpg)
 
 
 # Single Post
+  * Access to: post cover, post title, post description, links, images/codes, tools list, comments, back-to-feed
+      * menu: make donation to user, add comment, save project, like
+      * user info: follow, comments, user profile.
+    both menu and user info stays on page and toggle view/hide
+
 ![Post - single-post](./client/src/images/single-post2-50.jpg)
 
 # User Profile
+  * Access to: user info, created posts and post count, posts liked (optional) and overall-likes-received, followers, user cover, user pic
+    * as user: create post, edit profile, saved posts
+    * as viewer: make donation to user, follow, send email, 
+
 ![Profile - Section-examples](./client/src/images/profile-50.jpg)
 
 
 # Create Post
+  * Add: project cover(from lib api or upload), post title, description, links, list of predefined technologies or add new(saves to predefined), post
+
 ![Create-post - Forum](./client/src/images/create-post-50.jpg)
 
 
@@ -114,3 +138,4 @@ ________________________________________________________________________________
 For any questions about this repo, please contact me at [nashalysf@gmail.com](mailto:nashalysf@gmail.com).
 
 To view more of my works, please visit my GitHub: [nashalysf](https://github.com/nashalysf).
+

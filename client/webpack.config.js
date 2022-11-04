@@ -34,7 +34,7 @@ module.exports = {
       plugins: [
         new HtmlWebpackPlugin({
           template: './index.html',
-          title: 'Webpack Plugin',
+          title: 'Deepen',
         })
       ]
     }
