@@ -1,10 +1,12 @@
 # Bootcamp MERN Capstone
 ## Deepen
-*  A social platform for developers where they can showcase their projects, help and inspire. Like a GitHub Project Search page mixed with the UX|UI of the social platforms Pinterest/Behance. Users upload their work descriptions, code snippets, screenshots and live links or GitHub repo where the project can be found.
+*  A social platform for developers where they can showcase their projects, help and inspire. A GitHub repo/user search-engine with the UX of Pinterest and UI of Behance. Users upload their work, visuals, and live links or GitHub repo where the project can be found.
 
 * Features:
   * Create, edit, delete and see posts.
-  * Follow other users, see followers and save your favorite projects.
+  * Create, delete comments and likes.
+  * Follow other users, see followers, created and saved projects.
+  * Search for users or projects.
   * Create and edit user information.
   * Allows donations to developer or platform.
   * PWA
@@ -16,7 +18,7 @@
   * Saved list
  
  ## Views:
- * Html: `landingpage/login, user profile, homepage(feed), single-post, create/edit post, see followers/following list, search for followers and projects.`
+ * Html: `landingpage/login, user profile, homepage(feed), single-post, create/edit post, followers/following list, search page.`
  * React: `user profile section display (about, work, liked posts, saved posts), image-view, interactive menu and user info` ...
  * JS: btns, ...
  * CS: Boostrap
@@ -51,16 +53,16 @@
 - Payment Platform
 
 #### Branches:
-  - main: 
-      skeleton and dependecies
-  - develop:
-      production enviroment
-  - feature/ :
-      staging enviroment
+  * [main]
+  	* skeleton and dependecies [protected]
+  * [develop]
+      * production enviroment
+  * [feature/]
+      * staging enviroment
 _______________________________________
 ## **Brand**: 
 ### **Name**: 
-Deepen - make more intense, stronger, or more marked.
+Deepen - make more, intense, stronger, or more marked.
 	* synonyms: intensify, heighten, expand, enhance, broaden.
 	
 
@@ -72,22 +74,22 @@ Deepen - make more intense, stronger, or more marked.
 
 ## **Mock-up:**
 # Homepage
-   * Access to: login(email or username) password auth, sign-up || (google login api)
+   * Access to: login(email or username) password (auth), sign-up || (google login api)
 
 ![Landing - Login](./client/src/images/Homepage-50.jpg)
 
 
 # Feed
-  * Access to: donation(platform), user profile, all projects, user-follow projects, single post, follow, user profile.
+  * Access to: donation(platform), user profile, all projects, following projects, single post, follow/unfollow, user profile.
 
 ![Homepage - Feed](./client/src/images/feed-50.jpg)
 
 
 # Single Post
-  * Access to: post cover, post title, post description, links, images/codes, tools list, comments, back-to-feed
-      * menu: make donation to user, add comment, save project, like
+  * Access to: post cover, post title, post description, links, images/codes, tools list, comments, back to feed
+      * menu: make donation to user, add comment, save project, like/unlike
       * user info: follow, comments, user profile.
-    both menu and user info stays on page and toggle view/hide
+    - both menu and user info stays on page and toggle view/hide
 
 ![Post - single-post](./client/src/images/single-post2-50.jpg)
 
