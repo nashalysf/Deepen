@@ -9,6 +9,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//Early connection we will need to implement apollo eventually
 db.once("open", () => {
   app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);
