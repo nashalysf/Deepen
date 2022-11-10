@@ -25,11 +25,14 @@ const resolvers = {
       return Post.findOne({ _id });
     },
     // get all users
+
+    //commented out comments for now. in order to populate it user model needs to reference it. requires reference in typeDefs as well.
     users: async () => {
       return User.find()
         .select("-__v -password")
         .populate("followers")
-        .populate("comments");
+        .populate("posts")
+        // .populate("comments");
     },
     // get a user by username
     user: async (parent, { username }) => {
