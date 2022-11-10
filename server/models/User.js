@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Posts = require('./Post');
+const Post = require('./Post');
 
 const followerSchema = new Schema(
   {
@@ -82,9 +82,7 @@ userSchema.methods.isCorrectPassword = async function(password) {
 userSchema.virtual('followersCount').get(function() {
   return this.followers.length;
 });
-Posts.virtual('postsCount').get(function() {
-  return this.posts.length;
-});
+
 
 
 const User = model('User', userSchema);

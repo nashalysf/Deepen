@@ -35,7 +35,7 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("follower")
+        .populate("followers")
         .populate("posts");
     },
   },
@@ -74,6 +74,19 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    savePost: async (parent, args, context) => {
+        if (context.user) {
+            const updatedList = await User.findOneAndUpdate(
+              { _id: postId },
+              { $push: { savedPosts: { posts: post._id , username: context.user.username, } } },
+              { new: true, runValidators: true }
+            );
+        
+            return updatedPost;
+          }
+        
+          throw new AuthenticationError('You need to be logged in!');
+        },
     addComment: async (parent, { postId, commentBody }, context) => {
         if (context.user) {
           const updatedPost = await Post.findOneAndUpdate(
@@ -100,7 +113,7 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
-      addFollow: async (parent, { followerId }, context) => {
+      addFollower: async (parent, { followerId }, context) => {
         if (context.user) {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },

@@ -1,37 +1,6 @@
 const { Schema } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
-
-const replySchema = new Schema(
-  {
-    // set custom id to avoid confusion with parent comment _id
-    replyId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
-    replyBody: {
-      type: String,
-      require: true,
-      trim: true,
-      max: 280,
-    },
-    username: {
-      type: String,
-      require: true,
-      trim: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: (createdAtVal) => dateFormat(createdAtVal),
-    },
-  },
-  {
-    toJSON: {
-      virtuals: true,
-      getters: true,
-    },
-  }
-);
+const Reply = require("./Replies");
 
 const commentSchema = new Schema(
   {
@@ -49,7 +18,7 @@ const commentSchema = new Schema(
       default: Date.now,
       get: (timestamp) => dateFormat(timestamp),
     },
-    reply: [replySchema],
+    reply: [Reply],
   },
   {
     toJSON: {
@@ -58,11 +27,9 @@ const commentSchema = new Schema(
   }
 );
 
-replySchema.virtual("replyCount").get(function () {
+Reply.virtual("replyCount").get(function () {
   return this.reply.length;
 }
 );
 
-const Comment = model("Comment", commentSchema);
-
-module.exports = Comment;
+module.exports = commentSchema;
