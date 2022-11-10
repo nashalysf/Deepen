@@ -1,12 +1,13 @@
 const jwt = require("jsonwebtoken");
-require("dotenv");
+
+
 
 //keep secret hidden
 const secret = process.env.COOKIE;
 const expiration = "2h";
 
 module.exports = {
-  loginToken: function ({ username, email, _id }) {
+    authMiddleware: function ({ username, email, _id }) {
     const userInfo = { username, email, _id };
 
     return jwt.sign({ data: userInfo }, secret, { expiresIn: expiration });

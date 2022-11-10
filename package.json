@@ -2,9 +2,13 @@
   "name": "deepen",
   "version": "1.0.0",
   "description": "*  A social platform for developers where they can showcase their projects, help and inspire. A GitHub repo/user search-engine with the UX of Pinterest and UI of Behance. Users upload their work, visuals, and live links or GitHub repo where the project can be found.",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,5 +29,8 @@
     "graphql": "^16.6.0",
     "mongoose": "^6.7.2",
     "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "concurrently": "^7.5.0"
   }
 }
