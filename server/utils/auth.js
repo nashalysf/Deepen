@@ -1,37 +1,35 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
+require("dotenv");
 
-const secret = 'mysecretsshhhhh';
-const expiration = '2h';
+//keep secret hidden
+const secret = process.env.COOKIE;
+const expiration = "2h";
 
 module.exports = {
-  authMiddleware: function({ req }) {
-    // allows token to be sent via req.body, req.query, or headers
+  loginToken: function ({ username, email, _id }) {
+    const userInfo = { username, email, _id };
+
+    return jwt.sign({ data: userInfo }, secret, { expiresIn: expiration });
+  },
+
+  auth: function ({ req }) {
+    //depends on how request is sent
     let token = req.body.token || req.query.token || req.headers.authorization;
 
-    // ["Bearer", "<tokenvalue>"]
-    if (req.headers.authorization) {
-      token = token
-        .split(' ')
-        .pop()
-        .trim();
-    }
-
+    //removes "bearer"
+    if (req.headers.authorization) token = token.split(" ").pop().trim();
+    // only moves on if there is any value in token
     if (!token) {
       return req;
     }
 
     try {
+      //verify method checks if secret matches the secret from .sign method
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
-      console.log('Invalid token');
+      console.log("invalid token");
     }
-
     return req;
   },
-  signToken: function({ username, email, _id }) {
-    const payload = { username, email, _id };
-
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
-  }
 };
