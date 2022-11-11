@@ -1,0 +1,1 @@
+//home as a component bc its: all users posts, following posts, or search page
