@@ -1,1 +1,0 @@
-//Profile as a component bc it has: about, works, or saved posts
