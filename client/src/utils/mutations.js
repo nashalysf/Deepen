@@ -1,17 +1,5 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_POSTS = gql`
-  query posts($username: String) {
-    posts(username: $username) {
-      _id
-      title
-      createdAt
-      username
-      likeCount
-    }
-  }
-`;
-
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
