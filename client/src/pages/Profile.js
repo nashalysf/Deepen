@@ -23,7 +23,12 @@ const Profile = () => {
             alt="profilepic"
           />
           <button className="followBtn">+</button>
-          <h4>Username</h4>
+          <div className="flex-row mb-3">
+        <h2 className="bg-dark text-secondary p-3 display-inline-block">
+          {/* Viewing <usernames>'s profile. */}
+        </h2>
+      </div>
+
         </div>
         <ul>
             <li>Work</li>
@@ -31,8 +36,9 @@ const Profile = () => {
             <li>Likes</li>
         </ul>
       </div>
+      <ProfileNav></ProfileNav>
       <div className="nav">
-
+    <About></About>
      
       </div>
       

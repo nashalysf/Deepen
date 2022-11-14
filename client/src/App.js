@@ -4,7 +4,9 @@ import Profile from './pages/Profile';
 import './App.css';
 import main from "./images/main.svg"
 import './index.css'
-import logo from './images/logo-white.png'
+import Header from './components/Header';
+import Home from './pages/Home';
+
 
 
 const httpLink = createHttpLink({
@@ -20,20 +22,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
     <div className="App">
-      <main>
-      <img
-            src={logo}
-            className="logo"
-            style={{ width: "10%" }}
-            alt="logopic"
-          />
-        <Profile></Profile>
-      {/* <img
-            src={main}
-            className="main"
-            style={{ width: "40%" }}
-            alt="mainpic"
-          /> */}
+      <main>  
+        <Header></Header>
+        <Home></Home>
     </main>
     </div>
     </ApolloProvider>
