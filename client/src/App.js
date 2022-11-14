@@ -2,8 +2,9 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import React from "react";
 import Profile from './pages/Profile';
 import './App.css';
-import Header from './components/ProfileNav';
 import main from "./images/main.svg"
+import './index.css'
+import logo from './images/logo-white.png'
 
 
 const httpLink = createHttpLink({
@@ -21,11 +22,18 @@ function App() {
     <div className="App">
       <main>
       <img
+            src={logo}
+            className="logo"
+            style={{ width: "10%" }}
+            alt="logopic"
+          />
+        <Profile></Profile>
+      {/* <img
             src={main}
             className="main"
             style={{ width: "40%" }}
             alt="mainpic"
-          />
+          /> */}
     </main>
     </div>
     </ApolloProvider>

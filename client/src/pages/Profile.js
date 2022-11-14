@@ -2,6 +2,7 @@
 import React from "react";
 import cover from "../images/logo.png";
 import About from "../components/About";
+import ProfileNav from "../components/ProfileNav";
 
 
 const Profile = () => {
@@ -11,7 +12,7 @@ const Profile = () => {
         <img
           src={cover}
           className="my-2"
-          style={{ width: "100%", height: "50%" }}
+          style={{ width: "50%" }}
           alt="cover"
         />
         <div className="userInfo">
@@ -31,7 +32,8 @@ const Profile = () => {
         </ul>
       </div>
       <div className="nav">
-      <About></About>
+
+     
       </div>
       
     </div>
