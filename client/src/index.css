@@ -1298,3 +1298,8 @@ button a.btn{
   font-size: larger;
   padding-left: 30px;
 }
+
+.navBarClass {
+  display: flex;
+  flex-wrap: wrap;
+}

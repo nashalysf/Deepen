@@ -13,7 +13,7 @@ const ProfileNav = (props) => {
   } = props;
 
   useEffect(() => {
-    document.title = currentCategory.name;
+    document.title = "Profile";
   }, [currentCategory]);
 
   return (
@@ -26,7 +26,7 @@ const ProfileNav = (props) => {
           alt="logo"
         />
       </a>
-      <nav className="text-center">
+      <nav className="text-allign">
         <ul className="flex-row">
           <li className="mx-2">
             <a
@@ -38,22 +38,25 @@ const ProfileNav = (props) => {
             >About </a>
           </li>
           <li className={`mx-2 ${workSelected && "navActive"}`}>
-            <span
+          <a
+              data-testid="work"
+              href="#work"
               onClick={() =>
-                setWorkSelected(true) || setSavedListSelected(false)
-              } >
-              <a href="#projects">Projects</a>
-            </span>
+                setSavedListSelected(false) || setWorkSelected(false)
+              }
+            >Work </a>
           </li>
           <li className={`mx-2 ${savedListSelected && "navActive"}`}>
-            <span
+          <a
+              data-testid="saved"
+              href="#saved"
               onClick={() =>
-                setSavedListSelected(true) || setWorkSelected(false)
+                setSavedListSelected(false) || setWorkSelected(false)
               }
-            >
-              Saved
-            </span>
+            >Saved </a>
           </li>
+              
+          
           
           {categories.map((category) => (
             <li
