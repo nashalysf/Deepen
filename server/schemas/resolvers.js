@@ -28,7 +28,7 @@ const resolvers = {
     //commented out comments for now. in order to populate it user model needs to reference it. requires reference in typeDefs as well.
     users: async () => {
       return User.find()
-        .select("-__v -password")
+        .select("-__v")
         .populate("followers")
         .populate("posts")
         // .populate("comments");

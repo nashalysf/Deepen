@@ -11,6 +11,7 @@ const typeDefs = gql`
     postCounts: Int
     posts: [Post]
     followers: [User]
+    password: String
   }
   type Post {
     _id: ID
@@ -39,10 +40,7 @@ const typeDefs = gql`
     createdAt: String
     username: String
   }
-  type Auth {
-    token: ID!
-    user: User
-  }
+ 
   type Query {
     me: User
     users: [User]
@@ -60,6 +58,10 @@ const typeDefs = gql`
     addFollower(followerId: ID!, username: String!): User
     savePost(postId: ID!, title: String!): User
     deleteUser(username: String!, password: String!): Auth
+  }
+  type Auth {
+    token: ID!
+    user: User
   }
 `;
 
