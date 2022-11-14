@@ -8,6 +8,7 @@ export const QUERY_POSTS = gql`
       createdAt
       username
       likeCount
+      commentCount
     }
   }
 `;

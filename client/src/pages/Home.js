@@ -9,8 +9,9 @@ import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
 
 const Home = () => {
-
-
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
+  console.log(posts);
   return (
     <main>
       <HomeNav></HomeNav>
