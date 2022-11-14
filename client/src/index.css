@@ -146,7 +146,7 @@ button a.btn{
 .card-header {
   color: var(--primary);
   margin: 0;
-  background-color: var(--dark);
+  background-color: transparent;
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
