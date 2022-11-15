@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import main from "../images/main.svg";
 import { Link } from "react-router-dom";
-
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
+import { useNavigate } from "react-router-dom";
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
+    const handleClick = () => {
+        navigate("/Home");
+    }
+
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -14,14 +25,27 @@ const Login = (props) => {
     });
   };
 
+  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
     setFormState({
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     });
   };
+
 
   return (
     <main className="flex-row justify-space-around align-center mb-0">
@@ -68,7 +92,7 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button id="register" className="btn d-block" type="submit">
+              <button id="login"  onClick={handleClick} className="btn d-block" type="submit">
                 Login
               </button>
               <p className="sloganBtn"> Create, Share and Inspire</p>
