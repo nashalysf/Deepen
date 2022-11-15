@@ -1,3 +1,4 @@
+@import "./css/post.css";
 :root {
   --post-primary: #d6d6d6;
   --post-secondary: #262e2d;
@@ -159,17 +160,6 @@ button a.btn{
 }
 
 /* CARDS */
-.cover{
-  height: 500px;
-  width: 100%;
-  padding-left: 50px;
-  margin-left: -50px;
-  margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
-  background-color: var(--dark-lava);
-  margin-bottom: 0;
-}
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
@@ -200,18 +190,6 @@ button a.btn{
   padding: 2.5%;
   font-size: 1.4rem;
   color: var(--post-secondary);
-}
-.cpCard{
-  height: 800px;
-  padding-top: 50px;
-  width: 100%;
-  margin: 0 0 0 0;
-  border-radius: var(--border-radius);
-  border-top-left-radius: 70px;
-  border-top-right-radius: 70px;
-  background-color: var(--eerie-black);
-  z-index: 3;
-  text-align: center;
 }
 
 .card-header {
