@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const PostList = ({ posts, title }) => {
   if (!posts.length) {
     return <h3 className='noPost'>No Posts Yet</h3>;
-  }
+}
 
   return (
     <div>
@@ -25,7 +25,7 @@ const PostList = ({ posts, title }) => {
                 likes: {post.likeCount} || Click to{' '}
                 {post.commentCount ? 'see' : 'start'} the discussion!
               </p>
-              </Link>
+            </Link>
             </div>
           </div>
         ))}
