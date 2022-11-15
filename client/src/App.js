@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
+import Register from './pages/Register';
 
 
 
@@ -28,7 +29,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-
+      <main>
     <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -36,6 +37,10 @@ function App() {
               <Route
                 path="/"
                 element={<Home />}
+              />
+              <Route
+                path="/register"
+                element={<Register />}
               />
               <Route
                 path="/login"
@@ -53,8 +58,9 @@ function App() {
           </div>
           <Footer />
         </div>
-
+        </main>
     </Router>
+   
     </ApolloProvider>
   );
 }
