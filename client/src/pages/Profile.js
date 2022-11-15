@@ -1,8 +1,10 @@
+
 //Profile components: about, works, saved posts
 import React from "react";
 import cover from "../images/logo-black.png";
 import About from "../components/About";
 import ProfileNav from "../components/ProfileNav";
+
 
 
 const Profile = () => {
