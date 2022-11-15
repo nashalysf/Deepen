@@ -63,7 +63,7 @@ const Home = () => {
           )}
           <div className="col-12 mb-3">
             {" "}
-            {loading ? (
+            {loading && !loggedIn ? (
               <div>Loading...</div>
             ) : (
               <PostList posts={user.posts} title="Some Feed for Post(s)..." />
