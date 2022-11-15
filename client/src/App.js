@@ -70,7 +70,7 @@ function App() {
 }
 const AuthWrapper = ({ isAuthenticated }) => {
   return isAuthenticated ? (
-    <Navigate to="/profile" replace />
+    <Navigate to="/home" replace />
   ) : (
     <Navigate to="/home" replace />
   );
