@@ -4,6 +4,7 @@ export const QUERY_POSTS = gql`
   query posts($username: String) {
     posts(username: $username) {
       _id
+      description
       title
       createdAt
       username
@@ -79,7 +80,7 @@ export const QUERY_ME = gql`
         title
         description
         createdAt
-        likesCount
+        likeCount
         comments {
           _id
           createdAt

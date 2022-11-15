@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/index.css">
+
+</head>
+<body>
+    <body>
+        <div class="cover"></div>
+        <form class="cpCard">
+            <input type="text" name="title" placeholder='Post Title' id="postTitle" class="cpInput">
+            <textarea type="text" name="description" placeholder='Description' id="postDescription" ></textarea>
+            <div class="links">
+            <input type="url" name="links" placeholder='Links' id="postLinks" class="cpInput">
+            <button type="button" class="addBtn" id="addLink" onclick="alert('Add Link')">+</button>
+                </div>
+                <div class="postVisuals">
+            <Button type='button' class="visuals" id="postSnippet" onclick="alert('code press')">Add Code Snipet</Button>
+            <Button type='image' class="visuals"  id="postImage" onclick="alert('Image press')">Add Image</Button>
+            </div>
+            <label for="tools">Technologies used:</label>
+<ul name="tools" id="postTools">
+    <li value="GraphQL" class="toolList">GraphQL</li>
+    <li value="MongoDB" class="toolList">MongoDB</li>
+    <li value="React" class="toolList">React</li>
+    <li value="Node.js" class="toolList">Node.js</li>
+    <div id="addTool">
+    <li value="other" class="cpInput other">Other</li>
+    <button type="button" class="addBtn" id="addLink" onclick="alert('Add tool')">+</button>
+</div>
+</ul>
+  <button type="submit" id="submitPost">Post</button>
+        </form>
+    </body>
+    </html>
+</body>

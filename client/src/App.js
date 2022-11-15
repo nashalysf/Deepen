@@ -18,9 +18,7 @@ import "./index.css";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import NoMatch from "./pages/NoMatch";
+import Home from "./pages/Home";import NoMatch from "./pages/NoMatch";
 import SinglePost from "./pages/SinglePost";
 import Register from "./pages/Register";
 import Auth from "./utils/auth";
@@ -57,13 +55,12 @@ function App() {
                 path="/"
                 element={<AuthWrapper isAuthenticated={isAuthenticated} />}
               />
-              <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/create" element={<CreatePosts />} />
               <Route path="/post/:id" element={<SinglePost />} />
-              {/* <Route path="*" element={<NoMatch />} /> */}
+              <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>
           <Footer />
@@ -76,7 +73,7 @@ const AuthWrapper = ({ isAuthenticated }) => {
   return isAuthenticated ? (
     <Navigate to="/home" replace />
   ) : (
-    <Navigate to="/login" replace />
+    <Navigate to="/home" replace />
   );
 };
 export default App;

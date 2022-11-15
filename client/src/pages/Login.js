@@ -48,13 +48,12 @@ const Login = (props) => {
             <img
               src={main}
               className="mainImg"
-              style={{ width: "60%" }}
               alt="mainImg"
               sizes="55%"
             />
             <h3 className="sign-up">
               Don't have an account yet?
-              <Link to="/register">
+              <Link eventKey="signup">
                 <span>Join Community</span>
               </Link>
             </h3>
