@@ -1398,6 +1398,7 @@ ul.flex-row:hover {
   position: absolute;
   right: 10px;
   top: 10px;
+  width: 3%;
 }
 .welcome h1{
   color: var(--light);
