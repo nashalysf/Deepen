@@ -22,7 +22,7 @@
             <Button type='button' class="visuals" id="postSnippet" onclick="alert('code press')">Add Code Snipet</Button>
             <Button type='image' class="visuals"  id="postImage" onclick="alert('Image press')">Add Image</Button>
             </div>
-            <label for="tools">Technologies used:</label>
+            <label for="tools" class="toolTitle">Technologies used:</label>
 <ul name="tools" id="postTools">
     <li value="GraphQL" class="toolList">GraphQL</li>
     <li value="MongoDB" class="toolList">MongoDB</li>
@@ -31,8 +31,14 @@
     <div id="addTool">
     <li value="other" class="cpInput other">Other</li>
     <button type="button" class="addBtn" id="addLink" onclick="alert('Add tool')">+</button>
-</div>
 </ul>
+<section class="collabs">
+    <h4>Are you looking for collaborators?</h4>
+        <input type="radio" id="collab" name="collab" value="Yes">
+        <label for="collab">Yes</label>
+        <input type="radio" id="Nocollab" name="Nocollab" value="No">
+        <label for="Nocollab">No</label>
+    </section>
   <button type="submit" id="submitPost">Post</button>
         </form>
     </body>
