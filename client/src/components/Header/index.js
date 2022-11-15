@@ -1,12 +1,11 @@
 import React, { useState} from "react";
-import { Link , useNavigate } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import {
   Navbar,
   Nav,
   Container,
   Modal,
-  Tab,
-  TabContainer,
+  Tab
 } from "react-bootstrap";
 import Register from "../../pages/Register";
 import Login from "../../pages/Login";
@@ -19,9 +18,7 @@ import { Navigate } from "react-router-dom";
 const Header = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
- const navigateToProfile = ()=>{
-   <Navigate to = "/profile"/>
-}
+
   return (
     <>
       <Navbar background="url(./images/bg.jpg)" variant="dark" expand="lg">
