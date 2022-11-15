@@ -7,7 +7,6 @@ import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME_BASIC } from '../utils/queries';
 import FriendList from '../components/FriendList';
-// import Auth from "../utils/auth";
 import { QUERY_POSTS } from "../utils/queries";
 
 const Home = () => {

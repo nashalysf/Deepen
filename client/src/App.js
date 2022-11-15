@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import {
   ApolloProvider,
   ApolloClient,
@@ -18,12 +23,14 @@ import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import SinglePost from "./pages/SinglePost";
 import Register from "./pages/Register";
+import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
+  console.log(token)
   return {
     headers: {
       ...headers,
@@ -37,26 +44,37 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const isAuthenticated = Auth.loggedIn();
   return (
     <ApolloProvider client={client}>
       <Router>
-          <div className="flex-column justify-flex-start min-100-vh">
-            <Header />
-            <div className="container">
-              <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="home" element={<Home />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/post/:id" element={<SinglePost />} />
-                {/* <Route path="*" element={<NoMatch />} /> */}
-              </Routes>
-            </div>
-            <Footer />
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route
+                path="/"
+                element={<AuthWrapper isAuthenticated={isAuthenticated} />}
+              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/post/:id" element={<SinglePost />} />
+              {/* <Route path="*" element={<NoMatch />} /> */}
+            </Routes>
           </div>
+          <Footer />
+        </div>
       </Router>
     </ApolloProvider>
   );
 }
-
+const AuthWrapper = ({ isAuthenticated }) => {
+  return isAuthenticated ? (
+    <Navigate to="/home" replace />
+  ) : (
+    <Navigate to="/login" replace />
+  );
+};
 export default App;

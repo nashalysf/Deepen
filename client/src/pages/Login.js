@@ -1,51 +1,44 @@
 import React, { useState } from "react";
 import main from "../images/main.svg";
+import Auth from "../utils/auth";
+
 import { Link } from "react-router-dom";
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
+
 const Login = (props) => {
+  //Navigate to home after successful log in
   const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/home");
+  };
 
-    const handleClick = () => {
-        navigate("/Home");
-    }
-
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
+  //Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setFormState({ ...formState, [name]: value });
   };
 
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const { data } = await login({
-        variables: { ...formState },
-      });
-
+      const { data } = await login({ variables: { ...formState } });
       Auth.login(data.login.token);
+      console.log(data.login.token);
     } catch (e) {
       console.error(e);
     }
-
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
-
 
   return (
     <main className="flex-row justify-space-around align-center mb-0">
@@ -68,9 +61,7 @@ const Login = (props) => {
             <h3 className="sign-up">
               Don't have an account yet?
               <Link to="/register">
-                <span>
-                  Join Community
-                </span>
+                <span>Join Community</span>
               </Link>
             </h3>
             <form onSubmit={handleFormSubmit} className="log-input ">
@@ -92,7 +83,12 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button id="login"  onClick={handleClick} className="btn d-block" type="submit">
+              <button
+                id="login"
+                onClick={handleClick}
+                className="btn d-block"
+                type="submit"
+              >
                 Login
               </button>
               <p className="sloganBtn"> Create, Share and Inspire</p>

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "private": "true",
-  "homepage": "http://nashalysf.github.io/deepen",
+  "homepage": "http://nashalysf.github.io/",
   "proxy": "http://127.0.0.1:3001",
   "scripts": {
     "build": "react-scripts build",
