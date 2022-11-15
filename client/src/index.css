@@ -50,6 +50,7 @@ img.logo{
   position: absolute;
   left: 0;
   top: 10px;
+  width: 5%;
 }
 h1 {
   font-size: 2.25rem;
@@ -116,7 +117,18 @@ nav a:hover {
   margin: 0;
   font-size: 2.5rem;
 }
-
+.btn-sucess{
+  color: var(--light);
+  background-color: var(--eerie-black);
+}
+.btn:disabled{
+  color: var(--eerie-black);
+  border: solid 3px var(--eerie-black);
+  background-color: transparent;
+}
+.nav-link{
+  color: var(--eerie-black);
+}
 .btn,
 .pill {
   font-size: 1.3rem;
@@ -127,7 +139,7 @@ nav a:hover {
   border: none;
   color: var(--light);
   outline: none;
-  background-color: var(--secondary);
+  background-color: var(--eerie-black);
   transition: all 0.5s;
 }
 button a.btn{
@@ -190,6 +202,12 @@ button a.btn{
 h1.card-header{
   margin-top: -20%;
   font-size: 30px;
+  color: var(--eerie-black);
+}
+h1.card-header.welcome{
+  color: var(--eerie-black);
+  font-size: 40px;
+  border: none;
 }
 
 div.card.welcome{
@@ -202,6 +220,9 @@ div.card.welcome{
   padding: 2.5%;
   font-size: 1.4rem;
   color: var(--primary);
+  width: 200%;
+  display: flex;
+  flex-direction: column;
 }
 /* .card-body p{
   color: var(--primary)!important;
@@ -1366,11 +1387,12 @@ ul.flex-row:hover {
   justify-content: center;
   display: flex;
   flex-wrap: nowrap;
-  color: var(--light);
+  color: var(--eerie-black);
   position: relative;
-  top: 0px;
+  top: -10px;
   left: 10px;
-  font-size: 20px;
+  font-size: 18px;
+  width: 100%;
 }
 .welcome h1 span{
   font-weight: bolder;
@@ -1386,18 +1408,29 @@ ul.flex-row:hover {
   margin-left: -50px;
   margin-top: 5%;
 }
-.mainImg{
+img.mainImg{
   position: relative;
-  margin-top: 100px;
-  margin-left: -50px;
+  margin-top: 150px;
+  margin-left: -220px;
+  width: 50%;
+}
+
+element.style {
+  width: 0%;
 }
 .sign-up{
   color: var(--eerie-black);
   font-size: 20px;
-  margin-top: -40px;
-  margin-left: -30px;
+  margin-top: -70px;
+  margin-left: -180px;
   padding-bottom: 20px;
 }
+.btn.disabled, .btn:disabled, fieldset:disabled .btn{
+  background-color: transparent;
+  color: var(--eerie-black);
+  border: soli 3px var(--eerie-black);
+}
+
 .sign-up a{
   color: var(--eerie-black);
   font-weight: lighter;
@@ -1409,8 +1442,8 @@ ul.flex-row:hover {
   align-items: center;
   max-width: 300px;
   position: absolute;
-  right: 10%;
-  top: 30%;
+  right: 15%;
+  top: 8%;
 }
 .log-input input{
   background-color: transparent;
@@ -1422,24 +1455,31 @@ ul.flex-row:hover {
 #register{
   position: relative;
   top: 10px;
-  margin-left: 0%;
-  padding: 6px 40px;
   background-color: transparent;
   font-size: 20px;
   font-weight: bold;
   border: var(--eerie-black) solid 4px;
   color: var(--eerie-black);
   margin-top: 50px;
+  margin-left: 10px;
+}
+#login.btn{
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  border: var(--eerie-black) solid 4px;
+  color: var(--eerie-black);
+  padding: 3px 40px;
+  margin-top: 20px;
 }
 
-#register.btn:hover{
+#login.btn:hover{
   color: var(--light);
   background-color: var(--eerie-black);
 }
 #email{
-  margin-top: -100px;
+  margin-top: -30px;
   margin-left: 0%;
-  margin-bottom: 5%;
   font-size: 30px;
 }
 
