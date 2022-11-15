@@ -2,7 +2,7 @@ import React from 'react';
 
 const PostList = ({ posts, title }) => {
   if (!posts.length) {
-    return <h3>No Posts Yet</h3>;
+    return <h3 className='noPost'>No Posts Yet</h3>;
   }
 
   return (

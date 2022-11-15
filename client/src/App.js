@@ -1,11 +1,17 @@
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import './App.css';
+import './index.css'
+
 import React from "react";
 import Profile from './pages/Profile';
-import './App.css';
-import main from "./images/main.svg"
-import './index.css'
 import Header from './components/Header';
+import Footer from './components/Footer'
 import Home from './pages/Home';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SinglePost from './pages/SinglePost';
 
 
 
@@ -21,12 +27,34 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <div className="App">
-      <main>  
-        <Header></Header>
-        <Home></Home>
-    </main>
-    </div>
+      <Router>
+
+    <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route
+                path="/"
+                element={<Home />}
+              />
+              <Route
+                path="/login"
+                element={<Login />}
+              />
+              <Route
+                path="/profile"
+                element={<Profile />}
+              />
+              <Route
+                path="/post"
+                element={<SinglePost />}
+              />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
+
+    </Router>
     </ApolloProvider>
   );
 }

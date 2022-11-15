@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../images/logo-white.png';
 import burgerBtn from '../../images/burgerBtn.PNG'
+
 const Header = () => {
   return (
     <header className=" mb-4 py-2 flex-row align-center">

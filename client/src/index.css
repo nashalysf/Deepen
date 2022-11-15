@@ -150,6 +150,10 @@ button a.btn{
   border-radius: var(--border-radius);
   background-color: var(--light);
   color: var(--primary);
+  height: 600px;
+  max-width: 150%;
+  padding-left: 50px;
+  margin-left: -50px;
 }
 
 .card-header {
@@ -160,15 +164,25 @@ button a.btn{
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
+h1.card-header{
+  margin-top: -30%;
+  font-size: 30px;
+}
+
+div.card.welcome{
+  padding-top: 0;
+  margin-top: 5%;
+}
+
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
   color: var(--primary);
 }
-.card-body p{
+/* .card-body p{
   color: var(--primary)!important;
   background-color: var(--light);
-} 
+}  */
 
 /* FORM */
 .form-label,
@@ -819,6 +833,10 @@ button a.btn{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 5%;
+}
+ul.flex-row:hover {
+  border-bottom:solid var(--light) 2px ;
 }
 
 .flex-column {
@@ -1315,22 +1333,24 @@ button a.btn{
 }
 .welcome h1{
   color: var(--light);
-  font-size: 70px;
+  font-size: 40px;
   justify-content: center;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 #description{
   justify-content: center;
   display: flex;
   flex-wrap: nowrap;
   color: var(--light);
-  position: absolute;
-  top: 100px;
+  position: relative;
+  top: 0px;
   left: 10px;
+  font-size: 20px;
 }
 .welcome h1 span{
   font-weight: bolder;
+  padding-left: 10px;
 }
 .log-card{
   background-color: var(--light);
@@ -1344,12 +1364,14 @@ button a.btn{
 }
 .mainImg{
   position: relative;
+  margin-top: 250px;
+  margin-left: -50px;
 }
 .sign-up{
   color: var(--eerie-black);
-  font-size: 40px;
-  margin-top: -110px;
-  margin-left: 70px;
+  font-size: 20px;
+  margin-top: -40px;
+  margin-left: -30px;
   padding-bottom: 20px;
 }
 .sign-up a{
@@ -1363,7 +1385,7 @@ button a.btn{
   align-items: flex-end;
   max-width: 300px;
   position: absolute;
-  right: 58%;
+  right: 50%;
   top: 30%;
 }
 .log-input input{
@@ -1375,13 +1397,23 @@ button a.btn{
 }
 #register{
   position: relative;
-  top: -150px;
-  margin-left: 63%;
-  padding: 10px 60px;
+  top: 10px;
+  margin-left: 140%;
+  padding: 6px 40px;
   background-color: transparent;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   border: var(--eerie-black) solid 4px;
+  color: var(--eerie-black);
+}
+#register.btn:hover{
+  color: var(--light);
+  background-color: var(--eerie-black);
+}
+#email{
+  margin-top: -150px;
+  margin-left: 0%;
+  font-size: 30px;
 }
 .login p {
   color: var(--eerie-black);
@@ -1389,4 +1421,15 @@ button a.btn{
   position: relative;
   top: -140px;
   left: 60%;
+}
+.noPost{
+  text-align: center;
+  margin-top: -65px;
+}
+footer{
+  max-height: 55px;
+  margin-bottom: 0%;
+}
+span.appName{
+  margin-top: 0;
 }
