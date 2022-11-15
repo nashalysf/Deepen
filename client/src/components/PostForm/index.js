@@ -40,22 +40,24 @@ const PostForm = () => {
     if (event.target.value.length <= 280) {
       console.log(event.target.value);
       const { name, value } = event.target;
-      // setUserData({ ...userData, [name]: value });
+       //setUserData({ ...postData, [name]: value });
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
-
-  // submit form
+  //  const formState = {
+  //     description:  ''
+  //   };
+  //   const [postData, setUserData] = useState(formState);
+ // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     
     
-    try {
-      await addPost({ variables: { description } });
+    try { await addPost({ variables: { description } });
 
       // clear form value
-       setText("");
+      setText("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);

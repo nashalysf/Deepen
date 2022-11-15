@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
-// import FriendList from '../components/FriendList';
+import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -61,24 +61,23 @@ const token = localStorage.getItem("id_token");
           </button>
         )}
       </div>
-
+      <div className="mb-3">{!userParam && <PostForm />}</div>
       <div className="flex-row justify-space-between mb-3">
-        {/* <div className="col-12 mb-3 col-lg-8">
-          <PostList
+        <div className="col-12 mb-3 col-lg-8">
+          <PostList 
             posts={user.posts}
             title={`${user.username}'s posts...`}
           />
-        </div> */}
+        </div>
 
         <div className="col-12 col-lg-3 mb-3">
-          {/* <FriendList
+          <FriendList
             username={user.username}
             friendCount={user.friendCount}
             friends={user.friends}
-          /> */}
+          />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <PostForm />}</div>
     </div>
   );
 };

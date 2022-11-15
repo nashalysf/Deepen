@@ -80,7 +80,7 @@ export const QUERY_ME = gql`
         title
         description
         createdAt
-        likesCount
+        likeCount
         comments {
           _id
           createdAt

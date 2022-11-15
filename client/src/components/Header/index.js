@@ -13,14 +13,14 @@ import Login from "../../pages/Login";
 import logo from "../../images/logo-white.png";
 import Auth from "../../utils/auth";
 import burgerBtn from "../../images/burgerBtn.PNG";
+import { Navigate } from "react-router-dom";
 
 
 const Header = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
  const navigateToProfile = ()=>{
-    navigate("/profile");
+   <Navigate to = "/profile"/>
 }
   return (
     <>
@@ -112,7 +112,7 @@ const Header = () => {
               <Modal.Title id="profile-modal">
                 <Nav variant="pills">
                   <Nav.Item>
-                    <Nav.Link onClick={navigateToProfile}>
+                    <Nav.Link href="/profile">
                       Profile
                     </Nav.Link>
                   </Nav.Item>

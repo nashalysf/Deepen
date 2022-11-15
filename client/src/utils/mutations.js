@@ -43,6 +43,7 @@ export const ADD_POST = gql`
       createdAt
       username
       commentCount
+      likeCount
       comments {
         _id
       }

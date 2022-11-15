@@ -1,4 +1,6 @@
 :root {
+  --post-primary: #d6d6d6;
+  --post-secondary: #262e2d;
   --eerie-black: #151514ff;
   --davys-grey: #45403dff;
   --dark-lava: #45403dff;
@@ -90,10 +92,6 @@ a {
   text-decoration: none;
 }
 
-a:visited {
-  color: inherit;
-}
-
 nav {
   width: 100%;
   justify-content: center;
@@ -165,6 +163,26 @@ button a.btn{
   max-width: 125%;
   padding-left: 50px;
   margin-left: -50px;
+}
+.postCard{
+  margin: 0 0 20px 0;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+  background-color: var(--light);
+  color: var(--dark);
+  /* max-width: 300%; */
+}
+.postCard-header{
+  color: var(--post-primary);
+  margin: 0;
+  background-color: var(--post-secondary);
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+.postCard-body {
+  padding: 2.5%;
+  font-size: 1.4rem;
+  color: var(--post-secondary);
 }
 .cpCard{
   height: 800px;
