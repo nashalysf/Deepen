@@ -18,10 +18,6 @@ const SinglePost = (props) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  const { id: postId } = useParams();
-  console.log(postId);
-
   return (
     <div>
       <div className="card mb-3">

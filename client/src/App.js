@@ -17,6 +17,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import SinglePost from "./pages/SinglePost";
+import Register from "./pages/Register";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -31,22 +32,22 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/profile">
-                <Route path=":username" element={<Profile />} />
-                <Route path="" element={<Profile />} />
-              </Route>
-              <Route path="/post/:id" element={<SinglePost />} />
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
+        <main>
+          <div className="flex-column justify-flex-start min-100-vh">
+            <Header />
+            <div className="container">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/post/:id" element={<SinglePost />} />
+                <Route path="*" element={<NoMatch />} />
+              </Routes>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+        </main>
       </Router>
     </ApolloProvider>
   );

@@ -43,9 +43,9 @@ const Login = (props) => {
             />
             <h3 className="sign-up">
               Don't have an account yet?
-              <Link to="/signup">
+              <Link to="/register">
                 <span>
-                  <a href="sign-up">Join Community</a>
+                  Join Community
                 </span>
               </Link>
             </h3>
