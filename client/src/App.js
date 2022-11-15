@@ -23,15 +23,15 @@ import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import SinglePost from "./pages/SinglePost";
 import Register from "./pages/Register";
-import Auth from './utils/auth';
-
+import Auth from "./utils/auth";
+import CreatePosts from "./pages/CreatePosts";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
-  console.log(token)
+  console.log(token);
   return {
     headers: {
       ...headers,
@@ -61,6 +61,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/create" element={<CreatePosts />} />
               <Route path="/post/:id" element={<SinglePost />} />
               {/* <Route path="*" element={<NoMatch />} /> */}
             </Routes>

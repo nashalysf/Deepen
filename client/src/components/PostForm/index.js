@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "../../css/form.css";
 
-import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../../utils/mutations';
-import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
+import { useMutation } from "@apollo/client";
+import { ADD_POST } from "../../utils/mutations";
+import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
 const PostForm = () => {
-  const [postText, setText] = useState('');
+  const [postText, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addPost, { error }] = useMutation(ADD_POST, {
     update(cache, { data: { addPost } }) {
-      
-        // could potentially not exist yet, so wrap in a try/catch
+      // could potentially not exist yet, so wrap in a try/catch
       try {
         // update me array's cache
         const { me } = cache.readQuery({ query: QUERY_ME });
@@ -20,7 +20,7 @@ const PostForm = () => {
           data: { me: { ...me, posts: [...me.posts, addPost] } },
         });
       } catch (e) {
-        console.warn("First thought insertion by user!")
+        console.warn("First thought insertion by user!");
       }
 
       // update thought array's cache
@@ -29,7 +29,7 @@ const PostForm = () => {
         query: QUERY_POSTS,
         data: { posts: [addPost, ...posts] },
       });
-    }
+    },
   });
 
   // update state based on form input changes
@@ -50,7 +50,7 @@ const PostForm = () => {
       });
 
       // clear form value
-      setText('');
+      setText("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -58,27 +58,35 @@ const PostForm = () => {
   };
 
   return (
-    <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
+    <div className="container">
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
+        <input
+          className="col-12 col-md-6 mb-5 titlePost"
+          type="text"
+          name="Title"
+          placeholder="Title"
+          required
+        />
         <textarea
-          placeholder="Here's a new thought..."
+          placeholder="Post Content Here"
           value={postText}
-          className="form-input col-12 col-md-9"
+          className="form-input col-12 col-md-9 mt-3 deskPost"
           onChange={handleChange}
+          required
         ></textarea>
         <button className="btn col-12 col-md-3" type="submit">
-          Submit
+          Create Post
         </button>
       </form>
+      <p
+        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
+      >
+        Character Count: {characterCount}/280
+        {error && <span className="ml-2">Something went wrong...</span>}
+      </p>
     </div>
   );
 };
