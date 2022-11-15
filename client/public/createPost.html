@@ -12,21 +12,28 @@
     <body>
         <div class="cover"></div>
         <form class="cpCard">
-            <input type="text" name="title" placeholder='Post Title'>
-            <input type="text" name="description" placeholder='Description'>
-            <input type="url" name="links" placeholder='Links'>+
-            <Button type='checkbox' class="test" onclick="testing">+Add Code Snipet</Button>
-            <Button type='image' class="test" onclick="test" class="">+Add Image</Button>
-            <input type="se" src={photo}>
+            <input type="text" name="title" placeholder='Post Title' id="postTitle" class="cpInput">
+            <textarea type="text" name="description" placeholder='Description' id="postDescription" ></textarea>
+            <div class="links">
+            <input type="url" name="links" placeholder='Links' id="postLinks" class="cpInput">
+            <button type="button" class="addBtn" id="addLink" onclick="alert('Add Link')">+</button>
+                </div>
+                <div class="postVisuals">
+            <Button type='button' class="visuals" id="postSnippet" onclick="alert('code press')">Add Code Snipet</Button>
+            <Button type='image' class="visuals"  id="postImage" onclick="alert('Image press')">Add Image</Button>
+            </div>
             <label for="tools">Technologies used:</label>
-<select name="cars" id="cars">
-    <option value="GraphQL">GraphQL</option>
-    <option value="MongoDB">MongoDB</option>
-    <option value="React">React</option>
-    <option value="Node.js">Node.js</option>
-    <option value="other">Other</option>
-  </select>
-  <button type="submit">Post</button>
+<ul name="tools" id="postTools">
+    <li value="GraphQL" class="toolList">GraphQL</li>
+    <li value="MongoDB" class="toolList">MongoDB</li>
+    <li value="React" class="toolList">React</li>
+    <li value="Node.js" class="toolList">Node.js</li>
+    <div id="addTool">
+    <li value="other" class="cpInput other">Other</li>
+    <button type="button" class="addBtn" id="addLink" onclick="alert('Add tool')">+</button>
+</div>
+</ul>
+  <button type="submit" id="submitPost">Post</button>
         </form>
     </body>
     </html>
