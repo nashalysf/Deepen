@@ -42,7 +42,7 @@ export const ADD_POST = gql`
       description
       createdAt
       username
-      commentsCount
+      commentCount
       comments {
         _id
       }

@@ -55,11 +55,6 @@ const Home = () => {
             
           </div>
         )}
-        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
-         
-            <div>Loading...</div>
-          
-        </div>
         {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
             <FriendList
