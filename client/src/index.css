@@ -115,17 +115,22 @@ nav a:hover {
   margin: 0;
   font-size: 2.5rem;
 }
-.btn-sucess{
-  color: var(--light);
-  background-color: var(--eerie-black);
-}
-.btn:disabled{
+button.submitJoin.btn.btn-success:hover{
   color: var(--eerie-black);
-  border: solid 3px var(--eerie-black);
-  background-color: transparent;
+  background-color: var(--light);
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: var(--bs-nav-pills-link-active-color);
+  background-color: var(--eerie-black);
 }
 .nav-link{
   color: var(--eerie-black);
+}
+button.submitJoin.btn.btn-success{
+  background-color: var(--eerie-black);
+  color: var(--light);
+  border: solid 3px var(--eerie-black);
+  padding: 2px 15px;
 }
 .btn,
 .pill {

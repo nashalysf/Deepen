@@ -53,7 +53,7 @@ const Login = (props) => {
             />
             <h3 className="sign-up">
               Don't have an account yet?
-              <Link to="/register">
+              <Link eventKey="signup">
                 <span>Join Community</span>
               </Link>
             </h3>
