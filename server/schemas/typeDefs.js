@@ -19,9 +19,7 @@ const typeDefs = gql`
     description: String
     createdAt: String
     username: String
-    img: String
-    snippet: String
-    links: String
+    description: String
     likeCount: Int
     commentCount: Int
     comments: [Comments]

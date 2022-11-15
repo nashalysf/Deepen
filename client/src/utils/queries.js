@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_POSTS = gql`
   query posts($username: String) {
@@ -12,13 +12,28 @@ export const QUERY_POSTS = gql`
     }
   }
 `;
+export const QUERY_COMMENTS = gql`
+  query comments($id: ID!) {
+    posts(_id: $id) {
+      _id
+      commentBody
+      username
+      replyCount
+      createdAt
+      replies
+    }
+  }
+`;
 export const QUERY_POST = gql`
   query post($id: ID!) {
-   post(_id: $id) {
+    post(_id: $id) {
       _id
       description
       createdAt
       username
+      img: String
+      snippet: String
+      links: String
       likeCount
       commentCount
       comments {
@@ -36,6 +51,7 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      postCounts
       followersCount
       followers {
         _id
@@ -89,6 +105,8 @@ export const QUERY_ME_BASIC = gql`
         _id
         username
       }
+      postCounts
+      posts
     }
   }
 `;
