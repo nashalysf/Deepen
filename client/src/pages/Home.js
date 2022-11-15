@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PostList from "../components/PostList";
-// import PostForm from '../components/PostForm';
+import PostForm from '../components/PostForm';
 // import FollowerList from '../components/FollowerList';
 import HomeNav from "../components/HomeNav"
 import Auth from '../utils/auth';
@@ -36,6 +36,11 @@ const Home = () => {
         currentCategory={currentCategory}></HomeNav>
       <div>
         <div className='flex-row justify-space-between'>
+        {loggedIn && (
+          <div className="col-12 mb-3">
+            <PostForm />
+          </div>
+        )}
         <div className='col-12 mb-3'> {loading ? (
         <div>Loading...</div>
       ) : (
