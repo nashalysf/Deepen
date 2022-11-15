@@ -41,7 +41,7 @@ const Login = (props) => {
             sizes='55%'
           />
         <h3 className="sign-up">Don't have an account yet? <span><a href="sign-up">Join Community</a></span></h3>
-            <form onSubmit={handleFormSubmit} className="log-input">
+            <form onSubmit={handleFormSubmit} className="log-input ">
               <input
                 className='form-input px-3'
                 placeholder='Email'
@@ -63,7 +63,7 @@ const Login = (props) => {
               <button id="register" className='btn d-block' type='submit'>
                 Login
               </button>
-              <p> Create, share and inspire</p>
+              <p className='sloganBtn'> Create, share and inspire</p>
             </form>
           </div>
         </div>
