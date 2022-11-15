@@ -162,7 +162,7 @@ button a.btn{
   background-color: var(--light);
   color: var(--primary);
   height: 600px;
-  max-width: 150%;
+  max-width: 125%;
   padding-left: 50px;
   margin-left: -50px;
 }
@@ -1461,4 +1461,21 @@ footer{
 }
 span.appName{
   margin-top: 0;
+}
+
+.modal-profile{
+  color: black;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

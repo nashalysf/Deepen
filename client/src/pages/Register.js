@@ -1,163 +1,136 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
-import { register } from "../redux/actions/authAction";
-import GenderInputSelect from "../components/GenderSelect/GenderInputSelect";
+import React, { useState } from "react";
+import { ADD_USER } from "../utils/mutations";
+import { Form, Button, Alert } from "react-bootstrap";
+import { useMutation } from "@apollo/react-hooks";
+import Auth from "../utils/auth";
 
-const Register = () => {
-  const { auth, alert } = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const history = useNavigate();
-
-  const initialState = {
-    fullname: "",
+const Signup = () => {
+  // set initial form state
+  const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
     password: "",
-    cf_password: "",
-    gender: "male",
+  });
+  // set state for form validation
+  const [validated] = useState(false);
+  // set state for alert
+  const [showAlert, setShowAlert] = useState(false);
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  const initialState = {
+    username: "",
+    email: "",
+    password: "",
   };
   const [userData, setUserData] = useState(initialState);
-  const { fullname, username, email, password, cf_password } = userData;
-
-  const [typePass, setTypePass] = useState(false);
-  const [typeCfPass, setTypeCfPass] = useState(false);
-
-  useEffect(() => {
-    if (auth.token) history.push("/");
-  }, [auth.token, history]);
-
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
     setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(register(userData));
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // check idispatch(register(userData))f form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await addUser({
+        variables: { ...userFormData },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
-    <div className="auth_page">
-      <form onSubmit={handleSubmit}>
-        <h2 className="text-uppercase text-center mb-4">Deepen</h2>
+    <>
+      {/* This is needed for the validation functionality above */}
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        {/* show alert if server response is bad */}
+        <Alert
+          dismissible
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+          variant="danger"
+        >
+          Something went wrong with your signup!
+        </Alert>
 
-        <div className="form-group">
-          <label htmlFor="fullname">Full Name</label>
-          <input
+        <Form.Group>
+          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Control
             type="text"
-            className="form-control"
-            id="fullname"
-            name="fullname"
-            onChange={handleChangeInput}
-            value={fullname}
-            style={{ background: `${alert.fullname ? "#fd2d6a14" : ""}` }}
-          />
-
-          <small className="form-text text-danger">
-            {alert.fullname ? alert.fullname : ""}
-          </small>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="username">User Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="username"
+            placeholder="Your username"
             name="username"
-            onChange={handleChangeInput}
-            value={username.toLowerCase().replace(/ /g, "")}
-            style={{ background: `${alert.username ? "#fd2d6a14" : ""}` }}
+            onChange={handleInputChange}
+            value={userFormData.username}
+            required
           />
+          <Form.Control.Feedback type="invalid">
+            Username is required!
+          </Form.Control.Feedback>
+        </Form.Group>
 
-          <small className="form-text text-danger">
-            {alert.username ? alert.username : ""}
-          </small>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input
+        <Form.Group>
+          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Control
             type="email"
-            className="form-control"
-            id="exampleInputEmail1"
+            placeholder="Your email address"
             name="email"
-            onChange={handleChangeInput}
-            value={email}
-            style={{ background: `${alert.email ? "#fd2d6a14" : ""}` }}
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
           />
+          <Form.Control.Feedback type="invalid">
+            Email is required!
+          </Form.Control.Feedback>
+        </Form.Group>
 
-          <small className="form-text text-danger">
-            {alert.email ? alert.email : ""}
-          </small>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
-
-          <div className="pass">
-            <input
-              type={typePass ? "text" : "password"}
-              className="form-control"
-              id="exampleInputPassword1"
-              onChange={handleChangeInput}
-              value={password}
-              name="password"
-              style={{ background: `${alert.password ? "#fd2d6a14" : ""}` }}
-            />
-
-            <small onClick={() => setTypePass(!typePass)}>
-              {typePass ? "Hide" : "Show"}
-            </small>
-          </div>
-
-          <small className="form-text text-danger">
-            {alert.password ? alert.password : ""}
-          </small>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="cf_password">Confirm Password</label>
-
-          <div className="pass">
-            <input
-              type={typeCfPass ? "text" : "password"}
-              className="form-control"
-              id="cf_password"
-              onChange={handleChangeInput}
-              value={cf_password}
-              name="cf_password"
-              style={{ background: `${alert.cf_password ? "#fd2d6a14" : ""}` }}
-            />
-
-            <small onClick={() => setTypeCfPass(!typeCfPass)}>
-              {typeCfPass ? "Hide" : "Show"}
-            </small>
-          </div>
-
-          <small className="form-text text-danger">
-            {alert.cf_password ? alert.cf_password : ""}
-          </small>
-        </div>
-
-        <div>
-          <GenderInputSelect></GenderInputSelect>
-        </div>
-      
-          <button type="submit" className="btn btn-dark w-100">
-            Register
-          </button>
-      
-        <p className="my-2">
-          Already have an account?{" "}
-          <Link to="/login" style={{ color: "crimson" }}>
-            Login Now
-          </Link>
-        </p>
-      </form>
-    </div>
+        <Form.Group>
+          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Your password"
+            name="password"
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Password is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Button
+          disabled={
+            !(
+              userFormData.username &&
+              userFormData.email &&
+              userFormData.password
+            )
+          }
+          type="submit"
+          variant="success"
+        >
+          Submit
+        </Button>
+      </Form>
+    </>
   );
 };
 
-export default Register;
+export default Signup;

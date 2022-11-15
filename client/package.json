@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "private": "true",
-  "homepage": "http://nashalysf.github.io/deepen",
+  "homepage": "http://nashalysf.github.io/",
   "proxy": "http://127.0.0.1:3001",
   "scripts": {
     "build": "react-scripts build",
@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
+    "@apollo/react-hooks": "^4.0.0",
     "@popperjs/core": "^2.11.6",
     "axios": "^1.1.3",
     "bootstrap": "^5.2.2",
