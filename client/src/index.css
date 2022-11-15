@@ -165,13 +165,14 @@ button a.btn{
 }
 
 h1.card-header{
-  margin-top: -30%;
+  margin-top: -20%;
   font-size: 30px;
 }
 
 div.card.welcome{
   padding-top: 0;
   margin-top: 5%;
+  width: 1000px;
 }
 
 .card-body {
@@ -1364,7 +1365,7 @@ ul.flex-row:hover {
 }
 .mainImg{
   position: relative;
-  margin-top: 250px;
+  margin-top: 100px;
   margin-left: -50px;
 }
 .sign-up{
@@ -1382,10 +1383,10 @@ ul.flex-row:hover {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   max-width: 300px;
   position: absolute;
-  right: 50%;
+  right: 10%;
   top: 30%;
 }
 .log-input input{
@@ -1398,29 +1399,33 @@ ul.flex-row:hover {
 #register{
   position: relative;
   top: 10px;
-  margin-left: 140%;
+  margin-left: 0%;
   padding: 6px 40px;
   background-color: transparent;
   font-size: 20px;
   font-weight: bold;
   border: var(--eerie-black) solid 4px;
   color: var(--eerie-black);
+  margin-top: 50px;
 }
+
 #register.btn:hover{
   color: var(--light);
   background-color: var(--eerie-black);
 }
 #email{
-  margin-top: -150px;
+  margin-top: -100px;
   margin-left: 0%;
+  margin-bottom: 5%;
   font-size: 30px;
 }
-.login p {
+
+p.sloganBtn{
+  margin-top: 155px;
   color: var(--eerie-black);
-  font-size: 25px;
+  font-size: 20px;
   position: relative;
   top: -140px;
-  left: 60%;
 }
 .noPost{
   text-align: center;
