@@ -25,6 +25,7 @@ import SinglePost from "./pages/SinglePost";
 import Register from "./pages/Register";
 import Auth from './utils/auth';
 
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });

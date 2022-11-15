@@ -5,14 +5,8 @@ import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  //Navigate to home after successful log in
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/home");
-  };
 
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
@@ -85,7 +79,7 @@ const Login = (props) => {
               />
               <button
                 id="login"
-                onClick={handleClick}
+               
                 className="btn d-block"
                 type="submit"
               >

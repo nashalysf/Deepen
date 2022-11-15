@@ -28,8 +28,9 @@ const Profile = (props) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  if (!user?.username) {
+//console.log(Auth.getProfile().data.username)
+const token = localStorage.getItem("id_token");
+  if (token === null) {
     return (
       <h4>
         You need to be logged in to see this. Use the navigation links above to
