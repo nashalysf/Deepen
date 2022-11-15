@@ -125,6 +125,7 @@ const Signup = () => {
           }
           type="submit"
           variant="success"
+          className="submitJoin"
         >
           Submit
         </Button>

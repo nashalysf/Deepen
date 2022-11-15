@@ -46,7 +46,7 @@ const Header = () => {
                     <img
                       src={burgerBtn}
                       className="Burgerbtn"
-                      style={{ width: "3%" }}
+                      style={{ width: "50%" }}
                       alt="menu button"
                     />
                   </Nav.Link>

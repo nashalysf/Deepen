@@ -48,7 +48,6 @@ const Login = (props) => {
             <img
               src={main}
               className="mainImg"
-              style={{ width: "60%" }}
               alt="mainImg"
               sizes="55%"
             />
