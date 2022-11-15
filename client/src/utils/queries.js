@@ -1,76 +1,113 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_POSTS = gql`
   query posts($username: String) {
     posts(username: $username) {
       _id
+      description
       title
       createdAt
       username
       likeCount
+      commentCount
     }
   }
 `;
-
+export const QUERY_COMMENTS = gql`
+  query comments($id: ID!) {
+    posts(_id: $id) {
+      _id
+      commentBody
+      username
+      replyCount
+      createdAt
+      replies
+    }
+  }
+`;
+export const QUERY_POST = gql`
+  query post($id: ID!) {
+    post(_id: $id) {
+      _id
+      description
+      createdAt
+      username
+      img: String
+      snippet: String
+      links: String
+      likeCount
+      commentCount
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
+      }
+    }
+  }
+`;
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
       _id
       username
       email
-      friendCount
-      friends {
+      postCounts
+      followersCount
+      followers {
         _id
         username
       }
-      thoughts {
+      posts {
         _id
-        thoughtText
+        title
         createdAt
-        reactionCount
+        likeCount
+        commentsCount
       }
     }
   }
 `;
-
 export const QUERY_ME = gql`
   {
     me {
       _id
       username
       email
-      friendCount
-      thoughts {
+      followersCount
+      posts {
         _id
-        thoughtText
+        title
+        description
         createdAt
-        reactionCount
-        reactions {
+        likeCount
+        comments {
           _id
           createdAt
-          reactionBody
+          commentBody
           username
         }
       }
-      friends {
+      followers {
         _id
         username
       }
     }
   }
 `;
-
 export const QUERY_ME_BASIC = gql`
   {
     me {
       _id
       username
       email
-      friendCount
-      friends {
+      followersCount
+      followers {
         _id
         username
       }
+      postCounts
+      posts
     }
   }
 `;

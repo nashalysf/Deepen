@@ -1,54 +1,66 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutationss';
+import React, { useState } from "react";
+import main from "../images/main.svg";
+import Auth from "../utils/auth";
 
-import Auth from '../utils/auth';
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
+  //Update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setFormState({ ...formState, [name]: value });
   };
 
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const { data } = await login({
-        variables: { ...formState },
-      });
-
+      const { data } = await login({ variables: { ...formState } });
       Auth.login(data.login.token);
+      console.log(data.login.token);
     } catch (e) {
       console.error(e);
     }
-
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Login</h4>
+    <main className="flex-row justify-space-around align-center mb-0">
+      <div className="col-12 col-md-6 login">
+        <div className="card welcome">
+          <h1 className="card-header welcome">
+            Welcome to <span className="appName"> Deepen</span>
+          </h1>
+          <p id="description">
+            A place where developers can connect, share and collab.
+          </p>
           <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
+            <img
+              src={main}
+              className="mainImg"
+              alt="mainImg"
+              sizes="55%"
+            />
+            <h3 className="sign-up">
+              Don't have an account yet?
+              <Link eventKey="signup">
+                <span>Join Community</span>
+              </Link>
+            </h3>
+            <form onSubmit={handleFormSubmit} className="log-input ">
               <input
-                className="form-input"
-                placeholder="Your email"
+                className="form-input px-3"
+                placeholder="Email"
                 name="email"
                 type="email"
                 id="email"
@@ -56,7 +68,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input px-3"
                 placeholder="******"
                 name="password"
                 type="password"
@@ -64,12 +76,16 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
-                Submit
+              <button
+                id="login"
+               
+                className="btn d-block"
+                type="submit"
+              >
+                Login
               </button>
+              <p className="sloganBtn"> Create, Share and Inspire</p>
             </form>
-
-            {error && <div>Login failed</div>}
           </div>
         </div>
       </div>

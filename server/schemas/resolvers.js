@@ -24,12 +24,11 @@ const resolvers = {
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
     },
-    // get all users
 
     //commented out comments for now. in order to populate it user model needs to reference it. requires reference in typeDefs as well.
     users: async () => {
       return User.find()
-        .select("-__v -password")
+        .select("-__v")
         .populate("followers")
         .populate("posts")
         // .populate("comments");
@@ -128,7 +127,7 @@ const resolvers = {
         }
       
         throw new AuthenticationError('You need to be logged in!');
-      }
+      },
   },
 };
 

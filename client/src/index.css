@@ -1,4 +1,7 @@
+@import "./css/post.css";
 :root {
+  --post-primary: #d6d6d6;
+  --post-secondary: #262e2d;
   --eerie-black: #151514ff;
   --davys-grey: #45403dff;
   --dark-lava: #45403dff;
@@ -31,7 +34,10 @@ body {
   color: var(--light);
   background: url('./images/bg.jpg');
 }
-
+ul li {
+  list-style: none;
+  padding-right: 3%;
+}
 h1,
 h2,
 h3,
@@ -43,10 +49,16 @@ h6 {
   margin: 5px 0;
   line-height: 1.25;
 }
-
+img.logo{
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5%;
+}
 h1 {
   font-size: 2.25rem;
-  color: var(--light);
+  color: var(--eerie-black);
+  
 }
 
 h2 {
@@ -56,6 +68,7 @@ h2 {
 h3 {
   font-size: 1.75rem;
   color: var(--primary);
+  padding-top: 5%;
 }
 
 h4 {
@@ -81,10 +94,6 @@ a {
   text-decoration: none;
 }
 
-a:visited {
-  color: inherit;
-}
-
 nav {
   width: 100%;
   justify-content: center;
@@ -107,7 +116,23 @@ nav a:hover {
   margin: 0;
   font-size: 2.5rem;
 }
-
+button.submitJoin.btn.btn-success:hover{
+  color: var(--eerie-black);
+  background-color: var(--light);
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: var(--bs-nav-pills-link-active-color);
+  background-color: var(--eerie-black);
+}
+.nav-link{
+  color: var(--eerie-black);
+}
+button.submitJoin.btn.btn-success{
+  background-color: var(--eerie-black);
+  color: var(--light);
+  border: solid 3px var(--eerie-black);
+  padding: 2px 15px;
+}
 .btn,
 .pill {
   font-size: 1.3rem;
@@ -118,7 +143,7 @@ nav a:hover {
   border: none;
   color: var(--light);
   outline: none;
-  background-color: var(--secondary);
+  background-color: var(--eerie-black);
   transition: all 0.5s;
 }
 button a.btn{
@@ -141,25 +166,69 @@ button a.btn{
   border-radius: var(--border-radius);
   background-color: var(--light);
   color: var(--primary);
+  height: 600px;
+  max-width: 125%;
+  padding-left: 50px;
+  margin-left: -50px;
+}
+.postCard{
+  margin: 0 0 20px 0;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+  background-color: var(--light);
+  color: var(--dark);
+  /* max-width: 300%; */
+}
+.postCard-header{
+  color: var(--post-primary);
+  margin: 0;
+  background-color: var(--post-secondary);
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+.postCard-body {
+  padding: 2.5%;
+  font-size: 1.4rem;
+  color: var(--post-secondary);
 }
 
 .card-header {
   color: var(--primary);
   margin: 0;
-  background-color: var(--dark);
+  background-color: transparent;
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+h1.card-header{
+  margin-top: -20%;
+  font-size: 30px;
+  color: var(--eerie-black);
+}
+h1.card-header.welcome{
+  color: var(--eerie-black);
+  font-size: 40px;
+  border: none;
+}
+
+div.card.welcome{
+  padding-top: 0;
+  margin-top: 5%;
+  width: 1000px;
 }
 
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
   color: var(--primary);
+  width: 200%;
+  display: flex;
+  flex-direction: column;
 }
-.card-body p{
+/* .card-body p{
   color: var(--primary)!important;
   background-color: var(--light);
-} 
+}  */
 
 /* FORM */
 .form-label,
@@ -794,7 +863,7 @@ button a.btn{
 }
 
 .bg-tertiary {
-  background-color: var(--tertiary);
+  background-color: var(--eerie-black);
 }
 
 .bg-light {
@@ -802,13 +871,18 @@ button a.btn{
 }
 
 .bg-dark {
-  background-color: var(--dark);
+  background-color: var(--eerie-black);
 }
 
 /* FLEX CONTENT */
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 5%;
+}
+ul.flex-row:hover {
+  border-bottom:solid var(--light) 2px ;
 }
 
 .flex-column {
@@ -1275,4 +1349,175 @@ button a.btn{
   border-radius: 100%;
   height: 50px;
   width: 50px;
+}
+.SearchBar input{
+  height: 50px;
+  width: 30%;
+  background-color: transparent;
+  border: solid var(--light) 4px;
+  border-radius: 50px;
+  position: relative;
+  left: 35%;
+  top: 200px;
+  color: var(--light);
+  font-size: larger;
+  padding-left: 60px;
+}
+.searchBtn {
+  font-size: 1.5em;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 200px;
+  left: 35%;
+  padding-left: 10px;
+}
+.Burgerbtn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 3%;
+}
+.welcome h1{
+  color: var(--light);
+  font-size: 40px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+#description{
+  justify-content: center;
+  display: flex;
+  flex-wrap: nowrap;
+  color: var(--eerie-black);
+  position: relative;
+  top: -10px;
+  left: 10px;
+  font-size: 18px;
+  width: 100%;
+}
+.welcome h1 span{
+  font-weight: bolder;
+  padding-left: 10px;
+}
+.log-card{
+  background-color: var(--light);
+  height: 800px;
+  max-width: 50%;
+  border: none;
+  border-radius: 70px;
+  padding-left: 50px;
+  margin-left: -50px;
+  margin-top: 5%;
+}
+img.mainImg{
+  position: relative;
+  margin-top: 150px;
+  margin-left: -220px;
+  width: 50%;
+}
+
+element.style {
+  width: 0%;
+}
+.sign-up{
+  color: var(--eerie-black);
+  font-size: 20px;
+  margin-top: -70px;
+  margin-left: -180px;
+  padding-bottom: 20px;
+}
+.btn.disabled, .btn:disabled, fieldset:disabled .btn{
+  background-color: transparent;
+  color: var(--eerie-black);
+  border: soli 3px var(--eerie-black);
+}
+
+.sign-up a{
+  color: var(--eerie-black);
+  font-weight: lighter;
+}
+.log-input{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 300px;
+  position: absolute;
+  right: 15%;
+  top: 8%;
+}
+.log-input input{
+  background-color: transparent;
+  border-bottom: solid var(--davys-grey) 4px;
+  padding: 10px 40px;
+  margin-top: 30px;
+  font-size: 25px;
+}
+#register{
+  position: relative;
+  top: 10px;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  border: var(--eerie-black) solid 4px;
+  color: var(--eerie-black);
+  margin-top: 50px;
+  margin-left: 10px;
+}
+#login.btn{
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  border: var(--eerie-black) solid 4px;
+  color: var(--eerie-black);
+  padding: 3px 40px;
+  margin-top: 20px;
+}
+
+#login.btn:hover{
+  color: var(--light);
+  background-color: var(--eerie-black);
+}
+#email{
+  margin-top: -30px;
+  margin-left: 0%;
+  font-size: 30px;
+}
+
+p.sloganBtn{
+  margin-top: 155px;
+  color: var(--eerie-black);
+  font-size: 20px;
+  position: relative;
+  top: -140px;
+}
+.noPost{
+  text-align: center;
+  margin-top: -65px;
+}
+footer{
+  max-height: 55px;
+  margin-bottom: 0%;
+  text-align: center;
+}
+span.appName{
+  margin-top: 0;
+}
+
+.modal-profile{
+  color: black;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

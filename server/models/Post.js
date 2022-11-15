@@ -22,7 +22,7 @@ const postSchema = new Schema(
     },
     description: {
       type: String,
-      required: "You need to leave a post",
+      required: false,
       minlength: 1,
       maxlength: 280,
     },
