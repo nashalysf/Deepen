@@ -3,15 +3,16 @@ import Auth from "../utils/auth";
 import PostList from "../components/PostList";
 import FriendList from "../components/FriendList";
 import PostForm from "../components/PostForm";
+import Install from "../components/Install";
 // import FollowerList from '../components/FollowerList';
 import HomeNav from "../components/HomeNav";
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from "react-router-dom";
 
 import { useQuery, useMutation } from "@apollo/client";
 // import { QUERY_ME, QUERY_ME_BASIC } from "../utils/queries";
 // import { QUERY_POSTS } from "../utils/queries";
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_USER } from '../utils/mutations';
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { ADD_USER } from "../utils/mutations";
 const Home = () => {
   const [categories] = useState([
     {
@@ -46,7 +47,7 @@ const Home = () => {
   //else{
   //   const posts = data?.posts || [];
 
-  // }  
+  // }
   return (
     <main>
       <HomeNav
@@ -54,6 +55,8 @@ const Home = () => {
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
       ></HomeNav>
+      <Install />
+
       <div>
         <div className="flex-row justify-space-between">
           {loggedIn && (
