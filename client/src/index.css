@@ -203,6 +203,7 @@ button a.btn{
 h1.card-header{
   font-size: 30px;
   margin-left: -100px;
+  margin-top: -50px;
   color: var(--eerie-black);
   width: max-content;
 }
@@ -233,53 +234,6 @@ div.card.welcome{
   background-color: var(--light);
 }  */
 
-/* FORM-CARDS */
-
-.formCard {
-  margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
-  background-color: var(--light);
-  color: var(--primary);
-  height: 505px;
-  max-width: 125%;
-  margin-left: -50px;
-  padding: 10px;
-}
-
-.formCard-header{
-  color: var(--post-primary);
-  margin: 0;
-  background-color: var(--post-secondary);
-  padding: 0.625rem;
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-}
-.formCard-body{
-  color: var(--post-primary);
-  margin: 0;
-  background-color: var(--post-secondary);
-  padding: 0.625rem;
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-}
-.formCard-footer{
-  color: var(--post-primary);
-  margin: 0;
-  background-color: var(--post-secondary);
-  padding: 0.625rem;
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-}
-
-.commentCard {
-  margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
-  background-color: var(--light);
-  color: var(--primary);
-  height: 100px;
-  max-width: 125%;
-  padding-left: 50px;
-  margin-left: -50px;
-}
 /* FORM */
 .form-label,
 .form-input,
@@ -299,18 +253,6 @@ div.card.welcome{
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
 }
-/* LAYOUT-FORM*/
-.container-form {
-  width: 90%;
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.container-form {
-  width: 92%;
-}
-
 
 [type='radio']:checked,
 [type='radio']:not(:checked) {
@@ -377,7 +319,9 @@ div.card.welcome{
 .container-fluid {
   width: 92%;
 }
-
+/* button.navbar-toggler.collapsed{
+  display: none;
+} */
 /* DISPLAY */
 .display-none {
   display: none;
@@ -1500,6 +1444,9 @@ element.style {
   margin-left: -280px;
   padding-bottom: 20px;
 }
+.sign-up span{
+  padding-left: 10px;
+}
 .btn.disabled, .btn:disabled, fieldset:disabled .btn{
   background-color: transparent;
   color: var(--eerie-black);
@@ -1639,41 +1586,12 @@ span.appName{
     transform: translateY(0px);
   }
 }
+input.signUp.form-control{
+  color: var(--eerie-black);
+}
+p.mb-0{
+  color: var(--eerie-black);
+}
 /* p.bg-dark.text-light.p-2{
   
 } */
-.supper-avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
-.big-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.medium-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-.small-avatar {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-}
-
-.title_project {
-  color: black;
-  position: relative;
-  left: 6%;
-  right: 50%;
-  font-size: 80px;
-}
-
-.profileName{
-  color: rgb(0, 0, 0);
-}
