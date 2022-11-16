@@ -61,8 +61,10 @@ const PostForm = () => {
   return (
     <div>
       <div class="cover"></div>
-
-      <form class="cpCard">
+      <form
+        className="flex-row justify-center justify-space-between-md align-stretch"
+        onSubmit={handleFormSubmit}
+      >
         <input
           className="titlePost cpInput"
           id="postTitle"
