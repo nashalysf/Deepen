@@ -109,11 +109,45 @@
     flex-wrap: wrap;
     width: 100px;
     height: 350px;
-    background-color: var(--eerie-black);
+    background-color: black;
   
 }  
 #postMenu img{
         z-index: 2;
        margin-top: 20px;
        margin-left: 20px;
+ 
+    }
+
+    #userInfoPost{
+    position: absolute;
+    top: 55%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 350px;
+    height: 100px;
+    background-color: black;
+
+    }
+    #userInfoPost h3{
+        margin-top: 0;
+        margin-bottom: -10px;
+        margin-left: 40%;
+        padding-top: 10;
+        font-weight: lighter;
+    }
+    #userInfoPost h2{
+        margin-left: 40%;
+        font-size: 30px;
+    }
+    #userPic{
+        background: url('../images/logo-white.svg');
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+       position: absolute;
+       margin-left: 5%;
+       margin-top: 2%;
     }
