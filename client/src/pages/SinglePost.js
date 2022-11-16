@@ -1,14 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import "../css/post.css";
+
+import CommentList from "../components/CommentList";
 
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_POST } from "../utils/queries";
-import CommentList from "../components/CommentList";
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();
-  
+
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId },
   });
@@ -18,6 +20,7 @@ const SinglePost = (props) => {
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
     <div>
       <div className="card mb-3">
@@ -28,14 +31,13 @@ const SinglePost = (props) => {
           post on {post.createdAt}
         </p>
         <div className="card-body">
-          <p>{post.title}</p>
-          <p>{post.descrption}</p>
+          <p>{post.postText}</p>
         </div>
       </div>
 
-      {post.likeCount > 0 && <CommentList comments={post.comments} />}
+      {post.commentCount > 0 && <CommentList comments={post.comments} />}
 
-      {Auth.loggedIn() && <CommentList postId={post._id} />}
+      {Auth.loggedIn()}
     </div>
   );
 };

@@ -39,8 +39,6 @@ const PostForm = () => {
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
       console.log(event.target.value);
-      const { name, value } = event.target;
-       //setUserData({ ...postData, [name]: value });
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
@@ -76,16 +74,30 @@ const PostForm = () => {
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
+        <input
+          className="col-12 col-md-6 mb-5 titlePost"
+          type="text"
+          name="Title"
+          placeholder="Title"
+          required
+        />
         <textarea
           placeholder="Here's a new post..."
           value={description}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
+          required
         ></textarea>
         <button className="btn col-12 col-md-3" type="submit">
-          Submit
+          Create Post
         </button>
       </form>
+      <p
+        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
+      >
+        Character Count: {characterCount}/280
+        {error && <span className="ml-2">Something went wrong...</span>}
+      </p>
     </div>
   );
 };
