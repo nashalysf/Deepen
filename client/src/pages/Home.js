@@ -13,6 +13,12 @@ import HomeNav from "../components/HomeNav";
 import AddButton from "../components/AddButton";
 import ToTheTopBtn from "../components/ToTheTop";
 
+import { useQuery, useMutation } from "@apollo/client";
+// import { QUERY_ME, QUERY_ME_BASIC } from "../utils/queries";
+import { QUERY_POSTS } from "../utils/queries";
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { ADD_USER } from '../utils/mutations';
+
 const Home = () => {
   const [categories] = useState([
     {
@@ -26,6 +32,7 @@ const Home = () => {
     },
   ]);
 
+  
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
   const loggedIn = Auth.loggedIn();
 
