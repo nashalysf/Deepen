@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_POSTS = gql`
-  query posts($username: String) {
-    posts(username: $username) {
+  query posts {
+    posts {
       _id
       description
       title

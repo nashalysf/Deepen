@@ -11,6 +11,10 @@ function Nav() {
     {
       name: "Search",
     },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> b11178a88e67febf40216dc8fa29aee0ab781528
   ];
   function categorySelected(name) {
     console.log(`${name} is clicked`);
