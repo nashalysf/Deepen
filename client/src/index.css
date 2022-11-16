@@ -30,7 +30,7 @@ body {
   padding: 0;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 400;
-  line-height: 1.5;
+  
   font-size: 20px;
   color: var(--light);
   background: url('./images/bg.jpg');
@@ -87,7 +87,7 @@ h6 {
 
 p {
   font-size: 1.1rem;
-  margin-top: 0;
+
 }
 
 a {
@@ -139,7 +139,7 @@ button.submitJoin.btn.btn-success{
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
-  margin: 5px 0;
+  margin: 0;
   border-radius: var(--border-radius);
   border: none;
   color: var(--light);
@@ -156,9 +156,6 @@ button a.btn{
   background-color: var(--dark);
 }
 
-.btn-inline {
-  display: inline;
-}
 
 /* CARDS */
 .card {
@@ -237,7 +234,6 @@ div.card.welcome{
 .form-textarea {
   display: block;
 }
-
 .form-label {
   font-size: 1.2rem;
   margin: 0.625rem 0 0.25rem;
@@ -881,9 +877,21 @@ div.card.welcome{
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 5%;
+  margin-left: 25%;
 }
-ul.flex-row:hover {
+
+ul{
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border-bottom:solid var(--light) 2px ;
+  width: 50%;
+  transition-duration: .5s;
+  padding-left: 1.5%;
+}
+li{
+  padding: 20px;
+  padding-bottom: 10px;
 }
 
 .flex-column {
@@ -1157,7 +1165,7 @@ ul.flex-row:hover {
 @media screen and (min-width: 992px) {
   nav {
     width: auto;
-    justify-content: flex-end;
+    justify-content:center;
   }
 
   .page-title {
@@ -1496,6 +1504,7 @@ p.sloganBtn{
 .noPost{
   text-align: center;
   margin-top: -65px;
+  margin-left: -25%;
 }
 footer{
   max-height: 55px;
@@ -1566,3 +1575,6 @@ span.appName{
     transform: translateY(0px);
   }
 }
+/* p.bg-dark.text-light.p-2{
+  
+} */

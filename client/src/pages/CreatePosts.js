@@ -4,6 +4,10 @@ import PostForm from "../components/PostForm";
 import "../css/form.css";
 
 const CreatePosts = () => {
+  const checkboxesList = [
+    'Yes',
+    'No',
+  ];
   return (
     <>
       <div>

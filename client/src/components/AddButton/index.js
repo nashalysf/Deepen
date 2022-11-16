@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import create from "../../pages/CreatePosts";
 
 const AddButton = () => {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ const AddButton = () => {
         });
    
     const goToTop = () => {
-       navigate("/singlepost");
+       navigate("/create");
     };
     return (
         <div className="top-to-btm">

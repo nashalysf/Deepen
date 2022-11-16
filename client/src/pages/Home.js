@@ -35,16 +35,18 @@ const Home = () => {
     variables: { username: userParam },
   });
 
+
+
   const user = data?.me || data?.user || {};
   const { data: userData } = useQuery(QUERY_ME);
-  // let posts = data?.posts || [];
-  // // const user = data?.me || data?.user || {};
+  let posts = data?.posts || [];
+  // const user = data?.me || data?.user || {};
   // console.log("hola");
   // const posts = userData.me.posts ||[];
   // if (!userData === null) {
   //   posts=posts.push(userData.me.posts);
   // }
-  //else{
+  // else{
   //   const posts = data?.posts || [];
 
   // }
@@ -56,20 +58,16 @@ const Home = () => {
         currentCategory={currentCategory}
       ></HomeNav>
       <Install />
-
+    
       <div>
         <div className="flex-row justify-space-between">
-          {loggedIn && (
-            <div className="col-12 mb-3">
-              <PostForm />
-            </div>
-          )}
+          
           <div className="col-12 mb-3">
             {" "}
             {loading && !loggedIn ? (
               <div>Loading...</div>
             ) : (
-              <PostList posts={user.posts} title="Some Post(s)..." />
+              <PostList posts={posts} title="Some Post(s)..." />
             )}
           </div>
         </div>
