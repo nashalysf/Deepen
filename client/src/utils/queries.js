@@ -32,6 +32,7 @@ export const QUERY_POST = gql`
       description
       createdAt
       username
+      title
       img: String
       snippet: String
       links: String
