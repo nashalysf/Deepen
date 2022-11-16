@@ -10,35 +10,22 @@
 </head>
 <body>
     <body>
-        <div class="cover"></div>
-        <form class="cpCard">
-            <input type="text" name="title" placeholder='Post Title' id="postTitle" class="cpInput">
-            <textarea type="text" name="description" placeholder='Description' id="postDescription" ></textarea>
-            <div class="links">
-            <input type="url" name="links" placeholder='Links' id="postLinks" class="cpInput">
-            <button type="button" class="addBtn" id="addLink" onclick="alert('Add Link')">+</button>
-                </div>
-                <div class="postVisuals">
-            <Button type='button' class="visuals" id="postSnippet" onclick="alert('code press')">Add Code Snipet</Button>
-            <Button type='image' class="visuals"  id="postImage" onclick="alert('Image press')">Add Image</Button>
-            </div>
-            <label for="tools" class="toolTitle">Technologies used:</label>
-<ul name="tools" id="postTools">
-    <li value="GraphQL" class="toolList">GraphQL</li>
-    <li value="MongoDB" class="toolList">MongoDB</li>
-    <li value="React" class="toolList">React</li>
-    <li value="Node.js" class="toolList">Node.js</li>
-    <div id="addTool">
-    <li value="other" class="cpInput other">Other</li>
-    <button type="button" class="addBtn" id="addLink" onclick="alert('Add tool')">+</button>
-</ul>
-<section class="collabs">
-    <h4>Are you looking for collaborators?</h4>
-        <input type="radio" id="collab" name="collab" value="Yes">
-        <label for="collab">Yes</label>
-        <input type="radio" id="Nocollab" name="Nocollab" value="No">
-        <label for="Nocollab">No</label>
-    </section>
+        <form class="collabCard">
+            <input type="text" name="title" placeholder='Post Title' id="postTitle" class="cpInput collabInput" value=Project-Title>
+            <form onSubmit={handleFormSubmit} className="log-input ">
+                <input
+                  className="form-input px-3"
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                  id="email"
+                  onChange={handleChange}
+                />
+
+            <textarea type="text" name="collaborate" placeholder='How can you collab?' id="collaborate" ></textarea>
+            <div class="links gitlink">
+            <input type="url" name="links" placeholder='GitHub' id="postLinks" class="cpInput">
+            
   <button type="submit" id="submitPost">Post</button>
         </form>
     </body>

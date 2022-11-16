@@ -99,3 +99,21 @@
     width: 20px;
     margin-left: 70px;
   }
+  /*-------------Menu component---------------*/
+  section#postMenu{
+    position: absolute;
+    top: 15%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100px;
+    height: 350px;
+    background-color: var(--eerie-black);
+  
+}  
+#postMenu img{
+        z-index: 2;
+       margin-top: 20px;
+       margin-left: 20px;
+    }
