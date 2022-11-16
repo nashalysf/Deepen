@@ -11,23 +11,22 @@
 <body>
     <body>
         <form class="collabCard">
-            <input type="text" name="title" placeholder='Post Title' id="postTitle" class="cpInput collabInput" value=Project-Title>
+            <input type="text" name="title" placeholder='Post Title' id="collabTitle" class="collabInput " value=Project-Title>
             <form onSubmit={handleFormSubmit} className="log-input ">
                 <input
-                  className="form-input px-3"
+                  className="collabEmail"
                   placeholder="Email"
                   name="email"
                   type="email"
-                  id="email"
+                  id="userEmail"
                   onChange={handleChange}
                 />
-
+                <h2 id="collabUserName">User's full name</h2>
             <textarea type="text" name="collaborate" placeholder='How can you collab?' id="collaborate" ></textarea>
             <div class="links gitlink">
-            <input type="url" name="links" placeholder='GitHub' id="postLinks" class="cpInput">
-            
-  <button type="submit" id="submitPost">Post</button>
-        </form>
+            <input type="url" name="links" placeholder='GitHub' id="collabLinks" class="collabInput">
+        </form> 
+        <button type="submit" id="submitCollab">Send</button>
     </body>
     </html>
 </body>
