@@ -1521,3 +1521,47 @@ span.appName{
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.top-to-btm{
+  position: relative;
+}
+.icon-position{
+  position: fixed;
+  bottom: 40px;
+  right: 100px;
+  z-index: 20;
+}
+.icon-position2{
+  position: fixed;
+  bottom: 40px;
+  right: 25px;
+  z-index: 20;
+}
+.icon-style{
+  background-color: #000000;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  animation: movebtn 3s ease-in-out normal;
+  transition: all .5s ease-in-out;
+}
+.icon-style:hover{
+  animation: none;
+  background: #fff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+@keyframes movebtn {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(6px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
