@@ -133,6 +133,7 @@ button.submitJoin.btn.btn-success{
   color: var(--light);
   border: solid 3px var(--eerie-black);
   padding: 2px 15px;
+  margin-top: 10px;
 }
 .btn,
 .pill {
@@ -201,7 +202,9 @@ button a.btn{
 h1.card-header{
   margin-top: -20%;
   font-size: 30px;
+  margin-left: -100px;
   color: var(--eerie-black);
+  width: max-content;
 }
 h1.card-header.welcome{
   color: var(--eerie-black);
@@ -214,7 +217,9 @@ div.card.welcome{
   margin-top: 5%;
   width: 1000px;
 }
-
+.login{
+  margin-left: -100px;
+}
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
@@ -1401,9 +1406,9 @@ li{
   color: var(--eerie-black);
   position: relative;
   top: -10px;
-  left: 10px;
+  left: -100px;
   font-size: 18px;
-  width: 100%;
+  width: max-content;
 }
 .welcome h1 span{
   font-weight: bolder;
@@ -1421,9 +1426,9 @@ li{
 }
 img.mainImg{
   position: relative;
-  margin-top: 150px;
-  margin-left: -220px;
-  width: 50%;
+  margin-top: 170px;
+  margin-left: -290px;
+  width: 60%;
 }
 
 element.style {
@@ -1432,8 +1437,8 @@ element.style {
 .sign-up{
   color: var(--eerie-black);
   font-size: 20px;
-  margin-top: -70px;
-  margin-left: -180px;
+  margin-top: -50px;
+  margin-left: -280px;
   padding-bottom: 20px;
 }
 .btn.disabled, .btn:disabled, fieldset:disabled .btn{
@@ -1453,8 +1458,8 @@ element.style {
   align-items: center;
   max-width: 300px;
   position: absolute;
-  right: 15%;
-  top: 8%;
+  right: 20%;
+  top: 15%;
 }
 .log-input input{
   background-color: transparent;
