@@ -62,7 +62,7 @@ const PostForm = () => {
     <div>
       <div class="cover"></div>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="flex-row justify-center justify-space-between-md align-stretch createCard"
         onSubmit={handleFormSubmit}
       >
         <input
@@ -125,7 +125,7 @@ const PostForm = () => {
     <li value="MongoDB" className="toolsList">MongoDB</li>
     <li value="React" className="toolsList">React</li>
     <li value="Node.js" className="toolsList">Node.js</li>
-    <div id="addTool">
+    <div>
     <li value="other" className="cpInput other">Other</li>
     <button type="button" className="addBtn" id="addTool" onclick="alert('Add tool')">+</button></div>
 </ul>

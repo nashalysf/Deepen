@@ -16,15 +16,14 @@ body {
     opacity: 50%;
     margin-bottom: 0;
   }
-form.cpCard{
+form.createCard{
     z-index: 2;
-    position: relative;
-    height: 1500px;
-    max-height: max-content;
+    position: absolute;
+    left: -7.4%;
+    height: 180%;
     padding-top: 50px;
-    width: 100%;
+    width: 65%;
     margin-top: -280px;
-    
     border-radius: var(--border-radius);
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
@@ -41,6 +40,9 @@ form.cpCard{
     height: 50px;
     margin-top: 180px;
 }
+.createCard{
+
+}
 #count{
     position: relative;
     top: 220px;
@@ -50,9 +52,6 @@ form.cpCard{
     font-size: 40px;
     color: var(--light);
     background-color: transparent;
-    border: transparent;
-    border-bottom: solid 3px var(--light);
-    margin-bottom: 20px;
     padding-left: 20px;
 }
 h1#postTitle{
@@ -66,16 +65,18 @@ h5#postUser{
 input#postTitle.titlePost.cpInput{
     height: 50px;
     width: 80%;
-    margin-top: 20px;
+    margin-top: -150px;
     font-size: 50px;
+    margin-left: 10%;
 }
 #postDescription{
     height: 200px;
     width: 80%;
-    margin-top: 150px;
+    margin-top: -96%;
+    margin-left: 10%;
     opacity: 100%;
     color: var(--dark-lava);
-    font-size: 150%;
+    font-size: 25px;
     padding: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     line-height: 1.5;
@@ -92,7 +93,12 @@ input[type=text]{
 }
 input#postLinks.links{
     width: 80%;
-    padding-left: 20px;
+    height: 10%;
+    padding-left: 40px;
+    position: relative;
+    font-size: 30px;
+    bottom: 650px;
+    border-bottom:solid var(--eerie-black) 3px ;
 }
 
 #PostTitle{
@@ -110,7 +116,9 @@ input#postLinks.links{
     background-color: transparent;
     border: none;
     color: var(--light);
+    height: 50px;
     padding-bottom: 0;
+    padding-right: 20px;
 }
 .addBtn:hover{
     color: var(--dark-lava);
@@ -125,7 +133,7 @@ input#postLinks.links{
     width: 100%;
     max-width: 800px;
     position: relative;
-    top: -1000px;
+    top: 250px;
     left: 15%;
     z-index: 2;
 }
@@ -156,7 +164,7 @@ button#postImage.visuals{
     border-bottom: solid 4px var(--dark-lava);
     font-size: 50px;
     position: relative;
-    top: -850px;
+    top: 350px;
     left: 35%;
     z-index: 2;
 }
@@ -164,19 +172,22 @@ button#postImage.visuals{
     font-size: 40px;
     display: flex;
     flex-direction: column;
-    margin-left: -50px;
-    max-height: fit-content;
+    margin-left: 200px;
+    position: relative;
+    bottom: 120px;
+    padding-left: 100px;
+    width: 60%;
 }
 .toolsList{
     z-index: 2;
     background-color: var(--dark-lava);
     padding: 8px 100px;
     margin-top: 20px;
-    margin-left: 21%;
+    margin-left: 20%;
     width: 60%;
     text-align: center;
     position: relative;
-    top: -800px;
+    top: 500px;
 }
 .toolsList:hover{
     background-color: var(--light);
@@ -187,22 +198,20 @@ button#postImage.visuals{
     text-align: left;
     width: 60%;
     padding-left: 10px;
-    margin-left: 25%;
+    margin-left: 10%;
     position: relative;
-    top: -410px;
+    top: 820px;
     z-index: 2;
 }
 #addTool{
-    margin-top: -360px;
+    margin-top: -320px;
     display: flex;
-    margin-left: -50px;
+    margin-left: 70px;
     z-index: 2;
 }
-ul#postTools{
-    margin-bottom: -20%;
-    padding-bottom: 0;
+button#addTool{
+    margin-top: 20px;
 }
-
 #submitPost{
     background-color: transparent;
     font-size: 30px;
@@ -211,7 +220,7 @@ ul#postTools{
     color: var(--light);
     padding: 10px 40px;
     position: relative;
-    top: -100px;
+    top: 800px;
 }
 button#submitPost.btn.col-12{
     width: 40%;
@@ -230,7 +239,7 @@ button#submitPost.btn.col-12{
     margin: 40px;
     font-size: 1.5em;
     position: relative;
-    top: -100px;
+    top: 700px;
     z-index: 2;
 }
   /*-----------POST DISPLAY FEED------------*/
@@ -309,7 +318,8 @@ button#submitPost.btn.col-12{
   }
 p#count{
     position: relative;
-    left: -350px;
+    left: 50px;
+    top: -250px;
 }
   #postTitle{
     color: var(--dark-lava);

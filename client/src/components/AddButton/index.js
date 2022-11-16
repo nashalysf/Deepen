@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import create from "../../pages/CreatePosts";
+import create from "../../pages/CollabForm";
 
 const AddButton = () => {
     const navigate = useNavigate();
