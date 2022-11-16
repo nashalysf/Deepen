@@ -6,7 +6,7 @@ import { QUERY_ME, QUERY_POSTS } from "../utils/queries";
 import PostList from "../components/PostList";
 import FriendList from "../components/FriendList";
 import PostForm from "../components/PostForm";
-import Install from "../components/install";
+import Install from "../components/Install";
 // import FollowerList from '../components/FollowerList';
 import HomeNav from "../components/HomeNav";
 import AddButton from "../components/AddButton";
