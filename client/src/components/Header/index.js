@@ -11,7 +11,7 @@ import Register from "../../pages/Register";
 import Login from "../../pages/Login";
 import logo from "../../images/logo-white.svg";
 import Auth from "../../utils/auth";
-import burgerBtn from "../../images/burgerBtn.PNG";
+import burgerBtn from "../../images/png/burgerBtn.PNG";
 import { Navigate } from "react-router-dom";
 
 
