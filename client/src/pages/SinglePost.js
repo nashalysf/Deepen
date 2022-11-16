@@ -1,11 +1,12 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
+import "../css/post.css";
 
-import CommentList from '../components/CommentList';
+import CommentList from "../components/CommentList";
 
-import Auth from '../utils/auth';
-import { useQuery } from '@apollo/client';
-import { QUERY_POST } from '../utils/queries';
+import Auth from "../utils/auth";
+import { useQuery } from "@apollo/client";
+import { QUERY_POST } from "../utils/queries";
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();
@@ -26,7 +27,7 @@ const SinglePost = (props) => {
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {post.username}
-          </span>{' '}
+          </span>{" "}
           post on {post.createdAt}
         </p>
         <div className="card-body">
@@ -34,9 +35,7 @@ const SinglePost = (props) => {
         </div>
       </div>
 
-      {post.commentCount > 0 && (
-        <CommentList comments={post.comments} />
-      )}
+      {post.commentCount > 0 && <CommentList comments={post.comments} />}
 
       {Auth.loggedIn()}
     </div>
