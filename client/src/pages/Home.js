@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
-import { Navigate, useParams } from "react-router-dom";
-import { QUERY_USER, QUERY_ME, QUERY_POSTS } from "../utils/queries";
+import { QUERY_ME, QUERY_POSTS } from "../utils/queries";
 
 import PostList from "../components/PostList";
 import FriendList from "../components/FriendList";
@@ -26,29 +25,14 @@ const Home = () => {
     },
   ]);
 
-  
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const { data: userData } = useQuery(QUERY_ME);
+  const posts = data?.posts || [];
+
   const loggedIn = Auth.loggedIn();
 
-  const { username: userParam } = useParams();
-
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
-  });
-
-  const user = data?.me || data?.user || {};
-  const { data: userData } = useQuery(QUERY_ME);
-  // let posts = data?.posts || [];
-  // // const user = data?.me || data?.user || {};
-  // console.log("hola");
-  // const posts = userData.me.posts ||[];
-  // if (!userData === null) {
-  //   posts=posts.push(userData.me.posts);
-  // }
-  //else{
-  //   const posts = data?.posts || [];
-
-  // }
   return (
     <main>
       <HomeNav
@@ -70,7 +54,7 @@ const Home = () => {
             {loading && !loggedIn ? (
               <div>Loading...</div>
             ) : (
-              <PostList posts={user.posts} title="Some Post(s)..." />
+              <PostList posts={posts} title="Some Post(s)..." />
             )}
           </div>
         </div>
