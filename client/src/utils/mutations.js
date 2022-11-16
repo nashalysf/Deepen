@@ -58,7 +58,7 @@ export const ADD_COMMENT = gql`
       commentCount
       comments {
         _id
-        commentsBody
+        commentBody
         createdAt
         username
       }
