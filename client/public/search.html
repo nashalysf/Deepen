@@ -1,19 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../src/index.css">
+    <link rel="stylesheet" href="../src/index.css" />
+  </head>
+  <body>
+    <main>
+        <div class="SearchBar">
+            <input type="text" name="search" />
+             <button type="search" class="searchBtn">🔎</button>
+        </div>
+        <div id="usersList">
+            <div class="sectionLabel">
+             <div class="divider2"></div>
+             <h1>Users</h1>
+             <div class="divider2"></div>
+            </div>
+                
+            <div class="userMockup">
+                <div id="profilePic"></div>
+                <div id="userData">
+                <h2>Username</h2>
+                <h5>Following</h5>
+               
+                </div> 
+                <label for="follow">
+                <input type="checkbox" id="follow" value="yes" /></label>
+            </div>
 
-</head>
-<body>
-    <div class="SearchBar">
-        <input type="text" name="search" placeholder='Search for a users/projects'>
-        <Button type='search' class="searchBtn">
-            🔎
-           </Button>
-    </div>
-</body>
+            <div class="userMockup">
+                <div id="profilePic"></div>
+                <div id="userData">
+                <h2>Username</h2>
+                <label for="follow">
+                <input type="checkbox" id="follow" value="yes" /></label>
+                </div>
+            </div>
+        
+
+      <div id="postsList">
+        <div class="sectionLabel"></div>
+            <div class="divider2"></div>
+            <h1>Projects</h1>
+            <div class="divider2"></div>
+       </div>
+      
+      <div class="projectsCard">
+        <div class="coverPost"> </div>
+        <div id="profilePic2"></div>
+        <div class="postData">
+                <div class="username"></div>
+                <label for="follow">
+                <input type="checkbox" id="followPost" value="yes" /></label>
+                <div id="projectData">
+                    <h1 id="postTitle">Project Title</h1>
+                    <h5 id="postUser">Username</h5>
+                </div>
+                <div id="likes">Likes 10</div>
+            </div>
+        </div>
+      </div>
+
+    </main>
+  </body>
 </html>

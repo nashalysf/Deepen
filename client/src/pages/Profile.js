@@ -8,7 +8,8 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-
+import AddButton from "../components/AddButton";
+import ToTheTopBtn from "../components/ToTheTop";
 const Profile = (props) => {
   const { username: userParam } = useParams();
 
@@ -77,6 +78,8 @@ const token = localStorage.getItem("id_token");
             friends={user.friends}
           />
         </div>
+        <AddButton />
+        <ToTheTopBtn />
       </div>
     </div>
   );

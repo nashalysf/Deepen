@@ -1,0 +1,20 @@
+
+.create{
+    color: white;
+}
+.titlePost {
+    height: 100px;
+    font-size: 40px;
+    width: 100%;
+    background-color: rgba(189, 195, 199, 0.3);
+    border: 0;
+}
+.deskPost {
+    height:200px;
+    font-size: 25px;
+    background-color:rgba(189, 195, 199, 0.3);
+    border: 0;
+}
+
+
+
