@@ -8,7 +8,7 @@ import CommentList from "../components/CommentList";
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();
-  
+
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId },
   });
@@ -29,7 +29,7 @@ const SinglePost = (props) => {
         </p>
         <div className="card-body">
           <p>{post.title}</p>
-          <p>{post.descrption}</p>
+          <p>{post.description}</p>
         </div>
       </div>
 

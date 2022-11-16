@@ -69,7 +69,7 @@ const Home = () => {
             {loading && !loggedIn ? (
               <div>Loading...</div>
             ) : (
-              <PostList posts={user.posts} title="Some Feed for Post(s)..." />
+              <PostList posts={user.posts} title="Some Post(s)..." />
             )}
           </div>
         </div>
