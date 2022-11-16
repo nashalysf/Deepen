@@ -1,5 +1,6 @@
 @import "./css/post.css";
 @import "./css/singlePost.css";
+@import "./css/collabForm.css";
 :root {
   --post-primary: #d6d6d6;
   --post-secondary: #262e2d;
