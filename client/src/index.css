@@ -1,5 +1,6 @@
 @import "./css/post.css";
 @import "./css/singlePost.css";
+@import "./css/collabForm.css";
 :root {
   --post-primary: #d6d6d6;
   --post-secondary: #262e2d;
@@ -30,7 +31,7 @@ body {
   padding: 0;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 400;
-  line-height: 1.5;
+  
   font-size: 20px;
   color: var(--light);
   background: url('./images/bg.jpg');
@@ -87,7 +88,7 @@ h6 {
 
 p {
   font-size: 1.1rem;
-  margin-top: 0;
+
 }
 
 a {
@@ -133,13 +134,14 @@ button.submitJoin.btn.btn-success{
   color: var(--light);
   border: solid 3px var(--eerie-black);
   padding: 2px 15px;
+  margin-top: 10px;
 }
 .btn,
 .pill {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
-  margin: 5px 0;
+  margin: 0;
   border-radius: var(--border-radius);
   border: none;
   color: var(--light);
@@ -156,9 +158,6 @@ button a.btn{
   background-color: var(--dark);
 }
 
-.btn-inline {
-  display: inline;
-}
 
 /* CARDS */
 .card {
@@ -202,9 +201,11 @@ button a.btn{
 }
 
 h1.card-header{
-  margin-top: -20%;
   font-size: 30px;
+  margin-left: -100px;
+  margin-top: -50px;
   color: var(--eerie-black);
+  width: max-content;
 }
 h1.card-header.welcome{
   color: var(--eerie-black);
@@ -217,7 +218,9 @@ div.card.welcome{
   margin-top: 5%;
   width: 1000px;
 }
-
+.login{
+  margin-left: -100px;
+}
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
@@ -237,7 +240,6 @@ div.card.welcome{
 .form-textarea {
   display: block;
 }
-
 .form-label {
   font-size: 1.2rem;
   margin: 0.625rem 0 0.25rem;
@@ -317,7 +319,9 @@ div.card.welcome{
 .container-fluid {
   width: 92%;
 }
-
+/* button.navbar-toggler.collapsed{
+  display: none;
+} */
 /* DISPLAY */
 .display-none {
   display: none;
@@ -881,9 +885,21 @@ div.card.welcome{
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 5%;
+  margin-left: 25%;
 }
-ul.flex-row:hover {
+
+ul{
+  display: flex;
+  justify-content: center;
+  text-align: center;
   border-bottom:solid var(--light) 2px ;
+  width: 50%;
+  transition-duration: .5s;
+  padding-left: 1.5%;
+}
+li{
+  padding: 20px;
+  padding-bottom: 10px;
 }
 
 .flex-column {
@@ -1157,7 +1173,7 @@ ul.flex-row:hover {
 @media screen and (min-width: 992px) {
   nav {
     width: auto;
-    justify-content: flex-end;
+    justify-content:center;
   }
 
   .page-title {
@@ -1393,9 +1409,9 @@ ul.flex-row:hover {
   color: var(--eerie-black);
   position: relative;
   top: -10px;
-  left: 10px;
+  left: -100px;
   font-size: 18px;
-  width: 100%;
+  width: max-content;
 }
 .welcome h1 span{
   font-weight: bolder;
@@ -1413,9 +1429,9 @@ ul.flex-row:hover {
 }
 img.mainImg{
   position: relative;
-  margin-top: 150px;
-  margin-left: -220px;
-  width: 50%;
+  margin-top: 170px;
+  margin-left: -290px;
+  width: 60%;
 }
 
 element.style {
@@ -1424,9 +1440,12 @@ element.style {
 .sign-up{
   color: var(--eerie-black);
   font-size: 20px;
-  margin-top: -70px;
-  margin-left: -180px;
+  margin-top: -50px;
+  margin-left: -280px;
   padding-bottom: 20px;
+}
+.sign-up span{
+  padding-left: 10px;
 }
 .btn.disabled, .btn:disabled, fieldset:disabled .btn{
   background-color: transparent;
@@ -1445,8 +1464,8 @@ element.style {
   align-items: center;
   max-width: 300px;
   position: absolute;
-  right: 15%;
-  top: 8%;
+  right: 20%;
+  top: 15%;
 }
 .log-input input{
   background-color: transparent;
@@ -1496,6 +1515,7 @@ p.sloganBtn{
 .noPost{
   text-align: center;
   margin-top: -65px;
+  margin-left: -25%;
 }
 footer{
   max-height: 55px;
@@ -1566,3 +1586,12 @@ span.appName{
     transform: translateY(0px);
   }
 }
+input.signUp.form-control{
+  color: var(--eerie-black);
+}
+p.mb-0{
+  color: var(--eerie-black);
+}
+/* p.bg-dark.text-light.p-2{
+  
+} */

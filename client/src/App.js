@@ -22,7 +22,8 @@ import Home from "./pages/Home";import NoMatch from "./pages/NoMatch";
 import SinglePost from "./pages/SinglePost";
 import Register from "./pages/Register";
 import Auth from "./utils/auth";
-import CreatePosts from "./pages/CreatePosts";
+import CreatePosts from "./components/PostForm";
+import CollabForm from "./pages/CollabForm";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -59,6 +60,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/create" element={<CreatePosts />} />
+              <Route path="/collab" element={<CollabForm />} />
               <Route path="/post/:id" element={<SinglePost />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>

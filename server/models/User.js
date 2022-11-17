@@ -49,6 +49,10 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Post'
     },
+    avatar:{
+      type: String,
+      default: '../../client/src/images/avatar'
+    },
     followers: [followerSchema]
   },
   {

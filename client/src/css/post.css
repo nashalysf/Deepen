@@ -16,16 +16,14 @@ body {
     opacity: 50%;
     margin-bottom: 0;
   }
-form.cpCard{
+form.createCard{
     z-index: 2;
     position: absolute;
-    top: 200px;
-    height: 160%;
-    max-height: max-content;
+    left: -7.4%;
+    height: 180%;
     padding-top: 50px;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 20px;
+    width: 65%;
+    margin-top: -280px;
     border-radius: var(--border-radius);
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
@@ -38,18 +36,22 @@ form.cpCard{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .cpCard input{
-    width: 70%;
+    width: max-content;
     height: 50px;
-    margin-top: 80px;
+    margin-top: 180px;
 }
+.createCard{
 
+}
+#count{
+    position: relative;
+    top: 220px;
+    right: 125px;
+}
 .cpInput{
     font-size: 40px;
     color: var(--light);
     background-color: transparent;
-    border: transparent;
-    border-bottom: solid 3px var(--light);
-    margin-bottom: 20px;
     padding-left: 20px;
 }
 h1#postTitle{
@@ -60,23 +62,47 @@ h1#postTitle{
 h5#postUser{
     margin-top: -15px;
 }
+input#postTitle.titlePost.cpInput{
+    height: 50px;
+    width: 80%;
+    margin-top: -150px;
+    font-size: 50px;
+    margin-left: 10%;
+}
 #postDescription{
-    height: 300px;
-    width: 70%;
-    margin-top: 20px;
-    background-color: var(--post-primary);
+    height: 200px;
+    width: 80%;
+    margin-top: -96%;
+    margin-left: 10%;
     opacity: 100%;
     color: var(--dark-lava);
-    font-size: 150%;
+    font-size: 25px;
     padding: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     line-height: 1.5;
 }
+textarea#postDescription.col-md-9{
+    max-height: 300px;
+    position: absolute;
+}
 input[type=text]{
     color: var(--light);
-    background-color: transparent;
     border: transparent;
-    border-bottom: solid 3px var(--light);
+    border-bottom: solid 3px var(--dark-lava);
+    background-color: transparent !important;
+}
+input#postLinks.links{
+    width: 80%;
+    height: 10%;
+    padding-left: 40px;
+    position: relative;
+    font-size: 30px;
+    bottom: 650px;
+    border-bottom:solid var(--eerie-black) 3px ;
+}
+
+#PostTitle{
+    background-color: transparent !important;
 }
 .links{
     display: flex;
@@ -90,10 +116,15 @@ input[type=text]{
     background-color: transparent;
     border: none;
     color: var(--light);
+    height: 50px;
     padding-bottom: 0;
+    padding-right: 20px;
 }
 .addBtn:hover{
     color: var(--dark-lava);
+}
+#addLink{
+    margin-top: 16%;
 }
 .postVisuals{
     display: flex;
@@ -101,13 +132,21 @@ input[type=text]{
     justify-content:space-between;
     width: 100%;
     max-width: 800px;
+    position: relative;
+    top: 250px;
+    left: 15%;
+    z-index: 2;
 }
 .visuals:hover{
     border: solid 3px var(--light);
     background-color: var(--light);
     color: var(--eerie-black);
 }
+button#postImage.visuals{
+    position: relative;
+}
 .visuals{
+    position: relative;
     width: 100%;
     padding: 15px 0;
     margin-left: 20px;
@@ -124,37 +163,54 @@ input[type=text]{
     border: transparent;
     border-bottom: solid 4px var(--dark-lava);
     font-size: 50px;
-    margin-top: 70px;
+    position: relative;
+    top: 350px;
+    left: 35%;
+    z-index: 2;
 }
 #postTools{
     font-size: 40px;
     display: flex;
     flex-direction: column;
-    margin-left: -50px;
+    margin-left: 200px;
+    position: relative;
+    bottom: 120px;
+    padding-left: 100px;
+    width: 60%;
 }
-.toolList{
+.toolsList{
+    z-index: 2;
     background-color: var(--dark-lava);
     padding: 8px 100px;
     margin-top: 20px;
-    margin-left: -70px;
-    width: 150%;
+    margin-left: 20%;
+    width: 60%;
     text-align: center;
+    position: relative;
+    top: 500px;
 }
-.toolList:hover{
+.toolsList:hover{
     background-color: var(--light);
     color: var(--eerie-black);
     opacity: 70%;
 }
 .other{
     text-align: left;
-    width: 150%;
+    width: 60%;
     padding-left: 10px;
+    margin-left: 10%;
+    position: relative;
+    top: 820px;
+    z-index: 2;
 }
 #addTool{
-    margin-top: 40px;
+    margin-top: -320px;
     display: flex;
-    width: 150%;
-    margin-left: -50px;
+    margin-left: 70px;
+    z-index: 2;
+}
+button#addTool{
+    margin-top: 20px;
 }
 #submitPost{
     background-color: transparent;
@@ -162,17 +218,29 @@ input[type=text]{
     font-weight: bold;
     border: var(--light) solid 4px;
     color: var(--light);
-    padding: 10px 80px;
-    margin-top: 30px;
+    padding: 10px 40px;
+    position: relative;
+    top: 800px;
+}
+button#submitPost.btn.col-12{
+    width: 40%;
 }
 #submitPost:hover{
     color: var(--eerie-black);
     background-color: var(--light);
   }
+  .createBtn{
+    z-index: 2;
+    position: relative;
+    top: -500px;
+  }
 .collabs{
     text-align: center;
     margin: 40px;
     font-size: 1.5em;
+    position: relative;
+    top: 700px;
+    z-index: 2;
 }
   /*-----------POST DISPLAY FEED------------*/
   #usersList{
@@ -191,9 +259,24 @@ input[type=text]{
     color: var(--dark-lava);
     padding: 0 30px;
   }
-  
+  .toolList{
+    color: var(--post-primary);
+    margin: 0;
+    background-color: var(--post-secondary);
+    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+    background-color: var(--dark-lava);
+    padding: 0.625rem;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+.toolList:hover{
+    background-color: var(--light);
+    color: var(--eerie-black);
+    opacity: 70%;
+}
   #profilePic{
-    background: url('../images/logo-white.png');
+    background: url('../images/png/logo-white.png');
     width: 110px;
     height: 110px;
     border-radius: 100%;
@@ -230,12 +313,17 @@ input[type=text]{
   }
   #postList{
     display: flex;
+    margin-bottom: 20px;
   }
   #postsList h1{
     color: var(--dark-lava);
     margin-top: 30%;
   }
-
+p#count{
+    position: relative;
+    left: 50px;
+    top: -250px;
+}
   #postTitle{
     color: var(--dark-lava);
   }
@@ -246,7 +334,7 @@ input[type=text]{
     margin-top: 5%;
   }
   #profilePic2{
-    background: url('../images/logo-white.png');
+    background: url('../images/png/logo-white.png');
     width: 100px;
     height: 100px;
     border-radius: 100%;

@@ -12,6 +12,7 @@ const typeDefs = gql`
     posts: [Post]
     followers: [User]
     password: String
+    avatar: String
   }
   type Post {
     _id: ID
@@ -22,6 +23,7 @@ const typeDefs = gql`
     likeCount: Int
     commentCount: Int
     comments: [Comments]
+    user: [User]
   }
   type Comments {
     _id: ID
@@ -50,7 +52,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addPost(description: String!): Post
-    addComment(commentId: ID!, commentBody: String, username: String!): Post
+    addComment(postId: ID!, commentBody: String!): Post
     addReply(replyId: ID!, replyBody: String, username: String!): Post
     addFollower(followerId: ID!, username: String!): User
     savePost(postId: ID!, title: String!): User
