@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
-//require("dotenv").config(); 
+require("dotenv").config(); 
 
 //const secret = process.env.SC_COOKIE;
-const secret = 'mysecretsshhhhh';
+const secret = SC_COOKIE;
 const expiration = "2h";
 
 module.exports = {
