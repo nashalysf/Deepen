@@ -1429,9 +1429,9 @@ li{
 }
 img.mainImg{
   position: relative;
-  margin-top: 170px;
+  margin-top: 160px;
   margin-left: -290px;
-  width: 60%;
+  width: 300%;
 }
 
 element.style {
@@ -1440,7 +1440,7 @@ element.style {
 .sign-up{
   color: var(--eerie-black);
   font-size: 20px;
-  margin-top: -50px;
+  margin-top: -35px;
   margin-left: -280px;
   padding-bottom: 20px;
 }
@@ -1595,3 +1595,6 @@ p.mb-0{
 /* p.bg-dark.text-light.p-2{
   
 } */
+.card-body{
+  max-width: max-content;
+}

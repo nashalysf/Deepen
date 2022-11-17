@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <>
-      <Navbar background="url(./images/bg.jpg)" variant="dark" expand="lg">
+      <Navbar background="url(./images/bg.min.jpg)" variant="dark" expand="lg">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             <Link to="/">

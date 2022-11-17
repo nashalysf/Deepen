@@ -10,14 +10,8 @@ const ListLinks = () => {
   const [list] = React.useState(initialList);
 
   return (
-    <div  class="d-flex justify-content-between">
-      <ul id="" class="">
-        {list.map((item) => (
-          <li class= "toolList" key={item.id}>
-            <label>{item.name}</label>
-          </li>
-        ))}
-      </ul>
+    <div  class="d-flex justify-content-center">
+      
     </div>
   );
 };

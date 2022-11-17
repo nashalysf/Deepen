@@ -356,3 +356,25 @@ p#count{
     top: 70px;
     left: -50px;
   }
+  /*------------Single Post----------------*/
+  h1.title_project{
+    color: var(--light);
+  }
+  .CardHeader{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .card_body-content span{
+    color: var(--light);
+  }
+  #PostTools{
+    display: flex;
+  }
+  .padding{
+    padding: 0 20px;
+  }
+  .list{
+   position: relative;
+   top: -50px;
+  }

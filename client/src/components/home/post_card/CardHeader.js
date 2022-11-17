@@ -14,7 +14,7 @@ const CardHeader = ({ post }) => {
 
   return (
     <div className="formCard-header">
-      <div className="d-flex">
+      <div className="CardHeader">
         {/* TO-DO Input real title */}
         <Avatar src={user.avatar} size="supper-avatar" />
         <h4 className="m-0">

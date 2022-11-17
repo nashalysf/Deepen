@@ -49,7 +49,6 @@ const Login = (props) => {
               src={main}
               className="mainImg"
               alt="mainImg"
-              sizes="55%"
             />
             <h3 className="sign-up">
               Don't have an account yet?

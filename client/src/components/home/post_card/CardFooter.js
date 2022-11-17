@@ -5,7 +5,7 @@ const CardFooter = ({ post }) => {
     <div className="formCard-footer">
       <div className="card_icon_menu">
         {/* TO-DO Get links from post  */}
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-center">
           <h6 style={{ padding: "0 25px", cursor: "pointer" }}>
             {/* {post.links.length} likes */}www.github.com
           </h6>

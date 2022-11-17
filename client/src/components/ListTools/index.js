@@ -13,10 +13,10 @@ const ListTools = () => {
   const [list] = React.useState(initialList);
 
   return (
-    <div  class="d-flex justify-content-between">
-      <ul id="" class="">
+    <div  class="d-flex justify-content-center padding">
+      <ul id="PostTools" class="CardHeader ">
         {list.map((item) => (
-          <li  class= "toolList" key={item.id}>
+          <li  class= "list toolsList" key={item.id}>
             <label>{item.name}</label>
           </li>
         ))}
