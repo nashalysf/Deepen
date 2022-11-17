@@ -1,6 +1,7 @@
 import { React } from "react";
 
 const CollabForm = () => {
+  
   return (
     <>
       <main>
@@ -45,6 +46,7 @@ const CollabForm = () => {
         </button>
       </main>
     </>
+    
   );
 };
 
