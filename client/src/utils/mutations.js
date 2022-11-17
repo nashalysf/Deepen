@@ -39,6 +39,7 @@ export const ADD_POST = gql`
   mutation addPost($description: String!) {
     addPost(description: $description) {
       _id
+      title
       description
       createdAt
       username
