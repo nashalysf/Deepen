@@ -18,7 +18,7 @@ const PostForm = () => {
           query: QUERY_ME,
           data: { me: { ...me, posts: [...me.posts, addPost] } },
         });
-        console.log(JSON.stingify(cache.readQuery({ query: QUERY_ME })))
+        console.log(JSON.stingify(cache.readQuery({ query: QUERY_ME })));
       } catch (e) {
         console.warn("First post insertion by user!");
       }
@@ -43,16 +43,12 @@ const PostForm = () => {
       setCharacterCount(event.target.value.length);
     }
   };
-  //  const formState = {
-  //     description:  ''
-  //   };
-  //   const [postData, setUserData] = useState(formState);
- // submit form
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
-    
-    try { await addPost({ variables: { description } });
+
+    try {
+      await addPost({ variables: { description } });
 
       // clear form value
       setText("");
@@ -64,40 +60,90 @@ const PostForm = () => {
 
   return (
     <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
+      <div class="cover"></div>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="flex-row justify-center justify-space-between-md align-stretch createCard"
         onSubmit={handleFormSubmit}
       >
         <input
-          className="col-12 col-md-6 mb-5 titlePost"
+          className="titlePost cpInput"
+          id="postTitle"
           type="text"
           name="Title"
-          placeholder="Title"
+          placeholder="Post Title"
           required
         />
+        <p
+          id="count"
+          className={`m-5 ${
+            characterCount === 280 || error ? "text-error" : ""
+          }`}
+        >
+          Character Count: {characterCount}/280
+          {error && <span className="ml-2">Something went wrong...</span>}
+        </p>
+
         <textarea
           placeholder="Here's a new post..."
           value={description}
-          className="form-input col-12 col-md-9"
+          id="postDescription"
+          className="  col-md-9"
           onChange={handleChange}
           required
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+
+        <div class="links">
+          <input
+            type="text"
+            name="links"
+            placeholder="Links"
+            id="postLinks"
+            className="links"
+          />
+          <button 
+          type="button" 
+          className="addBtn" 
+          id="addLink">+</button>
+        </div>
+      </form>
+
+      <div class="postVisuals">
+            <button 
+            type='button' 
+            className="visuals" 
+            id="postSnippet">Add Code Snipet</button>
+            <button 
+            type='image' 
+            className="visuals"  
+            id="postImage">Add Image</button>
+            </div>
+
+            <label for="tools" className="toolTitle">Technologies used:</label>
+
+            <ul name="tools" id="postTools">
+    <li value="GraphQL" className="toolsList">GraphQL</li>
+    <li value="MongoDB" className="toolsList">MongoDB</li>
+    <li value="React" className="toolsList">React</li>
+    <li value="Node.js" className="toolsList">Node.js</li>
+    <div>
+    <li value="other" className="cpInput other">Other</li>
+    <button type="button" className="addBtn" id="addTool" onclick="alert('Add tool')">+</button></div>
+</ul>
+<section className="collabs">
+    <h4>Are you looking for collaborators?</h4>
+        <input type="radio" id="collab" name="collab" value="Yes"/>
+        <label for="collab">Yes</label>
+        <input type="radio" id="Nocollab" name="Nocollab" value="No"/>
+        <label for="Nocollab">No</label>
+    </section>
+      <form
+        className="flex-row justify-center  "
+        onSubmit={handleFormSubmit}
+      >
+        <button className="btn createBtn" id="submitPost" type="submit">
           Create Post
         </button>
       </form>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
     </div>
   );
 };

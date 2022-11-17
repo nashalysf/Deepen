@@ -6,7 +6,7 @@ import { QUERY_ME, QUERY_POSTS } from "../utils/queries";
 import PostList from "../components/PostList";
 import FriendList from "../components/FriendList";
 import PostForm from "../components/PostForm";
-import Install from "../components/install";
+import Install from "../components/Install";
 // import FollowerList from '../components/FollowerList';
 import HomeNav from "../components/HomeNav";
 import AddButton from "../components/AddButton";
@@ -42,14 +42,10 @@ const Home = () => {
         currentCategory={currentCategory}
       ></HomeNav>
       <Install />
-
+    
       <div>
         <div className="flex-row justify-space-between">
-          {loggedIn && (
-            <div className="col-12 mb-3">
-              <PostForm />
-            </div>
-          )}
+          
           <div className="col-12 mb-3">
             {" "}
             {loading && !loggedIn ? (

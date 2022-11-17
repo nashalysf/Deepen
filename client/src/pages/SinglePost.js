@@ -1,43 +1,24 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "../css/post.css";
-
 import CommentList from "../components/CommentList";
-
-import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
-import { QUERY_POST } from "../utils/queries";
+import { QUERY_POSTS } from "../utils/queries";
+import PostCard from "../components/PostCard";
+import Auth from "../utils/auth";
+import CommentForm from "../components/CommentForm";
 
 const SinglePost = (props) => {
+  const { data } = useQuery(QUERY_POSTS);
   const { id: postId } = useParams();
-
-  const { loading, data } = useQuery(QUERY_POST, {
-    variables: { id: postId },
-  });
-
-  const post = data?.post || {};
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
+  const posts = data?.posts || [];
+  const postArray = [...posts.values()];
+  const post = postArray.at(postId);
+console.log(post);
   return (
     <div>
-      <div className="card mb-3">
-        <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {post.username}
-          </span>{" "}
-          post on {post.createdAt}
-        </p>
-        <div className="card-body">
-          <p>{post.postText}</p>
-        </div>
-      </div>
-
-      {post.commentCount > 0 && <CommentList comments={post.comments} />}
-
-      {Auth.loggedIn()}
+      <PostCard post={post} />
+      {post.commentCount > -1 && <CommentList comments={post.comments} />}
+      {Auth.loggedIn() && <CommentForm postId={post._id} />}
     </div>
   );
 };
