@@ -58,7 +58,10 @@ function App() {
               />
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile">
+                <Route path=":username" element = {<Profile/>} />
+                <Route path="" element={<Profile/>} />
+              </Route>
               <Route path="/create" element={<CreatePosts />} />
               <Route path="/collab" element={<CollabForm />} />
               <Route path="/post/:id" element={<SinglePost />} />

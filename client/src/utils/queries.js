@@ -62,9 +62,10 @@ export const QUERY_USER = gql`
       posts {
         _id
         title
+        description
         createdAt
         likeCount
-        commentsCount
+        commentCount
       }
     }
   }

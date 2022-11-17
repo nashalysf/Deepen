@@ -1,15 +1,16 @@
-import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import PostForm from '../components/PostForm';
-import PostList from '../components/PostList';
-import FriendList from '../components/FriendList';
+import React from "react";
+import { Navigate, useParams } from "react-router-dom";
+import PostForm from "../components/PostForm";
+import PostList from "../components/PostList";
+import FriendList from "../components/FriendList";
 
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 import AddButton from "../components/AddButton";
 import ToTheTopBtn from "../components/ToTheTop";
+
 const Profile = (props) => {
   const { username: userParam } = useParams();
 
@@ -22,14 +23,14 @@ const Profile = (props) => {
 
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/profile:username" />;
+    return <Navigate to="/profile" />;
   }
 
   if (loading) {
     return <div>Loading...</div>;
   }
-//console.log(Auth.getProfile().data.username)
-const token = localStorage.getItem("id_token");
+  //console.log(Auth.getProfile().data.username)
+  const token = localStorage.getItem("id_token");
   if (token === null) {
     return (
       <h4>
@@ -53,7 +54,7 @@ const token = localStorage.getItem("id_token");
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+          Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
 
         {userParam && (
@@ -65,10 +66,7 @@ const token = localStorage.getItem("id_token");
       <div className="mb-3">{!userParam}</div>
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <PostList 
-            posts={user.posts}
-            title={`${user.username}'s posts...`}
-          />
+          <PostList posts={user.posts} title={`${user.username}'s posts...`} />
         </div>
 
         <div className="col-12 col-lg-3 mb-3">
