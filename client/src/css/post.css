@@ -33,6 +33,7 @@ form.createCard{
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .cpCard input{
@@ -65,15 +66,16 @@ h5#postUser{
 input#postTitle.titlePost.cpInput{
     height: 50px;
     width: 80%;
-    margin-top: -150px;
+    margin-top: -550px;
     font-size: 50px;
-    margin-left: 10%;
+    margin-left: 0%;
+    color: var(--light);
 }
 #postDescription{
     height: 200px;
     width: 80%;
-    margin-top: -96%;
-    margin-left: 10%;
+    margin-top: -1050px;
+    margin-left: 0;
     opacity: 100%;
     color: var(--dark-lava);
     font-size: 25px;
@@ -97,8 +99,8 @@ input#postLinks.links{
     padding-left: 40px;
     position: relative;
     font-size: 30px;
-    bottom: 650px;
-    border-bottom:solid var(--eerie-black) 3px ;
+    bottom: 800px;
+    border-bottom:solid var(--light) 3px ;
 }
 
 #PostTitle{
@@ -108,8 +110,11 @@ input#postLinks.links{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: absolute;
+    top: 270px;
     padding-top: 10px;
     width: 90%;
+    z-index: 3;
 }
 .addBtn{
     font-size: 45px;
@@ -119,6 +124,7 @@ input#postLinks.links{
     height: 50px;
     padding-bottom: 0;
     padding-right: 20px;
+    position: relative;
 }
 .addBtn:hover{
     color: var(--dark-lava);
@@ -133,8 +139,8 @@ input#postLinks.links{
     width: 100%;
     max-width: 800px;
     position: relative;
-    top: 250px;
-    left: 15%;
+    top: 350px;
+    left: 12%;
     z-index: 2;
 }
 .visuals:hover{
@@ -164,7 +170,7 @@ button#postImage.visuals{
     border-bottom: solid 4px var(--dark-lava);
     font-size: 50px;
     position: relative;
-    top: 350px;
+    top: 400px;
     left: 35%;
     z-index: 2;
 }
@@ -187,7 +193,7 @@ button#postImage.visuals{
     width: 60%;
     text-align: center;
     position: relative;
-    top: 500px;
+    top: 530px;
 }
 .toolsList:hover{
     background-color: var(--light);
@@ -198,10 +204,11 @@ button#postImage.visuals{
     text-align: left;
     width: 60%;
     padding-left: 10px;
-    margin-left: 10%;
+    margin-left: 20%;
     position: relative;
-    top: 820px;
+    top: 550px;
     z-index: 2;
+    border-bottom: solid var(--light) 3px;
 }
 #addTool{
     margin-top: -320px;
@@ -212,6 +219,11 @@ button#postImage.visuals{
 button#addTool{
     margin-top: 20px;
 }
+button#addLink.addBtn{
+    position: absolute;
+    top: 130px;
+    left: 85%;
+}
 #submitPost{
     background-color: transparent;
     font-size: 30px;
@@ -220,7 +232,8 @@ button#addTool{
     color: var(--light);
     padding: 10px 40px;
     position: relative;
-    top: 800px;
+    top: 470px;
+    margin-right: 30%;
 }
 button#submitPost.btn.col-12{
     width: 40%;
@@ -239,8 +252,12 @@ button#submitPost.btn.col-12{
     margin: 40px;
     font-size: 1.5em;
     position: relative;
-    top: 700px;
+    top: 450px;
+    margin-left: 10%;
     z-index: 2;
+}
+.collabs label{
+    padding-right: 30px;
 }
   /*-----------POST DISPLAY FEED------------*/
   #usersList{
@@ -321,8 +338,8 @@ button#submitPost.btn.col-12{
   }
 p#count{
     position: relative;
-    left: 50px;
-    top: -250px;
+    left: 100px;
+    top: -800px;
 }
   #postTitle{
     color: var(--dark-lava);

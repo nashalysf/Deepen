@@ -125,9 +125,9 @@ const PostForm = () => {
     <li value="MongoDB" className="toolsList">MongoDB</li>
     <li value="React" className="toolsList">React</li>
     <li value="Node.js" className="toolsList">Node.js</li>
-    <div>
+   
     <li value="other" className="cpInput other">Other</li>
-    <button type="button" className="addBtn" id="addTool" onclick="alert('Add tool')">+</button></div>
+    
 </ul>
 <section className="collabs">
     <h4>Are you looking for collaborators?</h4>
