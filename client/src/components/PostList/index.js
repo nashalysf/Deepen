@@ -13,7 +13,7 @@ const PostList = ({ posts, title }) => {
         posts.map(post => (
           <div key={post._id} className="postCard mb-3">
             <p className="postCard-header post-header">
-              <Link to ={`profile/${post.username}`}>
+              <Link to ={`/profile/${post.username}`}>
               {post.username}
               </Link>{' '}
               post on {post.createdAt}
