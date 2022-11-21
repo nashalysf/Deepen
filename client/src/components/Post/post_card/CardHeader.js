@@ -1,7 +1,7 @@
 import React from "react";
-import Avatar from "../Avatar";
+import Avatar from "../../Profile/Avatar";
 import { Link } from "react-router-dom";
-import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import { QUERY_USER, QUERY_ME } from "../../../utils/queries";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 

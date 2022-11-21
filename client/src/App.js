@@ -22,7 +22,7 @@ import Home from "./pages/Home";import NoMatch from "./pages/NoMatch";
 import SinglePost from "./pages/SinglePost";
 import Register from "./pages/Register";
 import Auth from "./utils/auth";
-import CreatePosts from "./components/PostForm";
+import CreatePosts from "./components/CreatePost/PostForm";
 import CollabForm from "./pages/CollabForm";
 
 const httpLink = createHttpLink({

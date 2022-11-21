@@ -1,15 +1,15 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import PostForm from '../components/PostForm';
-import PostList from '../components/PostList';
-import FriendList from '../components/FriendList';
+import PostForm from '../components/CreatePost/PostForm';
+import PostList from '../components/Home/PostList';
+import FriendList from '../components/Profile/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import AddButton from "../components/AddButton";
-import ToTheTopBtn from "../components/ToTheTop";
+import AddButton from "../components/Buttons/AddButton";
+import ToTheTopBtn from "../components/Buttons/ToTheTop";
 const Profile = (props) => {
   const { username: userParam } = useParams();
 

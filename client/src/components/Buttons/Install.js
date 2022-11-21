@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./install.css";
+import "../../css/install.css";
 
 const InstallPWA = () => {
   const [supportsPWA, setSupportsPWA] = useState(false);

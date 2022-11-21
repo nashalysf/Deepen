@@ -1,9 +1,9 @@
 import React from "react";
-import CardHeader from "../Home/post_card/CardHeader";
-import CardBody from "../Home/post_card/CardBody";
-import CardFooter from "../Home/post_card/CardFooter";
-import ListTools from "../ListTools";
-import ListLinks from "../ListLinks";
+import CardHeader from "./post_card/CardHeader";
+import CardBody from "./post_card/CardBody";
+import CardFooter from "./post_card/CardFooter";
+import ListTools from "./post_card/ListTools";
+import ListLinks from "./post_card/ListLinks";
 
 const PostCard = ({ post, theme }) => {
   return (

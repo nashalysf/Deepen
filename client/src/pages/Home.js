@@ -3,14 +3,14 @@ import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME, QUERY_POSTS } from "../utils/queries";
 
-import PostList from "../components/PostList";
-import FriendList from "../components/FriendList";
-import PostForm from "../components/PostForm";
-import Install from "../components/Install";
+import PostList from "../components/Home/PostList";
+import FriendList from "../components/Profile/FriendList";
+import PostForm from "../components/CreatePost/PostForm"
+import Install from "../components/Buttons/Install";
 // import FollowerList from '../components/FollowerList';
-import HomeNav from "../components/HomeNav";
-import AddButton from "../components/AddButton";
-import ToTheTopBtn from "../components/ToTheTop";
+import HomeNav from "../components/Home/HomeNav";
+import AddButton from "../components/Buttons/AddButton";
+import ToTheTopBtn from "../components/Buttons/ToTheTop";
 
 
 const Home = () => {
