@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { QUERY_USER, QUERY_ME } from "../../../utils/queries";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import logo from "../../../images/png/avatar.png"
 
 const CardHeader = ({ post }) => {
   const { username: userParam } = useParams();
@@ -16,7 +17,7 @@ const CardHeader = ({ post }) => {
     <div className="formCard-header">
       <div className="CardHeader">
         {/* TO-DO Input real title */}
-        <Avatar src={user.avatar} size="supper-avatar" />
+        <Avatar src={logo} size="big-avatar" />
         <h4 className="m-0">
           {/* TO-DO Change url path and change user.username */}
           <Link to={`profile/${post.username}`} className="profileName">
