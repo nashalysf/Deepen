@@ -1,7 +1,7 @@
 import React from "react";
-import CardHeader from "../home/post_card/CardHeader";
-import CardBody from "../home/post_card/CardBody";
-import CardFooter from "../home/post_card/CardFooter";
+import CardHeader from "../Home/post_card/CardHeader";
+import CardBody from "../Home/post_card/CardBody";
+import CardFooter from "../Home/post_card/CardFooter";
 import ListTools from "../ListTools";
 import ListLinks from "../ListLinks";
 
