@@ -27,7 +27,7 @@ const SinglePost = (props) => {
   // console.log(postArray[0]._id);
   // console.log(data);
   // console.log(postId);
-  // console.log(post);
+   console.log(post);
   if (loading) {
     return <div>Loading...</div>;
   }

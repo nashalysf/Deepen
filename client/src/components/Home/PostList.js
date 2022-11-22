@@ -63,7 +63,7 @@ const PostList = ({ posts, title }) => {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        {post._id}
+                        {post.title}
                       </Typography>
                       <Typography>{post.description}</Typography>
                     </CardContent>

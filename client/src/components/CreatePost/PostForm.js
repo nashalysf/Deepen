@@ -7,6 +7,7 @@ import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 const PostForm = () => {
   const [description, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
+  const [title, setTextTitle] = useState("");
 
   const [addPost, { error }] = useMutation(ADD_POST, {
     update(cache, { data: { addPost } }) {
@@ -38,20 +39,24 @@ const PostForm = () => {
   // update state based on form input changes
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
-      console.log(event.target.value);
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
+  };
+
+  const handleChangeTitle = (event) => {
+    setTextTitle(event.target.value);
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await addPost({ variables: { description } });
+      await addPost({ variables: { description, title } });
 
       // clear form value
       setText("");
+      setTextTitle("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -65,13 +70,14 @@ const PostForm = () => {
         className="flex-row justify-center justify-space-between-md align-stretch createCard"
         onSubmit={handleFormSubmit}
       >
-        <input
+        <textarea
           className="titlePost cpInput"
           id="postTitle"
           type="text"
+          value={title}
           name="Title"
           placeholder="Post Title"
-          required
+          onChange={handleChangeTitle}
         />
         <p
           id="count"
@@ -100,46 +106,51 @@ const PostForm = () => {
             id="postLinks"
             className="links"
           />
-          <button 
-          type="button" 
-          className="addBtn" 
-          id="addLink">+</button>
+          <button type="button" className="addBtn" id="addLink">
+            +
+          </button>
         </div>
       </form>
 
       <div class="postVisuals">
-            <button 
-            type='button' 
-            className="visuals" 
-            id="postSnippet">Add Code Snipet</button>
-            <button 
-            type='image' 
-            className="visuals"  
-            id="postImage">Add Image</button>
-            </div>
+        <button type="button" className="visuals" id="postSnippet">
+          Add Code Snipet
+        </button>
+        <button type="image" className="visuals" id="postImage">
+          Add Image
+        </button>
+      </div>
 
-            <label for="tools" className="toolTitle">Technologies used:</label>
+      <label for="tools" className="toolTitle">
+        Technologies used:
+      </label>
 
-            <ul name="tools" id="postTools">
-    <li value="GraphQL" className="toolsList">GraphQL</li>
-    <li value="MongoDB" className="toolsList">MongoDB</li>
-    <li value="React" className="toolsList">React</li>
-    <li value="Node.js" className="toolsList">Node.js</li>
-   
-    <li value="other" className="cpInput other">Other</li>
-    
-</ul>
-<section className="collabs">
-    <h4>Are you looking for collaborators?</h4>
-        <input type="radio" id="collab" name="collab" value="Yes"/>
+      <ul name="tools" id="postTools">
+        <li value="GraphQL" className="toolsList">
+          GraphQL
+        </li>
+        <li value="MongoDB" className="toolsList">
+          MongoDB
+        </li>
+        <li value="React" className="toolsList">
+          React
+        </li>
+        <li value="Node.js" className="toolsList">
+          Node.js
+        </li>
+
+        <li value="other" className="cpInput other">
+          Other
+        </li>
+      </ul>
+      <section className="collabs">
+        <h4>Are you looking for collaborators?</h4>
+        <input type="radio" id="collab" name="collab" value="Yes" />
         <label for="collab">Yes</label>
-        <input type="radio" id="Nocollab" name="Nocollab" value="No"/>
+        <input type="radio" id="Nocollab" name="Nocollab" value="No" />
         <label for="Nocollab">No</label>
-    </section>
-      <form
-        className="flex-row justify-center  "
-        onSubmit={handleFormSubmit}
-      >
+      </section>
+      <form className="flex-row justify-center  " onSubmit={handleFormSubmit}>
         <button className="btn createBtn" id="submitPost" type="submit">
           Create Post
         </button>

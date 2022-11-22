@@ -16,7 +16,7 @@ const CardHeader = ({ post }) => {
   return (
     <div className="formCard-header">
       <div className="CardHeader">
-        {/* TO-DO Input real title */}
+       
         <Avatar src={logo} size="big-avatar" />
         <h4 className="m-0">
           {/* TO-DO Change url path and change user.username */}
@@ -25,7 +25,7 @@ const CardHeader = ({ post }) => {
           </Link>
         </h4>
 
-        <h1 className="title_project">TITLE OF PROJECT</h1>
+        <h1 className="title_project">{post.title}</h1>
 
         <div className="card_name">
           <small className="text-muted">{post.createdAt}</small>
