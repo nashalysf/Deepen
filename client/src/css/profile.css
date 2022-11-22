@@ -1,0 +1,67 @@
+.coverProfile{
+    height: 250px;
+    width: 100%;
+    background: url('../images/png/avatar.png');
+    margin-top: 0%;
+}
+.profilePic{
+    background: url('../images/png/avatar.png');
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: -7%;
+    margin-left: 5%;
+}
+.editProfile{
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 100%;
+    position: relative;
+    left: 175px;
+    top: -50px;
+}
+.editProfile img{
+    height: 60%;
+    margin-top: 5px;
+}
+#about{
+    color: var(--light);
+}
+.nav{
+    font-size: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    border-bottom: solid var(--light) 3px;
+    width: 100%;
+    text-align: left;
+}
+.friends{
+    margin-top: 150px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bolder;
+    opacity: 95%;
+}
+
+h3{
+    padding-left: 30px;
+}
+ul.pagination{
+    margin-left: 170px;
+    margin-top: 50px;
+}
+li.page-item{
+    padding-left: 0;
+}
+a.page-link{
+    color: var(--eerie-black);
+    background-color: var(--light);
+    font-weight: bolder;
+    border: transparent;
+    opacity: 70%;
+    font-size: 20px;
+}
+div.MuiContainer-root.MuiContainer-maxWidthMd.css-jcfe1v-MuiContainer-root{
+    margin-bottom: -25px;
+}

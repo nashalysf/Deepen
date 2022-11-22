@@ -1,17 +1,31 @@
-import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import PostForm from '../components/CreatePost/PostForm';
-import PostList from '../components/Home/PostList';
-import FriendList from '../components/Profile/FriendList';
+import React, { useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
+import PostForm from "../components/CreatePost/PostForm";
+import PostList from "../components/Home/PostList";
+import FriendList from "../components/Profile/FriendList";
+import setting from "../images/png/settings.png";
+import ProfileNav from "../components/Profile/ProfileNav";
+import About from '../components/Profile/About';
 
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 import AddButton from "../components/Buttons/AddButton";
 import ToTheTopBtn from "../components/Buttons/ToTheTop";
 const Profile = (props) => {
+  const [categories] = useState([ 
+    {
+      name: 'About'
+    },
+    { 
+      name: 'Works'
+    }
+  ]);
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
   const { username: userParam } = useParams();
+  const [aboutSelected, setAboutSelected] = useState(false);
 
   const [addFriend] = useMutation(ADD_USER);
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -28,8 +42,8 @@ const Profile = (props) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-//console.log(Auth.getProfile().data.username)
-const token = localStorage.getItem("id_token");
+  //console.log(Auth.getProfile().data.username)
+  const token = localStorage.getItem("id_token");
   if (token === null) {
     return (
       <h4>
@@ -49,26 +63,50 @@ const token = localStorage.getItem("id_token");
     }
   };
 
+
   return (
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+          Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
 
         {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
-            Add Friend
+            Follow
           </button>
         )}
       </div>
       <div className="mb-3">{!userParam}</div>
-      <div className="flex-row justify-space-between mb-3">
+      <div className="coverProfile"></div>
+      <div className="profilePic"></div>
+      <button 
+      className="editProfile" 
+      id="settings" 
+      onClick="alert('clicked')">
+        <img 
+        alt="profilePic" 
+        src={setting} /> </button>
+     
+      <ProfileNav
+       setCurrentCategory={setCurrentCategory}
+       currentCategory={currentCategory}
+      aboutSelected = {aboutSelected}
+      setAboutSelected = {setAboutSelected}
+      ></ProfileNav>
+      {!aboutSelected ? ( 
+        <> 
+        
+        </>
+      ) : (
+        <About></About>
+      )
+    }
+  
+    
+      <div className="flex-row justify-center ">
         <div className="col-12 mb-3 col-lg-8">
-          <PostList 
-            posts={user.posts}
-            title={`${user.username}'s posts...`}
-          />
+          <PostList posts={user.posts} title={`${user.username}'s posts...`} />
         </div>
 
         <div className="col-12 col-lg-3 mb-3">
