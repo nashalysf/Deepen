@@ -32,6 +32,7 @@ const PostList = ({ posts, title }) => {
   }
 
   const theme = createTheme();
+  console.log(posts);
   return (
     <div>
       <h3>{title}</h3>
@@ -73,6 +74,7 @@ const PostList = ({ posts, title }) => {
                         {post.title}
                       </Typography>
                       <Typography>{post.description}</Typography>
+                      <Typography>{post.tools}</Typography>
                     </CardContent>
                     <CardActions>
                       <Link href={`/post/${post._id}`} underline="hover" >

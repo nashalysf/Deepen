@@ -19,7 +19,7 @@ const PostForm = () => {
   const [description, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
   const [title, setTextTitle] = useState("");
-  const [tools,setLinks] = useState([]);
+  const [tools,setTools] = useState([]);
   const toolsArray = ['Javascript','Java','Typescript','React','Vue','MongoDB','Python','CSS', ];
 
   const [addPost, { error }] = useMutation(ADD_POST, {
@@ -62,18 +62,19 @@ const PostForm = () => {
   };
 
   const handleChangeTool = async (event) => {
-    setLinks(event.target.value);
+    setTools(event.target.value);
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await addPost({ variables: { description, title } });
-
+      await addPost({ variables: { description, title, tools } });
+console.log("tools",tools);
       // clear form value
       setText("");
       setTextTitle("");
+      setTools([]);
       setCharacterCount(0);
     } catch (e) {
       console.error(e);

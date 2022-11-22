@@ -10,6 +10,7 @@ export const QUERY_POSTS = gql`
       username
       likeCount
       commentCount
+      tools
     }
   }
 `;
@@ -35,6 +36,7 @@ export const QUERY_POST = gql`
       createdAt
       username
       title
+      tools
       img: String
       snippet: String
       links: String

@@ -48,7 +48,7 @@ const postSchema = new Schema(
       type: String,
       required: false,
     },
-
+    tools:[String],
     comments: [Comments],
 
     likes: [likeSchema],
