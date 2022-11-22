@@ -310,14 +310,14 @@ div.card.welcome{
 
 /* LAYOUT */
 .container {
-  width: 85%;
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .container-fluid {
-  width: 92%;
+  width: 90%;
 }
 /* button.navbar-toggler.collapsed{
   display: none;
@@ -883,9 +883,8 @@ div.card.welcome{
 .flex-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 5%;
-  margin-left: 25%;
+  justify-content: space-between;
+  margin-left: 1%;
 }
 
 ul{
