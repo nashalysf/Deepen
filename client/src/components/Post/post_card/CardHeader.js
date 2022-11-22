@@ -1,17 +1,10 @@
 import React from "react";
 import Avatar from "../../Profile/Avatar";
 import { Link } from "react-router-dom";
-import { QUERY_USER, QUERY_ME } from "../../../utils/queries";
-import {DELETE_POST} from "../../../utils/mutations";
-import { useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
 import logo from "../../../images/png/avatar.png"
-import { Form, Button, Alert } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const CardHeader = ({ post }) => {
-
-
-
   return (
     <div className="formCard-header">
       <div className="CardHeader">
