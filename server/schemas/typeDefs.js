@@ -20,6 +20,7 @@ const typeDefs = gql`
     description: String
     createdAt: String
     username: String
+    tools: [String]
     likeCount: Int
     commentCount: Int
     comments: [Comments]
@@ -51,7 +52,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addPost(description: String!, title: String!): Post
+    addPost(description: String!, title: String!, tools: [String!] ): Post
     addComment(postId: ID!, commentBody: String!): Post
     addReply(replyId: ID!, replyBody: String, username: String!): Post
     addFollower(followerId: ID!, username: String!): User

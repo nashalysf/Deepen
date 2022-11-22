@@ -36,8 +36,8 @@ export const ADD_FOLLOWER = gql`
   }
 `;
 export const ADD_POST = gql`
-  mutation addPost($description: String!, $title: String!) {
-    addPost(description: $description,  title: $title) {
+  mutation addPost($description: String!, $title: String!, $tools: [String!]!) {
+    addPost(description: $description,  title: $title, tools: $tools) {
       _id
       title
       description
@@ -45,6 +45,7 @@ export const ADD_POST = gql`
       username
       commentCount
       likeCount
+      tools
       comments {
         _id
       }
