@@ -6,6 +6,7 @@ import { QUERY_POSTS, QUERY_COMMENTS, QUERY_POST } from "../utils/queries";
 import PostCard from "../components/Post/PostCard";
 import Auth from "../utils/auth";
 import CommentForm from "../components/Comment/CommentForm";
+import DeletePost from "../components/Post/DeletePost";
 
 
 const SinglePost = (props) => {
@@ -37,6 +38,7 @@ const SinglePost = (props) => {
       <PostCard post={post} />
       {post.commentCount > 0 && <CommentList comments={post.comments} />}
       {Auth.loggedIn() && <CommentForm postId={post._id} />}
+      <DeletePost/>
     </div>
   );
 };
