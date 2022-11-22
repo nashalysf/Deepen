@@ -2,16 +2,15 @@ import React from "react";
 import Avatar from "../../Profile/Avatar";
 import { Link } from "react-router-dom";
 import { QUERY_USER, QUERY_ME } from "../../../utils/queries";
+import {DELETE_POST} from "../../../utils/mutations";
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import logo from "../../../images/png/avatar.png"
+import { Form, Button, Alert } from "react-bootstrap";
 
 const CardHeader = ({ post }) => {
-  const { username: userParam } = useParams();
-  const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
-  });
-  const user = data?.me || data?.user || {};
+
+
 
   return (
     <div className="formCard-header">
@@ -24,7 +23,14 @@ const CardHeader = ({ post }) => {
             {post.username}
           </Link>
         </h4>
-
+        <Button
+          className="btn btn-danger btn-block"
+          type="submit"
+          variant="danger"
+          onClick={""}
+        >
+          Submit
+        </Button>
         <h1 className="title_project">{post.title}</h1>
 
         <div className="card_name">
@@ -38,6 +44,7 @@ const CardHeader = ({ post }) => {
           id="moreLink"
           data-toggle="dropdown"
         ></span>
+<button onClick={""} >Delete</button>
       </div>
       
     </div>

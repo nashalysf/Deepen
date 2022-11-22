@@ -58,6 +58,7 @@ const typeDefs = gql`
     addFollower(followerId: ID!, username: String!): User
     savePost(postId: ID!, title: String!): User
     deleteUser(username: String!, password: String!): Auth
+    deletePost(_id: ID!): Post
   }
   type Auth {
     token: ID!

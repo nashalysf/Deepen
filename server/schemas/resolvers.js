@@ -76,6 +76,14 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    deletePost: async (parent,  postId , context) => {
+     
+      if (postId) {
+        const updatePostList = await Post.findByIdAndRemove(postId);
+        return updatePostList;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     savePost: async (parent, args, context) => {
         if (context.user) {
             const updatedList = await User.findOneAndUpdate(
@@ -128,6 +136,7 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
+      
   },
 };
 

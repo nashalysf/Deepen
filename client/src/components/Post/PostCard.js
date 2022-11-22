@@ -4,8 +4,10 @@ import CardBody from "./post_card/CardBody";
 import CardFooter from "./post_card/CardFooter";
 import ListTools from "./post_card/ListTools";
 import ListLinks from "./post_card/ListLinks";
+import DeletePost from "./DeletePost";
 
 const PostCard = ({ post, theme }) => {
+
   return (
     <div>
       <div className="formCard my-3">
@@ -14,6 +16,7 @@ const PostCard = ({ post, theme }) => {
         <ListLinks/>
         <ListTools/>
         <CardFooter post={post} />
+        <DeletePost/>
       </div>
     </div>
   );

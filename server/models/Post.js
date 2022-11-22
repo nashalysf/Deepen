@@ -20,6 +20,10 @@ const postSchema = new Schema(
     title: {
       type: String,
     },
+    postId: {
+              type: String, 
+              required: false,
+          }, 
     description: {
       type: String,
       required: false,

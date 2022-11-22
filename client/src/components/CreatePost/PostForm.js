@@ -32,7 +32,7 @@ const PostForm = () => {
           query: QUERY_ME,
           data: { me: { ...me, posts: [...me.posts, addPost] } },
         });
-        console.log(JSON.stingify(cache.readQuery({ query: QUERY_ME })));
+        console.log('hola');
       } catch (e) {
         console.warn("First post insertion by user!");
       }
@@ -42,6 +42,7 @@ const PostForm = () => {
           query: QUERY_POSTS,
           data: { posts: [addPost, ...posts] },
         });
+        console.log('hola');
       } catch (error) {
         console.warn("First post added to posts!");
       }
