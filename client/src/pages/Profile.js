@@ -13,7 +13,7 @@ import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import AddButton from "../components/Buttons/AddButton";
 import ToTheTopBtn from "../components/Buttons/ToTheTop";
-const Profile = (props) => {
+const Profile = ({props}) => {
   const [categories] = useState([ 
     {
       name: 'About'
@@ -22,22 +22,44 @@ const Profile = (props) => {
       name: 'Works'
     }
   ]);
+  
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
-
-  const { username: userParam } = useParams();
   const [aboutSelected, setAboutSelected] = useState(false);
-
   const [addFriend] = useMutation(ADD_USER);
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  
+
+  let { username: userParam } = useParams();
+
+  if (window.location.pathname.length < 9) {
+    let profilePathName = window.location.pathname.substring(9);
+    if (profilePathName !== Auth.getProfile().data.username) {
+     userParam = profilePathName;
+
+    }
+  }
+  console.log(userParam + "userParam");
+//create query to get user data or me data QUERY_USER or QUERY_ME
+  const { loading, data } = useQuery( userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
-  const user = data?.me || data?.user || {};
+console.log(data);
 
-  // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/profile:username" />;
+  
+  const user = data?.me || data?.user || {};
+  let profilePathName = "";
+  if (window.location.pathname.length <9) {
+    profilePathName = window.location.pathname.substring(9);
   }
+  // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  //   return <Navigate to="/profile:username" />;
+  // }
+  
+  // navigate to personal profile page if username is yours
+  // if (Auth.loggedIn() && window.location.pathname.length <9) {
+  //   profilePathName = window.location.pathname.substring(9).concat(Auth.getProfile().data.username);
+  //   return <Navigate to="/profile" />;
+  // }
 
   if (loading) {
     return <div>Loading...</div>;

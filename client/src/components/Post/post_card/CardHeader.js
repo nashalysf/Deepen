@@ -11,7 +11,7 @@ const CardHeader = ({ post }) => {
         <Avatar src={logo} size="big-avatar" />
         <h4 className="m-0">
           {/* TO-DO Change url path and change user.username */}
-          <Link to={`profile/${post.username}`} className="profileName">
+          <Link to={`/profile/${post.username}`} className="profileName">
             {post.username}
           </Link>
         </h4>
