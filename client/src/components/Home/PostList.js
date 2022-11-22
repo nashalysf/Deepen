@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -18,8 +18,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import { red } from "@mui/material/colors";
+import  Pagination from '../Pagination';
 
 const PostList = ({ posts, title }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(6);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
   if (!posts.length) {
     return <h3 className="noPost">No Posts Yet</h3>;
   }
@@ -33,7 +40,7 @@ const PostList = ({ posts, title }) => {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {posts &&
-              posts.map((post) => (
+              currentPosts.map((post) => (
                 <Grid item key={post._id} xs={12} sm={6} md={4}>
                   <Card
                     sx={{
@@ -77,7 +84,9 @@ const PostList = ({ posts, title }) => {
                   </Card>
                 </Grid>
               ))}
+              
           </Grid>
+          <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate = {paginate} color="secondary" />
         </Container>
       </div>
     </div>
