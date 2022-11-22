@@ -3,11 +3,24 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+
+
+
 
 const PostForm = () => {
   const [description, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
   const [title, setTextTitle] = useState("");
+  const [tools,setLinks] = useState([]);
+  const toolsArray = ['Javascript','Java','Typescript','React','Vue','MongoDB','Python','CSS', ];
 
   const [addPost, { error }] = useMutation(ADD_POST, {
     update(cache, { data: { addPost } }) {
@@ -36,16 +49,20 @@ const PostForm = () => {
     },
   });
 
-  // update state based on form input changes
-  const handleChange = (event) => {
+    // update state based on form input changes
+  const handleChangeTitle = async (event) => {
+    setTextTitle(event.target.value);
+  };
+
+  const handleChangeDescription = (event) => {
     if (event.target.value.length <= 280) {
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
 
-  const handleChangeTitle = (event) => {
-    setTextTitle(event.target.value);
+  const handleChangeTool = async (event) => {
+    setLinks(event.target.value);
   };
 
   const handleFormSubmit = async (event) => {
@@ -62,16 +79,23 @@ const PostForm = () => {
       console.error(e);
     }
   };
-
+  
+  //console.log(tools);
   return (
     <div>
-      <div class="cover"></div>
+       
+      <p
+        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
+      >
+        Character Count: {characterCount}/280
+        {error && <span className="ml-2">Something went wrong...</span>}
+      </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch createCard"
+        className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
         <textarea
-          className="titlePost cpInput"
+          className="form-input col-12 col-md-9"
           id="postTitle"
           type="text"
           value={title}
@@ -79,80 +103,44 @@ const PostForm = () => {
           placeholder="Post Title"
           onChange={handleChangeTitle}
         />
-        <p
-          id="count"
-          className={`m-5 ${
-            characterCount === 280 || error ? "text-error" : ""
-          }`}
-        >
-          Character Count: {characterCount}/280
-          {error && <span className="ml-2">Something went wrong...</span>}
-        </p>
-
         <textarea
           placeholder="Here's a new post..."
           value={description}
-          id="postDescription"
-          className="  col-md-9"
-          onChange={handleChange}
-          required
+          className="form-input col-12 col-md-9"
+          onChange={handleChangeDescription}
         ></textarea>
+        <FormControl  sx={{ m: 1, minWidth: 500 }}>
+        <InputLabel  id="demo-simple-select-helper-label">Tools</InputLabel>
+        <Select labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          multiple
+          value={tools}
+          label="Tools"
+          onChange={handleChangeTool}
+          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+            </Box>
+          )}
 
-        <div class="links">
-          <input
-            type="text"
-            name="links"
-            placeholder="Links"
-            id="postLinks"
-            className="links"
-          />
-          <button type="button" className="addBtn" id="addLink">
-            +
-          </button>
-        </div>
-      </form>
-
-      <div class="postVisuals">
-        <button type="button" className="visuals" id="postSnippet">
-          Add Code Snipet
-        </button>
-        <button type="image" className="visuals" id="postImage">
-          Add Image
-        </button>
-      </div>
-
-      <label for="tools" className="toolTitle">
-        Technologies used:
-      </label>
-
-      <ul name="tools" id="postTools">
-        <li value="GraphQL" className="toolsList">
-          GraphQL
-        </li>
-        <li value="MongoDB" className="toolsList">
-          MongoDB
-        </li>
-        <li value="React" className="toolsList">
-          React
-        </li>
-        <li value="Node.js" className="toolsList">
-          Node.js
-        </li>
-
-        <li value="other" className="cpInput other">
-          Other
-        </li>
-      </ul>
-      <section className="collabs">
-        <h4>Are you looking for collaborators?</h4>
-        <input type="radio" id="collab" name="collab" value="Yes" />
-        <label for="collab">Yes</label>
-        <input type="radio" id="Nocollab" name="Nocollab" value="No" />
-        <label for="Nocollab">No</label>
-      </section>
-      <form className="flex-row justify-center  " onSubmit={handleFormSubmit}>
-        <button className="btn createBtn" id="submitPost" type="submit">
-          Create Post
+        >
+          {toolsArray.map((name) => (
+            <MenuItem
+              key={name}
+              value={name}
+            >
+              {name}
+            </MenuItem>
+            ))}
+        </Select>
+        
+        <FormHelperText>With label + helper text</FormHelperText>
+      </FormControl>
+        <button className="btn col-12 col-md-3" type="submit">
+          Submit
         </button>
       </form>
     </div>
