@@ -83,7 +83,6 @@ const Login = (props) => {
               >
                 Login
               </button>
-              <p className="sloganBtn"> Create, Share and Inspire</p>
             </form>
           </div>
         </div>

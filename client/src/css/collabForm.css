@@ -4,7 +4,7 @@
     height: 1000px;
     max-height: max-content;
     padding-top: 50px;
-    width: 80%;
+    width: 100%;
     margin-top: 150px;
     border-radius: var(--border-radius);
     border-top-left-radius: 100px;
@@ -18,14 +18,31 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .collabCard input{
-    width: max-content;
+    width: 30%;
     height: 50px;
     margin-top: 80px;
     margin-bottom: 80px;
+    background-color: transparent !important;
+    color: black;
+    font-size: 30px;
+    padding-left: 20px;
+    margin-right: 35%;
+    
+}
+#collabEmail{
+    border: transparent;
+    border-bottom: solid 3px var(--dark-lava);
+    margin-top: -20px;
+}
+.collabCard h1{
+    font-size: 50px;
+    border-bottom: solid 3px var(--eerie-black);
+    width: 70%;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 #submitCollab{
-   width: 10%;
    height: 70px;
     background-color: transparent;
     font-size: 30px;
@@ -76,13 +93,17 @@
     position: relative;
     top: 20px;
 }
+#GitHub{
+    position: relative;
+    bottom: 22%;
+    left: 40%;
+}
 #collaborate{
     width: 50%;
     height: 300px;
     font-size: 20px;
-    margin-top: 130px;
-    margin-left: 50px;
     padding: 20px;
+    margin-top: -200px;
 }
 #collabLinks{
     font-size: 30px;

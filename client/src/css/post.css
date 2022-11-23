@@ -92,6 +92,7 @@ input[type=text]{
     border: transparent;
     border-bottom: solid 3px var(--dark-lava);
     background-color: transparent !important;
+    color: var(--light);
 }
 input#postLinks.links{
     width: 80%;
@@ -106,6 +107,7 @@ input#postLinks.links{
 #PostTitle{
     background-color: transparent !important;
 }
+
 .links{
     display: flex;
     flex-wrap: wrap;
@@ -343,7 +345,18 @@ p#count{
 }
   #postTitle{
     color: var(--dark-lava);
+    font-size: 25px;
+    background-color: transparent !important;
+    border-bottom: solid var(--light);
+    margin-bottom: 20px;
+    height: 65px;
   }
+  input.form-input.col-12.col-md-9.liveURL {
+    color: var(--dark-lava);
+    background-color: transparent !important;
+    border-bottom: solid var(--light);
+  }
+
   .coverPost{
     height: 200px;
     width: 800px;

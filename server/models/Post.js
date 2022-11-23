@@ -20,6 +20,10 @@ const postSchema = new Schema(
     title: {
       type: String,
     },
+    postId: {
+              type: String, 
+              required: false,
+          }, 
     description: {
       type: String,
       required: false,
@@ -48,7 +52,11 @@ const postSchema = new Schema(
       type: String,
       required: false,
     },
-
+    likeCount: {
+      type: Number,
+      default: 0,
+    },
+    tools:[String],
     comments: [Comments],
 
     likes: [likeSchema],

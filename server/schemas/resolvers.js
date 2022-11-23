@@ -24,6 +24,9 @@ const resolvers = {
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
     },
+    follower: async (parent, {  _id }) => {
+      return User.findById(_id);
+    },
 
     //commented out comments for now. in order to populate it user model needs to reference it. requires reference in typeDefs as well.
     users: async () => {
@@ -76,6 +79,14 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    deletePost: async (parent,  postId , context) => {
+     
+      if (postId) {
+        const updatePostList = await Post.findByIdAndRemove(postId);
+        return updatePostList;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     savePost: async (parent, args, context) => {
         if (context.user) {
             const updatedList = await User.findOneAndUpdate(
@@ -102,6 +113,19 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
+      addLike: async (parent, { postId, likeCount }, context) => {
+        if (context.user) {
+          const updatedPost = await Post.findOneAndUpdate(
+            { _id: postId },
+            { $push: { likeCount: 1 } },
+            { new: true, runValidators: true }
+          );
+      
+          return updatedPost;
+        }
+      
+        throw new AuthenticationError('You need to be logged in!');
+      },
       addReply: async (parent, { commentId, replyBody }, context) => {
         if (context.user) {
           const updatedComment = await Comment.findOneAndUpdate(
@@ -115,12 +139,12 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
-      addFollower: async (parent, { followerId }, context) => {
+      addFollower: async (parent, { username }, context) => {
         if (context.user) {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { followers: followerId } },
-            { new: true }
+            { $push: { followers: {username: username }} },
+            { new: true, runValidators: true }
           ).populate('followers');
       
           return updatedUser;
@@ -128,6 +152,7 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
+      
   },
 };
 

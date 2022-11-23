@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -23,8 +23,8 @@ export const ADD_USER = gql`
   }
 `;
 export const ADD_FOLLOWER = gql`
-  mutation addFollower($id: ID!) {
-    addFollower(followerId: $id) {
+  mutation addFollower( $username: String!) {
+    addFollower(  username: $username) {
       _id
       username
       followersCount
@@ -35,15 +35,34 @@ export const ADD_FOLLOWER = gql`
     }
   }
 `;
-export const ADD_POST = gql`
-  mutation addPost($description: String!) {
-    addPost(description: $description) {
+export const ADD_LIKE = gql`
+mutation addLike($postId: ID!, $likeCount: Int) {
+  addLike(postId: $postId, likeCount: $likeCount) {
+    _id
+    title
+    description
+    createdAt
+    username
+    commentCount
+    likeCount
+    tools
+    comments {
       _id
+    }
+  }
+}
+`;
+export const ADD_POST = gql`
+  mutation addPost($description: String!, $title: String!, $tools: [String!]!) {
+    addPost(description: $description, title: $title, tools: $tools) {
+      _id
+      title
       description
       createdAt
       username
       commentCount
       likeCount
+      tools
       comments {
         _id
       }
@@ -61,6 +80,24 @@ export const ADD_COMMENT = gql`
         commentBody
         createdAt
         username
+      }
+    }
+  }
+`;
+
+export const DELETE_POST = gql`
+  mutation deletePost($id: ID!) {
+    deletePost(_id: $id) {
+      _id
+      title
+      description
+      createdAt
+      username
+      commentCount
+      likeCount
+      tools
+      comments {
+        _id
       }
     }
   }

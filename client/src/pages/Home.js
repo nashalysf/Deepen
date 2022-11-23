@@ -3,14 +3,15 @@ import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME, QUERY_POSTS } from "../utils/queries";
 
-import PostList from "../components/PostList";
-import FriendList from "../components/FriendList";
-import PostForm from "../components/PostForm";
-import Install from "../components/Install";
+import PostList from "../components/Home/PostList";
+import FollowerList from "../components/Profile/FollowerList";
+import PostForm from "../components/CreatePost/PostForm"
+import Install from "../components/Buttons/Install";
+import Search from "../components/Home/Search";
 // import FollowerList from '../components/FollowerList';
-import HomeNav from "../components/HomeNav";
-import AddButton from "../components/AddButton";
-import ToTheTopBtn from "../components/ToTheTop";
+import HomeNav from "../components/Home/HomeNav";
+import AddButton from "../components/Buttons/AddButton";
+import ToTheTopBtn from "../components/Buttons/ToTheTop";
 
 
 const Home = () => {
@@ -19,13 +20,10 @@ const Home = () => {
       name: "Home",
     },
     {
-      name: "Following",
-    },
-    {
       name: "Search",
     },
   ]);
-
+  const [searchSelected, setSearchSelected] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -40,6 +38,8 @@ const Home = () => {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        searchSelected={searchSelected}
+        setSearchSelected={setSearchSelected}
       ></HomeNav>
       <Install />
     
@@ -51,17 +51,26 @@ const Home = () => {
             {loading && !loggedIn ? (
               <div>Loading...</div>
             ) : (
-              <PostList posts={posts} title="Some Post(s)..." />
+              //a header centered on the page
+            <div>
+                <PostList posts={posts} />
+              </div>
+            )} {searchSelected ? (
+              <>
+              <Search></Search>
+              </>
+            ):(
+              ""
             )}
           </div>
         </div>
       </div>
       <div className="flex-row justify-space-between">
-        {loggedIn && userData ? (
+        {/* {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
-            <FriendList username={userData.me.username} />
+            <FollowerList username={userData.me.username} />
           </div>
-        ) : null}
+        ) : null} */}
         <AddButton />
         <ToTheTopBtn />
       </div>

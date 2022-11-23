@@ -10,6 +10,20 @@ export const QUERY_POSTS = gql`
       username
       likeCount
       commentCount
+      tools
+      comments {
+        _id
+        commentBody
+        createdAt
+        username
+        replyCount
+        replies {
+          _id
+          replyBody
+          createdAt
+          username
+        }
+      }
     }
   }
 `;
@@ -25,6 +39,8 @@ export const QUERY_COMMENTS = gql`
     }
   }
 `;
+
+
 export const QUERY_POST = gql`
   query post($id: ID!) {
     post(_id: $id) {
@@ -33,6 +49,7 @@ export const QUERY_POST = gql`
       createdAt
       username
       title
+      tools
       img: String
       snippet: String
       links: String
@@ -43,6 +60,29 @@ export const QUERY_POST = gql`
         createdAt
         username
         commentBody
+      }
+    }
+  }
+`;
+export const QUERY_FOLLOWER = gql`
+  query follower($username: String!) {
+    follower(username: $username) {
+      _id
+      username
+      email
+      postCounts
+      followersCount
+      followers {
+        _id
+        username
+      }
+      posts {
+        _id
+        title
+        description
+        createdAt
+        likeCount
+        commentCount
       }
     }
   }
@@ -62,9 +102,10 @@ export const QUERY_USER = gql`
       posts {
         _id
         title
+        description
         createdAt
         likeCount
-        commentsCount
+        commentCount
       }
     }
   }
