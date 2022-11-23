@@ -22,7 +22,7 @@ import GroupsIcon from "@mui/icons-material/Groups";
 const PostList = ({ posts, title }) => {
   const [readMore, setReadMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(9);
+  const [postsPerPage] = useState(9);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   if (posts == null) {
