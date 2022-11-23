@@ -24,6 +24,9 @@ const resolvers = {
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
     },
+    follower: async (parent, {  _id }) => {
+      return User.findById(_id);
+    },
 
     //commented out comments for now. in order to populate it user model needs to reference it. requires reference in typeDefs as well.
     users: async () => {
@@ -123,11 +126,11 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
-      addFollower: async (parent, { followerId }, context) => {
+      addFollower: async (parent, { username }, context) => {
         if (context.user) {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { followers: User.findById(followerId) } },
+            { $push: { followers: {username: username }} },
             { new: true, runValidators: true }
           ).populate('followers');
       

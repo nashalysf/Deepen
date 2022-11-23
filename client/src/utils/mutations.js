@@ -23,8 +23,8 @@ export const ADD_USER = gql`
   }
 `;
 export const ADD_FOLLOWER = gql`
-  mutation addFollower( $followerId: ID!) {
-    addFollower( followerId: $followerId) {
+  mutation addFollower( $username: String!) {
+    addFollower(  username: $username) {
       _id
       username
       followersCount

@@ -57,12 +57,12 @@ console.log(user._id);
     );
   }
 
-  
+  console.log(user.username);
   //create function for following a user
   const handleFollow = async () => {
     try {
       await addFollower({variables:
-         {  followerId: user._id}});
+         { username: user.username }});
     } catch (e) {
       console.error(e);
     }

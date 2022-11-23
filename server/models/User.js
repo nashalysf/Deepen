@@ -5,10 +5,6 @@ const bcrypt = require('bcrypt');
 const followerSchema = new Schema(
   {
       // set custom id to avoid confusion with parent comment _id
-    followerId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    },
       username:{
           type: String,
       }
