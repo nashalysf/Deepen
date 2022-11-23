@@ -52,6 +52,10 @@ const postSchema = new Schema(
       type: String,
       required: false,
     },
+    likeCount: {
+      type: Number,
+      default: 0,
+    },
     tools:[String],
     comments: [Comments],
 

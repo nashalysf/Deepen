@@ -113,6 +113,19 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
+      addLike: async (parent, { postId, likeCount }, context) => {
+        if (context.user) {
+          const updatedPost = await Post.findOneAndUpdate(
+            { _id: postId },
+            { $push: { likeCount: 1 } },
+            { new: true, runValidators: true }
+          );
+      
+          return updatedPost;
+        }
+      
+        throw new AuthenticationError('You need to be logged in!');
+      },
       addReply: async (parent, { commentId, replyBody }, context) => {
         if (context.user) {
           const updatedComment = await Comment.findOneAndUpdate(

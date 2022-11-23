@@ -35,6 +35,23 @@ export const ADD_FOLLOWER = gql`
     }
   }
 `;
+export const ADD_LIKE = gql`
+mutation addLike($postId: ID!, $likeCount: Int) {
+  addLike(postId: $postId, likeCount: $likeCount) {
+    _id
+    title
+    description
+    createdAt
+    username
+    commentCount
+    likeCount
+    tools
+    comments {
+      _id
+    }
+  }
+}
+`;
 export const ADD_POST = gql`
   mutation addPost($description: String!, $title: String!, $tools: [String!]!) {
     addPost(description: $description, title: $title, tools: $tools) {

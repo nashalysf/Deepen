@@ -8,7 +8,6 @@ import { CardHeader } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { red } from "@mui/material/colors";
@@ -18,23 +17,62 @@ import ShareIcon from "@mui/icons-material/Share";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import TagIcon from "@mui/icons-material/Tag";
 import GroupsIcon from "@mui/icons-material/Groups";
+import { ADD_LIKE } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
+import LikeButton from "../Buttons/LikeButton";
+import Box from "@mui/material/Button";
+
 
 const PostList = ({ posts, title }) => {
-  const [readMore, setReadMore] = useState(false);
+  /**---------------- Pagination ----------------**/
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  /**---------------- Like ----------------**/
+  const [isClicked, setIsClicked] = useState(false);
+  const [addLike] = useMutation(ADD_LIKE);
+  /**---------------- Post-> Description -> Read More ----------------**/
+  const [readMore, setReadMore] = useState(false);
+
   if (posts == null) {
     return <h3>No Posts Yet</h3>;
   }
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   if (!posts.length) {
     return <h3 className="noPost">No Posts Yet</h3>;
   }
+  const handleClick = (post) => {
+    if (isClicked) {
+      try {
+        addLike({
+          variables: {
+            postId: post._id,
+            likeCount: post.likeCount + 1,
+          },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    } else {
+      try {
+        addLike({
+          variables: {
+            postId: post._id,
+            likeCount: post.likeCount - 1,
+          },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    setIsClicked(!isClicked);
+  };
 
-  console.log(posts);
+console.log(posts[0].likeCount);
+  
   return (
     <div>
       <h3>{title}</h3>
@@ -95,11 +133,20 @@ const PostList = ({ posts, title }) => {
                       </Typography>
                       <Typography>{post.tools}</Typography>
                     </CardContent>
-                    <CardActions>
+                    <Box
+                    position="relative"
+  display="flex"
+  alignItems="center"
+  
+>
+                    <CardActions >
+                     
                       <IconButton
                         aria-label="add to favorites"
                         underline="hover"
+                        onClick={handleClick}
                       >
+                        {post.likeCount}
                         <FavoriteIcon fontSize="small" />
                       </IconButton>
 
@@ -118,13 +165,14 @@ const PostList = ({ posts, title }) => {
                       </IconButton>
 
                       <IconButton aria-label="share" underline="hover">
-                        <ShareIcon sx={{ fontSize: 25, marginLeft: "0px" }} />
+                        <ShareIcon sx={{ fontSize: 20, marginLeft: "0px" }} />
                       </IconButton>
 
                       <IconButton aria-label="tags" underline="hover">
                         <TagIcon fontSize="small" />
                       </IconButton>
                     </CardActions>
+                    </Box>
                   </Card>
                 </Grid>
               ))}
@@ -139,6 +187,20 @@ const PostList = ({ posts, title }) => {
       </div>
     </div>
   );
+  // function likeHandler(post) {
+  //   console.log(posts[0].likeCount);
+  //   try {
+  //     addLike({
+  //       variables: {
+  //         postId: post._id,
+  //         likeCount: post.likeCount + 1,
+  //       },
+  //     });
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+
+  // }
 };
 
 export default PostList;

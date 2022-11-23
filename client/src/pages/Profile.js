@@ -19,11 +19,16 @@ const Profile = ({props}) => {
     },
     { 
       name: 'Works'
-    }
+    },
+    {
+      name: 'Followers'
+    },
   ]);
   
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
   const [aboutSelected, setAboutSelected] = useState(false);
+  const [worksSelected, setWorksSelected] = useState(false);
+  const [followersSelected, setFollowersSelected] = useState(false);
   const [addFollower] = useMutation(ADD_FOLLOWER);
   let { username: userParam } = useParams();
 
@@ -106,20 +111,13 @@ console.log(user._id);
         <About></About>
       )
     }
-  
     
       <div className="flex-row justify-center ">
         <div className="col-12 mb-3 col-lg-8">
           <PostList posts={user.posts} title={`${user.username}'s posts...`} />
         </div>
-
-        <div className="col-12 col-lg-3 mb-3">
-          
-          <FollowerList
-            username={user.username}
-            followerCount={user.followerCount}
-            followers={user.followers}
-          />
+        <div>
+          <FollowerList username={user.username} followerCount={user.followerCount} followers={user.followers}/>
         </div>
         <AddButton />
         <ToTheTopBtn />

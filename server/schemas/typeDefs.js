@@ -60,6 +60,7 @@ const typeDefs = gql`
     savePost(postId: ID!, title: String!): User
     deleteUser(username: String!, password: String!): Auth
     deletePost(_id: ID!): Post
+    addLike(postId: ID!, likeCount: Int): Post
   }
   type Auth {
     token: ID!
