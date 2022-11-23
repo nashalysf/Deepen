@@ -27,15 +27,15 @@ const DeletePost = () => {
   };
 
   return (
-    //create style div center css
-    <div className="deletePost">
+    <div  className="deletePost">
       <Button
-        type="submit"
+       
         variant="default"
-        onClick={{ handleDeletePost }}
+        onClick={handleDeletePost}
       >
         Delete Post
       </Button>
+      
     </div>
   );
 };

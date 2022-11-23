@@ -12,8 +12,8 @@ const PostCard = ({ post, theme }) => {
       <div className="formCard my-3">
         <CardHeader post={post} />
         <CardBody post={post} theme={theme} />
-        <ListLinks/>
-        <ListTools/>
+        <ListLinks />
+        <ListTools post={post} />
         <CardFooter post={post} />
         
       </div>
