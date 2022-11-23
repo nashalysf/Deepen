@@ -70,7 +70,7 @@ export const QUERY_USER = gql`
         description
         createdAt
         likeCount
-        commentsCount
+        commentCount
       }
     }
   }

@@ -6,6 +6,7 @@ import ListTools from "./post_card/ListTools";
 import ListLinks from "./post_card/ListLinks";
 
 const PostCard = ({ post, theme }) => {
+
   return (
     <div>
       <div className="formCard my-3">
@@ -14,6 +15,7 @@ const PostCard = ({ post, theme }) => {
         <ListLinks/>
         <ListTools/>
         <CardFooter post={post} />
+        
       </div>
     </div>
   );

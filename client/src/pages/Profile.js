@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import PostForm from "../components/CreatePost/PostForm";
+import { useQuery, useMutation } from "@apollo/client";
+import { useParams } from "react-router-dom";
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import PostList from "../components/Home/PostList";
 import FriendList from "../components/Profile/FriendList";
-import setting from "../images/png/settings.png";
 import ProfileNav from "../components/Profile/ProfileNav";
 import About from '../components/Profile/About';
-
-import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
-import { ADD_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
 import AddButton from "../components/Buttons/AddButton";
 import ToTheTopBtn from "../components/Buttons/ToTheTop";
-const Profile = (props) => {
+import setting from "../images/png/settings.png";
+
+const Profile = ({props}) => {
   const [categories] = useState([ 
     {
       name: 'About'
@@ -22,27 +21,30 @@ const Profile = (props) => {
       name: 'Works'
     }
   ]);
+  
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
-
-  const { username: userParam } = useParams();
   const [aboutSelected, setAboutSelected] = useState(false);
-
   const [addFriend] = useMutation(ADD_USER);
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  let { username: userParam } = useParams();
+
+// if username is in the URL, useQuery to retrieve that user's data 
+  if (window.location.pathname.length < 9) {
+    let profilePathName = window.location.pathname.substring(9);
+    if (profilePathName !== Auth.getProfile().data.username) {
+     userParam = profilePathName;
+    }
+  }
+// data from the `QUERY_USER` query is for the user whose profile is being viewed
+// data from the `QUERY_ME` query is for the logged-in user
+  const { loading, data } = useQuery( userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
   const user = data?.me || data?.user || {};
-
-  // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/profile:username" />;
-  }
-
   if (loading) {
     return <div>Loading...</div>;
   }
-  //console.log(Auth.getProfile().data.username)
+
   const token = localStorage.getItem("id_token");
   if (token === null) {
     return (
@@ -55,9 +57,7 @@ const Profile = (props) => {
 
   const handleClick = async () => {
     try {
-      await addFriend({
-        variables: { id: user._id },
-      });
+      await addFriend({variables: { id: user._id },});
     } catch (e) {
       console.error(e);
     }

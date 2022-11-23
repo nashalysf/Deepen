@@ -1628,3 +1628,16 @@ p.mb-0{
   height: 22px;
   border-radius: 50%;
 }
+
+.deletePost{
+  position: relative;
+  top: -30px;
+  left: 0px;
+  color: var(--eerie-black);
+  font-size: 20px;
+  font-weight: bold;
+  border: var(--eerie-black) solid 2px;
+  padding: 10px 40px;
+  margin-top: 50px;
+  margin-left: 10px;
+}
