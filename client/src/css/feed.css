@@ -1,0 +1,8 @@
+ul.homeNav{
+    margin-left: 25%;
+    font-size: 30px;
+    border-bottom: solid 2px;
+}
+.homeNav li:hover{
+    color: var(--dark-lava);
+}

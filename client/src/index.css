@@ -2,6 +2,7 @@
 @import "./css/singlePost.css";
 @import "./css/collabForm.css";
 @import "./css/profile.css";
+@import "./css/feed.css";
 :root {
   --post-primary: #d6d6d6;
   --post-secondary: #262e2d;
@@ -213,6 +214,7 @@ h1.card-header.welcome{
   color: var(--eerie-black);
   font-size: 40px;
   border: none;
+  padding-top: 30px;
 }
 
 div.card.welcome{
@@ -250,7 +252,7 @@ div.card.welcome{
 .form-input {
   width: 100%;
   padding: 0.75rem;
-  margin: 0.2rem 0;
+  margin: 0rem 0;
   font-size: 1.2rem;
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
@@ -1373,7 +1375,7 @@ li{
   background-color: transparent;
   border: solid var(--light) 4px;
   border-radius: 50px;
-  position: relative;
+  position: absolute;
   left: 35%;
   top: 200px;
   color: var(--light);
@@ -1381,13 +1383,14 @@ li{
   padding-left: 60px;
 }
 .searchBtn {
-  font-size: 1.5em;
+  font-size: 2em;
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 200px;
-  left: 35%;
+  top: 195px;
+  left: 36%;
   padding-left: 10px;
+  color: var(--light);
 }
 .Burgerbtn{
   position: absolute;
@@ -1429,22 +1432,23 @@ li{
 }
 img.mainImg{
   position: relative;
-  margin-top: 160px;
-  margin-left: -170px;
-  width: 100%;
+  margin-top: 100px;
+  margin-left: -185px;
+  max-width: 100%;
 }
 
 element.style {
   width: 0%;
 }
-.sign-up{
+
+h3.sign-up{
+  margin-top: -60px;
+  position: relative;
+  left: -175px; 
   color: var(--eerie-black);
   font-size: 20px;
-  margin-top: -35px;
-  margin-left: -30px;
   padding-bottom: 20px;
 }
-
 .sign-up span{
   padding-left: 10px;
 }
@@ -1466,12 +1470,12 @@ element.style {
   max-width: 300px;
   position: absolute;
   right: 10%;
-  top: 15%;
+  top: 17%;
 }
 .log-input input{
   background-color: transparent;
   border-bottom: solid var(--davys-grey) 4px;
-  padding: 10px 40px;
+  padding: 5px 40px;
   margin-top: 30px;
   font-size: 25px;
 }
@@ -1511,7 +1515,7 @@ p.sloganBtn{
   color: var(--eerie-black);
   font-size: 20px;
   position: relative;
-  top: -140px;
+  top: -150px;
 }
 .noPost{
   text-align: center;

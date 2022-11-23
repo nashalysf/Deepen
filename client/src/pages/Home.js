@@ -7,6 +7,7 @@ import PostList from "../components/Home/PostList";
 import FriendList from "../components/Profile/FriendList";
 import PostForm from "../components/CreatePost/PostForm"
 import Install from "../components/Buttons/Install";
+import Search from "../components/Home/Search";
 // import FollowerList from '../components/FollowerList';
 import HomeNav from "../components/Home/HomeNav";
 import AddButton from "../components/Buttons/AddButton";
@@ -19,13 +20,10 @@ const Home = () => {
       name: "Home",
     },
     {
-      name: "Following",
-    },
-    {
       name: "Search",
     },
   ]);
-
+  const [searchSelected, setSearchSelected] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -40,6 +38,8 @@ const Home = () => {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        searchSelected={searchSelected}
+        setSearchSelected={setSearchSelected}
       ></HomeNav>
       <Install />
     
@@ -52,6 +52,12 @@ const Home = () => {
               <div>Loading...</div>
             ) : (
               <PostList posts={posts} title="Some Post(s)..." />
+            )} {searchSelected ? (
+              <>
+              <Search></Search>
+              </>
+            ):(
+              ""
             )}
           </div>
         </div>
