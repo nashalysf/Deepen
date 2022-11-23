@@ -51,7 +51,10 @@ const Home = () => {
             {loading && !loggedIn ? (
               <div>Loading...</div>
             ) : (
-              <PostList posts={posts} title="Some Post(s)..." />
+              //a header centered on the page
+            <div>
+                <PostList posts={posts} />
+              </div>
             )} {searchSelected ? (
               <>
               <Search></Search>
