@@ -148,10 +148,11 @@ button.submitJoin.btn.btn-success{
   margin: 0;
   border-radius: var(--border-radius);
   border: none;
-  color: var(--light);
+  color: var(--eerie-black);
   outline: none;
-  background-color: var(--eerie-black);
+  background-color: var(--light);
   transition: all 0.5s;
+  height: 2%;
 }
 button a.btn{
   color: var(--light);
@@ -331,7 +332,9 @@ div.card.welcome{
 .display-none {
   display: none;
 }
-
+.css-1t6e9jv-MuiCardActions-root{
+padding: 0;
+}
 .display-block {
   display: block;
 }
@@ -1599,9 +1602,7 @@ input.signUp.form-control{
 p.mb-0{
   color: var(--eerie-black);
 }
-/* p.bg-dark.text-light.p-2{
-  
-} */
+
 .card-body{
   max-width: max-content;
 }

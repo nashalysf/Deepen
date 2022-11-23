@@ -29,6 +29,11 @@ const PostForm = () => {
     "React",
     "Vue",
     "MongoDB",
+    "Mongoose",
+    "GraphQL",
+    "Apollo",
+    "SQL",
+    "Sequelize",
     "Python",
     "CSS",
   ];
@@ -97,7 +102,7 @@ const PostForm = () => {
   return (
     <div>
       <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
+        className={`m-3 ${characterCount === 280 || error ? "text-error" : ""}`}
       >
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}

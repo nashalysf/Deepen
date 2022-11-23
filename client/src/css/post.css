@@ -92,6 +92,7 @@ input[type=text]{
     border: transparent;
     border-bottom: solid 3px var(--dark-lava);
     background-color: transparent !important;
+    color: var(--light);
 }
 input#postLinks.links{
     width: 80%;

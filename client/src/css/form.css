@@ -20,4 +20,16 @@ input.liveURL{
     background-color:rgba(189, 195, 199, 0.3);
     border: 0;
 }
-
+form.flex-row{
+    background-color: var(--light);
+    padding-bottom: 20px;
+}
+button.form-input{
+    width: 20%;
+    height: 10%;
+    margin-top: 10%;
+}
+button.form-input:hover{
+    background-color: var(--eerie-black);
+    color: var(--light);
+}

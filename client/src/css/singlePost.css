@@ -207,3 +207,17 @@
     font-family: 'Ubuntu', sans-serif;
     color: rgb(0, 0, 0);
   }
+
+  button.btn.col-12.col-md-3{
+    max-width: 20%;
+    max-height: 8%;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 25px;
+  }
+  button.btn.col-12.col-md-3:hover{
+    color: var(--eerie-black);
+  }
+  div.deletePost{
+    border: none;
+  }
