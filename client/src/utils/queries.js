@@ -11,6 +11,19 @@ export const QUERY_POSTS = gql`
       likeCount
       commentCount
       tools
+      comments {
+        _id
+        commentBody
+        createdAt
+        username
+        replyCount
+        replies {
+          _id
+          replyBody
+          createdAt
+          username
+        }
+      }
     }
   }
 `;
@@ -51,7 +64,29 @@ export const QUERY_POST = gql`
     }
   }
 `;
-
+export const QUERY_FOLLOWER = gql`
+  query follower($username: String!) {
+    follower(username: $username) {
+      _id
+      username
+      email
+      postCounts
+      followersCount
+      followers {
+        _id
+        username
+      }
+      posts {
+        _id
+        title
+        description
+        createdAt
+        likeCount
+        commentCount
+      }
+    }
+  }
+`;
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {

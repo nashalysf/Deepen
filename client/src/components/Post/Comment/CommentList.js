@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CommentList = ({ comments }) => {
-  console.log(comments);
+  console.log("commentsssssss",comments);
   return (
-    <div className="commentCard mb-3">
-      <div className="card-header">
-        <span className="text-light">Comments</span>
-      </div>
+    <div  className="d-flex justify-content-center padding">
       <div className="card-body">
+        <h3 className="card-header text-center bg-dark text-white p-2">Comments</h3>
+        <br/>
         {comments &&
           comments.map((comment) => (
-            <p className="pill mb-3" key={comment._id}>
+            
+            <p className="pill mb-2" key={comment._id}>
               {comment.commentBody} {"// "}
               {/* TO-Do Redirect correct link */}
               <Link

@@ -15,19 +15,13 @@ const SinglePost = (props) => {
   const posts = data?.posts || [];
   const postArray = [...posts.values()];
   let post = data?.post || {};
-  
+  console.log(data);
   for (let index = 0; index < postArray.length; index++) {
     if (postId === postArray[index]._id) {
        post = postArray[index];
     }
   }
-  //const { id: postId } = useParams();
-  // const { loading, data } = useQuery(QUERY_POST, {
-  //   variable: { id: postId },
-  // });
-  // console.log(postArray[0]._id);
-  // console.log(data);
-  // console.log(postId);
+ 
    console.log(post);
   if (loading) {
     return <div>Loading...</div>;
@@ -36,7 +30,7 @@ const SinglePost = (props) => {
   return (
     <div>
       <PostCard post={post} />
-      {post.commentCount > 0 && <CommentList comments={post.comments} />}
+      {post.comments.length > 0 && <CommentList comments={post.comments} />}
       {Auth.loggedIn() && <CommentForm postId={post._id} />}
       <DeletePost/>
     </div>

@@ -23,8 +23,8 @@ export const ADD_USER = gql`
   }
 `;
 export const ADD_FOLLOWER = gql`
-  mutation addFollower($id: ID!) {
-    addFollower(followerId: $id) {
+  mutation addFollower( $username: String!) {
+    addFollower(  username: $username) {
       _id
       username
       followersCount
@@ -34,6 +34,23 @@ export const ADD_FOLLOWER = gql`
       }
     }
   }
+`;
+export const ADD_LIKE = gql`
+mutation addLike($postId: ID!, $likeCount: Int) {
+  addLike(postId: $postId, likeCount: $likeCount) {
+    _id
+    title
+    description
+    createdAt
+    username
+    commentCount
+    likeCount
+    tools
+    comments {
+      _id
+    }
+  }
+}
 `;
 export const ADD_POST = gql`
   mutation addPost($description: String!, $title: String!, $tools: [String!]!) {
