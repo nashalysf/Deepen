@@ -11,6 +11,19 @@ export const QUERY_POSTS = gql`
       likeCount
       commentCount
       tools
+      comments {
+        _id
+        commentBody
+        createdAt
+        username
+        replyCount
+        replies {
+          _id
+          replyBody
+          createdAt
+          username
+        }
+      }
     }
   }
 `;
