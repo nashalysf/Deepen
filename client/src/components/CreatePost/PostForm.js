@@ -107,51 +107,56 @@ const PostForm = () => {
         onSubmit={handleFormSubmit}
       >
         
-        <div className="flex-row justify-center justify-space-between-md align-stretch">
-        <textarea
-          className="form-input "
-          id="postTitle"
-          type="text"
-          value={title}
-          name="Title"
-          placeholder="Post Title"
-          onChange={handleChangeTitle}
-        />
-       
-        <textarea
-          placeholder="Here's a new post..."
-          value={description}
-          className="form-input"
-          onChange={handleChangeDescription}
-        ></textarea>
-         </div>
-          <Box
-            component="form"
-            sx={{
-              "& .MuiTextField-root": { m: 1, width: "75ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <div>
-              <TextField
-                id="standard-multiline-static"
-                label="Links"
-                multiline
-                rows={4}
-                defaultValue=""
-                variant="standard"
-              />
-            </div>
-          </Box>
-          <FormControl sx={{ m: 1, minWidth: 500 }}>
-          <InputLabel id="demo-simple-select-helper-label">Tools</InputLabel>
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "75ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div>
+            <TextField
+              id="standard-helperText"
+              label="Title"
+              defaultValue="Title"
+              helperText="Title lenght must be between 5 and 15 characters."
+              variant="standard"
+              value = {title}
+              onChange={handleChangeTitle}
+            />
+          </div>
+          <div>
+            <TextField
+              id="descriptionText"
+              label="Description"
+              defaultValue="Here's a new post..."
+              helperText="Description lenght must be between 0 and 180 characters."
+              variant="standard"
+              value = {description}
+              onChange={handleChangeDescription}
+            />
+          </div>
+          <div>
+            <TextField
+              id="standard-multiline-static"
+              label="Links"
+              multiline
+              rows={4}
+              defaultValue=""
+              variant="standard"
+              helperText="Input all the important links for your post."
+            />
+          </div>
+        </Box>
+        <FormControl sx={{ m: 1, minWidth: 500 }}>
+          <InputLabel id="demo-simple-select-helper-label">Languages</InputLabel>
           <Select
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
             multiple
             value={tools}
-            label="Tools"
+            label="Languages"
             onChange={handleChangeTool}
             input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
             renderValue={(selected) => (
@@ -169,7 +174,7 @@ const PostForm = () => {
             ))}
           </Select>
 
-          <FormHelperText>With label + helper text</FormHelperText>
+          <FormHelperText>Select all the languages and libraries used.</FormHelperText>
         </FormControl>
         <button className="form-input" type="submit">
           Submit
