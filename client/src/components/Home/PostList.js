@@ -22,8 +22,8 @@ import Pagination from "../Pagination";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import TagIcon from '@mui/icons-material/Tag';
-import GroupsIcon from '@mui/icons-material/Groups';
+import TagIcon from "@mui/icons-material/Tag";
+import GroupsIcon from "@mui/icons-material/Groups";
 
 const PostList = ({ posts, title }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,6 +32,7 @@ const PostList = ({ posts, title }) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const [readMore, setReadMore] = useState(false);
   if (!posts.length) {
     return <h3 className="noPost">No Posts Yet</h3>;
   }
@@ -81,12 +82,28 @@ const PostList = ({ posts, title }) => {
                       <Typography gutterBottom variant="h5" component="h2">
                         {post.title}
                       </Typography>
-                      <Typography>{post.description}</Typography>
+                      <Typography>
+                        {readMore
+                          ? post.description
+                          : `${post.description.substring(0, 60)}...`}
+                        {post.description.length > 100 && (
+                          <Button>
+                            <span
+                              className="readMore"
+                              onClick={() => setReadMore(!readMore)}
+                            >
+                              {readMore ? "Collapse" : "Read more"}
+                            </span>
+                          </Button>
+                        )}
+                      </Typography>
                       <Typography>{post.tools}</Typography>
                     </CardContent>
                     <CardActions>
-
-                      <IconButton aria-label="add to favorites" underline="hover">
+                      <IconButton
+                        aria-label="add to favorites"
+                        underline="hover"
+                      >
                         <FavoriteIcon fontSize="small" />
                       </IconButton>
 
@@ -94,8 +111,14 @@ const PostList = ({ posts, title }) => {
                         <GroupsIcon sx={{ fontSize: 25, marginLeft: "0px" }} />
                       </IconButton>
 
-                      <IconButton  href={`/post/${post._id}`} >
-                        <VisibilityIcon   sx={{ fontSize: 60, marginLeft: "2px" , color: "black"}}/> 
+                      <IconButton href={`/post/${post._id}`}>
+                        <VisibilityIcon
+                          sx={{
+                            fontSize: 60,
+                            marginLeft: "2px",
+                            color: "black",
+                          }}
+                        />
                       </IconButton>
 
                       <IconButton aria-label="share" underline="hover">
@@ -105,7 +128,6 @@ const PostList = ({ posts, title }) => {
                       <IconButton aria-label="tags" underline="hover">
                         <TagIcon fontSize="small" />
                       </IconButton>
-
                     </CardActions>
                   </Card>
                 </Grid>

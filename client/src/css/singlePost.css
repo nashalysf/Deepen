@@ -151,3 +151,59 @@
        margin-left: 5%;
        margin-top: 2%;
     }
+
+    /* FORM-CARDS */
+
+.formCard {
+    margin: 0 0 20px 0;
+    border: 3px solid var(--dark);
+    border-radius: var(--border-radius);
+    background-color: var(--light);
+    color: var(--primary);
+    height: relative;
+    max-width: 125%;
+    margin-left: -50px;
+    padding: 10px;
+  }
+  
+  .formCard-header{
+    color: var(--post-primary);
+    margin: 0;
+    background-color: var(--post-secondary);
+    padding: 0.625rem;
+    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  }
+  .formCard-body{
+    color: var(--post-primary);
+    margin: 0;
+    background-color: var(--post-secondary);
+    padding: 0.625rem;
+    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  }
+  .formCard-footer{
+    color: var(--post-primary);
+    margin: 0;
+    background-color: var(--post-secondary);
+    padding: 0.625rem;
+    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  }
+  
+  .commentCard {
+    margin: 0 0 20px 0;
+    border: 3px solid var(--dark);
+    border-radius: var(--border-radius);
+    background-color: var(--light);
+    color: var(--primary);
+    height: 100px;
+    max-width: 125%;
+    padding-left: 50px;
+    margin-left: -50px;
+  }
+
+  .bw {
+    position: relative;
+    font-size: 30px;
+    background: rgb(255, 255, 255);
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(0, 0, 0);
+  }

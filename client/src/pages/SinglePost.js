@@ -21,13 +21,7 @@ const SinglePost = (props) => {
        post = postArray[index];
     }
   }
-  //const { id: postId } = useParams();
-  // const { loading, data } = useQuery(QUERY_POST, {
-  //   variable: { id: postId },
-  // });
-  // console.log(postArray[0]._id);
-  // console.log(data);
-  // console.log(postId);
+ 
    console.log(post);
   if (loading) {
     return <div>Loading...</div>;
