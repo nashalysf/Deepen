@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import Auth from "../utils/auth";
-import { ADD_USER } from "../utils/mutations";
+import { ADD_FOLLOWER } from "../utils/mutations";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import PostList from "../components/Home/PostList";
-import FriendList from "../components/Profile/FriendList";
+import FollowerList from "../components/Profile/FollowerList";
 import ProfileNav from "../components/Profile/ProfileNav";
 import About from '../components/Profile/About';
 import AddButton from "../components/Buttons/AddButton";
@@ -24,7 +24,7 @@ const Profile = ({props}) => {
   
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
   const [aboutSelected, setAboutSelected] = useState(false);
-  const [addFriend] = useMutation(ADD_USER);
+  const [addFollower] = useMutation(ADD_FOLLOWER);
   let { username: userParam } = useParams();
 
 // if username is in the URL, useQuery to retrieve that user's data 
@@ -34,6 +34,7 @@ const Profile = ({props}) => {
      userParam = profilePathName;
     }
   }
+  console.log(userParam);
 // data from the `QUERY_USER` query is for the user whose profile is being viewed
 // data from the `QUERY_ME` query is for the logged-in user
   const { loading, data } = useQuery( userParam ? QUERY_USER : QUERY_ME, {
@@ -44,7 +45,8 @@ const Profile = ({props}) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
+console.log(user);
+console.log(user._id);
   const token = localStorage.getItem("id_token");
   if (token === null) {
     return (
@@ -55,14 +57,16 @@ const Profile = ({props}) => {
     );
   }
 
-  const handleClick = async () => {
+  
+  //create function for following a user
+  const handleFollow = async () => {
     try {
-      await addFriend({variables: { id: user._id },});
+      await addFollower({variables:
+         {  followerId: user._id}});
     } catch (e) {
       console.error(e);
     }
   };
-
 
   return (
     <div>
@@ -72,7 +76,7 @@ const Profile = ({props}) => {
         </h2>
 
         {userParam && (
-          <button className="btn ml-auto" onClick={handleClick}>
+          <button className="btn ml-auto" onClick={handleFollow}>
             Follow
           </button>
         )}
@@ -110,10 +114,11 @@ const Profile = ({props}) => {
         </div>
 
         <div className="col-12 col-lg-3 mb-3">
-          <FriendList
+          
+          <FollowerList
             username={user.username}
-            friendCount={user.friendCount}
-            friends={user.friends}
+            followerCount={user.followerCount}
+            followers={user.followers}
           />
         </div>
         <AddButton />

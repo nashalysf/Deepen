@@ -26,13 +26,16 @@ import TagIcon from "@mui/icons-material/Tag";
 import GroupsIcon from "@mui/icons-material/Groups";
 
 const PostList = ({ posts, title }) => {
+  const [readMore, setReadMore] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(9);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  if (posts == null) {
+    return <h3>No Posts Yet</h3>;
+  }
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const [readMore, setReadMore] = useState(false);
   if (!posts.length) {
     return <h3 className="noPost">No Posts Yet</h3>;
   }

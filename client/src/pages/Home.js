@@ -4,7 +4,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME, QUERY_POSTS } from "../utils/queries";
 
 import PostList from "../components/Home/PostList";
-import FriendList from "../components/Profile/FriendList";
+import FollowerList from "../components/Profile/FollowerList";
 import PostForm from "../components/CreatePost/PostForm"
 import Install from "../components/Buttons/Install";
 import Search from "../components/Home/Search";
@@ -66,11 +66,11 @@ const Home = () => {
         </div>
       </div>
       <div className="flex-row justify-space-between">
-        {loggedIn && userData ? (
+        {/* {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
-            <FriendList username={userData.me.username} />
+            <FollowerList username={userData.me.username} />
           </div>
-        ) : null}
+        ) : null} */}
         <AddButton />
         <ToTheTopBtn />
       </div>

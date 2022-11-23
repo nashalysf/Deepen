@@ -55,7 +55,7 @@ const typeDefs = gql`
     addPost(description: String!, title: String!, tools: [String!] ): Post
     addComment(postId: ID!, commentBody: String!): Post
     addReply(replyId: ID!, replyBody: String, username: String!): Post
-    addFollower(followerId: ID!, username: String!): User
+    addFollower(followerId: ID!): User
     savePost(postId: ID!, title: String!): User
     deleteUser(username: String!, password: String!): Auth
     deletePost(_id: ID!): Post

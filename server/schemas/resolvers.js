@@ -127,8 +127,8 @@ const resolvers = {
         if (context.user) {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { followers: followerId } },
-            { new: true }
+            { $addToSet: { followers: User.findById(followerId) } },
+            { new: true, runValidators: true }
           ).populate('followers');
       
           return updatedUser;
