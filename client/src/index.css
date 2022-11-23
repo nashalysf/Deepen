@@ -3,6 +3,7 @@
 @import "./css/collabForm.css";
 @import "./css/profile.css";
 @import "./css/feed.css";
+@import "./css/form.css";
 :root {
   --post-primary: #d6d6d6;
   --post-secondary: #262e2d;
@@ -36,7 +37,7 @@ body {
   
   font-size: 20px;
   color: var(--light);
-  background: #d6d6d6;
+  background: url("./images/bg.min.jpg");
   /* background: url('./images/bg.jpg'); */
 }
 ul li {

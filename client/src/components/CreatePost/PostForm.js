@@ -108,9 +108,15 @@ console.log("tools",tools);
         <textarea
           placeholder="Here's a new post..."
           value={description}
-          className="form-input col-12 col-md-9"
+          className="form-input col-12 col-md-9 postDes"
           onChange={handleChangeDescription}
         ></textarea>
+        <input
+          placeholder="Add some links"
+        
+          className="form-input col-12 col-md-9 liveURL"
+       
+        ></input>
         <FormControl  sx={{ m: 1, minWidth: 500 }}>
         <InputLabel  id="demo-simple-select-helper-label">Tools</InputLabel>
         <Select labelId="demo-simple-select-helper-label"

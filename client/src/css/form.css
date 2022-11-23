@@ -9,12 +9,15 @@
     background-color: rgba(189, 195, 199, 0.3);
     border: 0;
 }
+input.liveURL{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .deskPost {
     height:200px;
     font-size: 25px;
     background-color:rgba(189, 195, 199, 0.3);
     border: 0;
 }
-
-
 
