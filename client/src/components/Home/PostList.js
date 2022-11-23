@@ -34,7 +34,6 @@ const PostList = ({ posts, title }) => {
     return <h3 className="noPost">No Posts Yet</h3>;
   }
 
-  const theme = createTheme();
   console.log(posts);
   return (
     <div>
