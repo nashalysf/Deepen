@@ -3,12 +3,12 @@ import Avatar from "../../Profile/Avatar";
 import { Link } from "react-router-dom";
 import logo from "../../../images/png/avatar.png"
 
-const CardHeader = ({ post }) => {
+const CardHeader = ({ post, userAvi }) => {
   return (
     <div className="formCard-header">
       <div className="CardHeader">
        
-        <Avatar src={logo} size="big-avatar" />
+        <Avatar src={userAvi} size="supper-avatar" />
         <h4 className="m-0">
           {/* TO-DO Change url path and change user.username */}
           <Link to={`/profile/${post.username}`} className="profileName">
