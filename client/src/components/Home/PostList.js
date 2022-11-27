@@ -28,7 +28,6 @@ console.log(posts);
           <Grid container spacing={4}>
             {posts &&
               currentPosts.map((post) => (
-                console.log(post),
                <PostPreview post={post} key={post._id} username={post.username}/>
               ))}
           </Grid>

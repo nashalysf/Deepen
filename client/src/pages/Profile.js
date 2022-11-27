@@ -34,16 +34,14 @@ const Profile = ({ props }) => {
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const [showUpload, setShowUpload] = useState(false);
-  // if username is in the URL, useQuery to retrieve that user's data
+
   if (window.location.pathname.length < 9) {
     let profilePathName = window.location.pathname.substring(9);
     if (profilePathName !== Auth.getProfile().data.username) {
       userParam = profilePathName;
-      console.log(profilePathName);
     }
     }
   
-  console.log(userParam);
   // data from the `QUERY_USER` query is for the user whose profile is being viewed
   // data from the `QUERY_ME` query is for the logged-in user
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -54,8 +52,6 @@ const Profile = ({ props }) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  console.log(user);
-  console.log(user.username);
   const token = localStorage.getItem("id_token");
   if (token === null) {
     return (
@@ -66,8 +62,6 @@ const Profile = ({ props }) => {
     );
   }
 
-  console.log(user.username);
-  //create function for following a user
   const handleFollow = async () => {
     try {
       await addFollower({ variables: { username: user.username } });
