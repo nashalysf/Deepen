@@ -1,7 +1,6 @@
 import React from "react";
 import Avatar from "../../Profile/Avatar";
 import { Link } from "react-router-dom";
-import logo from "../../../images/png/avatar.png"
 
 const CardHeader = ({ post, userAvi }) => {
   return (
