@@ -12,7 +12,6 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { red } from "@mui/material/colors";
 import Pagination from "../Pagination";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import TagIcon from "@mui/icons-material/Tag";
