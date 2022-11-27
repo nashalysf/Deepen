@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ADD_COLLABORATOR } from "../../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import Auth from "../../../utils/auth";
 import { Link } from "react-router-dom";
-
+import CollabButton from "../../Buttons/CollabButton";
 const Collaborators = ({ post }) => {
   const [addCollaborator] = useMutation(ADD_COLLABORATOR);
   let { collaborators: collaboratorArray } = post;
+  let [userIsCreator, setUserIsCreator] = useState(false);
+
+  if(!userIsCreator){
+    if(post.username === Auth.getProfile().data.username){
+      setUserIsCreator(true);
+    }
+  }
   
   const handleFollow = async (event) => {
     event.preventDefault();
@@ -23,7 +30,7 @@ const Collaborators = ({ post }) => {
       }
     }
   };
-
+console.log(collaboratorArray);
   return (
     <div>
       <h5>Collaborators</h5>
@@ -32,7 +39,9 @@ const Collaborators = ({ post }) => {
           <Link className="bw" to={`/profile/${collaborator}`}>
             {collaborator}
           </Link>
-        </button>
+          <CollabButton userIsCreator={userIsCreator}/>
+          
+        </button> 
       ))}
       <button onClick={handleFollow}>Collaborate</button>
     </div>
