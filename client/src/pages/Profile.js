@@ -28,9 +28,6 @@ const Profile = ({ props }) => {
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
   const [aboutSelected, setAboutSelected] = useState(false);
-  const [worksSelected, setWorksSelected] = useState(false);
-  const [followersSelected, setFollowersSelected] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
   const [addFollower] = useMutation(ADD_FOLLOWER);
   const [addImage] = useMutation(ADD_IMAGE);
   let { username: userParam } = useParams();

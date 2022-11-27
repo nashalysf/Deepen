@@ -25,7 +25,6 @@ console.log(posts);
       <h3>{title}</h3>
       <div>
         <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
             {posts &&
               currentPosts.map((post) => (
