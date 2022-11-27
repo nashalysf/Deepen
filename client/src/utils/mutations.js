@@ -45,6 +45,17 @@ mutation addCollaborator($postId: ID!, $username: String!) {
   }
 }
 `;
+export const ADD_IMAGE = gql`
+mutation uploadPhoto($photo: String!, $username: String!) {
+  uploadPhoto(photo: $photo, username: $username)  { 
+    _id
+    username
+    avatar
+   }
+}
+`;
+
+
 export const ADD_LIKE = gql`
 mutation addLike($postId: ID!, $likeCount: Int) {
   addLike(postId: $postId, likeCount: $likeCount) {

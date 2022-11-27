@@ -2,47 +2,52 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import Auth from "../utils/auth";
-import { ADD_FOLLOWER } from "../utils/mutations";
+import { ADD_FOLLOWER, ADD_IMAGE } from "../utils/mutations";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import PostList from "../components/Home/PostList";
 import FollowerList from "../components/Profile/FollowerList";
 import ProfileNav from "../components/Profile/ProfileNav";
-import About from '../components/Profile/About';
+import About from "../components/Profile/About";
 import AddButton from "../components/Buttons/AddButton";
 import ToTheTopBtn from "../components/Buttons/ToTheTop";
 import setting from "../images/png/settings.png";
+import { Avatar } from "@mui/material";
 
-const Profile = ({props}) => {
-  const [categories] = useState([ 
+const Profile = ({ props }) => {
+  const [categories] = useState([
     {
-      name: 'About'
-    },
-    { 
-      name: 'Works'
+      name: "About",
     },
     {
-      name: 'Followers'
+      name: "Works",
+    },
+    {
+      name: "Followers",
     },
   ]);
-  
+
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
   const [aboutSelected, setAboutSelected] = useState(false);
   const [worksSelected, setWorksSelected] = useState(false);
   const [followersSelected, setFollowersSelected] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [addFollower] = useMutation(ADD_FOLLOWER);
+  const [addImage] = useMutation(ADD_IMAGE);
   let { username: userParam } = useParams();
-
-// if username is in the URL, useQuery to retrieve that user's data 
+  const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
+  const [showUpload, setShowUpload] = useState(false);
+  // if username is in the URL, useQuery to retrieve that user's data
   if (window.location.pathname.length < 9) {
     let profilePathName = window.location.pathname.substring(9);
     if (profilePathName !== Auth.getProfile().data.username) {
-     userParam = profilePathName;
+      userParam = profilePathName;
     }
   }
   console.log(userParam);
-// data from the `QUERY_USER` query is for the user whose profile is being viewed
-// data from the `QUERY_ME` query is for the logged-in user
-  const { loading, data } = useQuery( userParam ? QUERY_USER : QUERY_ME, {
+  // data from the `QUERY_USER` query is for the user whose profile is being viewed
+  // data from the `QUERY_ME` query is for the logged-in user
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
@@ -50,8 +55,8 @@ const Profile = ({props}) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-console.log(user);
-console.log(user._id);
+  console.log(user);
+  console.log(user._id);
   const token = localStorage.getItem("id_token");
   if (token === null) {
     return (
@@ -66,11 +71,44 @@ console.log(user._id);
   //create function for following a user
   const handleFollow = async () => {
     try {
-      await addFollower({variables:
-         { username: user.username }});
+      await addFollower({ variables: { username: user.username } });
     } catch (e) {
       console.error(e);
     }
+  };
+
+
+  const handleImage = async () => {
+    try {
+      await addImage({
+        variables: {
+          photo: url,
+          username: user.username,
+        },
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const uploadImage = () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "k99l75sc");
+    data.append("cloud_name", "da1sqgyhy");
+    fetch("  https://api.cloudinary.com/v1_1/da1sqgyhy/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setUrl(data.url);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleUpload = () => {
+    setShowUpload(!showUpload);
   };
 
   return (
@@ -88,36 +126,43 @@ console.log(user._id);
       </div>
       <div className="mb-3">{!userParam}</div>
       <div className="coverProfile"></div>
-      <div className="profilePic"></div>
-      <button 
-      className="editProfile" 
-      id="settings" 
-      onClick="alert('clicked')">
-        <img 
-        alt="profilePic" 
-        src={setting} /> </button>
-     
+      <div className="profilePic">
+        <Avatar src={user.avatar} sx={{ width: 200, height: 200 }} />
+      </div>
+      <button className="editProfile" id="settings" onClick={handleUpload}>
+        <img alt="profilePic" src={setting} />{" "}
+      </button>
+      {showUpload && <div>
+        <input
+          type="file"
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <button onClick={uploadImage}>Upload</button>
+        <button className="btn btn-primary" onClick={handleImage}>
+        Set profile picture
+      </button>
+      </div>}
+
+      
+
       <ProfileNav
-       setCurrentCategory={setCurrentCategory}
-       currentCategory={currentCategory}
-      aboutSelected = {aboutSelected}
-      setAboutSelected = {setAboutSelected}
+        setCurrentCategory={setCurrentCategory}
+        currentCategory={currentCategory}
+        aboutSelected={aboutSelected}
+        setAboutSelected={setAboutSelected}
       ></ProfileNav>
-      {!aboutSelected ? ( 
-        <> 
-        
-        </>
-      ) : (
-        <About></About>
-      )
-    }
-    
+      {!aboutSelected ? <></> : <About></About>}
+
       <div className="flex-row justify-center ">
         <div className="col-lg-9">
           <PostList posts={user.posts} title={`${user.username}'s posts...`} />
         </div>
         <div>
-          <FollowerList username={user.username} followerCount={user.followerCount} followers={user.followers}/>
+          <FollowerList
+            username={user.username}
+            followerCount={user.followerCount}
+            followers={user.followers}
+          />
         </div>
         <AddButton />
         <ToTheTopBtn />

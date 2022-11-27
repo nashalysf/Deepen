@@ -64,6 +64,7 @@ const typeDefs = gql`
     deletePost(_id: ID!): Post
     addLike(postId: ID!, likeCount: Int): Post
     addCollaborator(postId: ID!, username: String!): Post
+    uploadPhoto(photo: String!, username: String!): User
   }
   type Auth {
     token: ID!

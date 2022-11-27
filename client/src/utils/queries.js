@@ -121,6 +121,7 @@ export const QUERY_ME = gql`
       username
       email
       followersCount
+      avatar
       posts {
         _id
         title

@@ -1,7 +1,12 @@
 const { User, Post } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-
+const cloudinary = require("cloudinary");
+cloudinary.config({
+  cloud_name: "da1sqgyhy",
+  api_key: "586147262945715",
+  api_secret: "uqYtDzPTrotRC4nI06x9W1L48jc",
+});
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -163,7 +168,44 @@ const resolvers = {
         }
       
         throw new AuthenticationError('You need to be logged in!');
-      }
+      },
+      uploadPhoto: async (_, { photo, username }, context) => {
+       
+
+        //initialize cloudinary
+        
+              /*
+        try-catch block for handling actual image upload
+        */
+        try {
+          const result = await cloudinary.v2.uploader.upload(photo, {
+        //here i chose to allow only jpg and png upload
+            allowed_formats: ["jpg", "png"],
+        //generates a new id for each uploaded image
+            public_id: "",
+        /*creates a folder called "your_folder_name" where images will be stored.
+        */
+            folder: "your_folder_name2",
+          });
+          console.log(result);
+          if (context.user) {
+            const updatedUser = await User.findOneAndUpdate(
+              { username:username },
+              { $set: { avatar:   result.url } },
+              { new: true, runValidators: true }
+            );
+        
+            return updatedUser;}
+        } catch (e) {
+        //returns an error message on image upload failure.
+          return `Image could not be uploaded:${e.message}`;
+        }
+        /*returns uploaded photo url if successful `result.url`.
+        if we were going to store image name in database,this
+        */
+      
+       
+        },
       
   },
 };
