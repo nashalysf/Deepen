@@ -16,8 +16,6 @@ import ShareIcon from "@mui/icons-material/Share";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import TagIcon from "@mui/icons-material/Tag";
 import GroupsIcon from "@mui/icons-material/Groups";
-import { ADD_LIKE } from "../../utils/mutations";
-import { useMutation } from "@apollo/client";
 import LikeButton from "../Buttons/LikeButton";
 import Box from "@mui/material/Button";
 
