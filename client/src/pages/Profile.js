@@ -148,7 +148,7 @@ const Profile = ({ props }) => {
 
       <div className="flex-row justify-center ">
         <div className="col-lg-9">
-          <PostList posts={user.posts} title={`${user.username}'s posts...`} />
+          <PostList posts={user.posts} title={`${user.username}'s posts...`} user={user} />
         </div>
         <div>
           <FollowerList

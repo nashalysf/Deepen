@@ -22,17 +22,17 @@ import proposal from "../../images/png/project-proposal.png";
 import { QUERY_ME, QUERY_USER } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 
-const PostPreview = ({ post, username }) => {
-  console.log(username);
+const PostPreview = ({ post, username, user }) => {
+  if (username == null)  {
+    username = user.username;
+  }
+    
     const { loading, data } = useQuery(username ? QUERY_USER: QUERY_ME, {
         variables: { username: username },
     });
     const user1 = data?.me || data?.user || {};
     const [readMore, setReadMore] = useState(false);
-    console.log(data);
-console.log(post);
-console.log(user1.username);
-console.log(user1.avatar);
+  
 
 return (
     <Grid item key={post._id} xs={12} sm={6} md={4}>

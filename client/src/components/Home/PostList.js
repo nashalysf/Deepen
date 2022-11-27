@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Pagination from "../Pagination";
 import PostPreview from "./PostPreview";
-const PostList = ({ posts, title }) => {
+const PostList = ({ posts, title, user }) => {
   /**---------------- Pagination ----------------**/
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
@@ -28,7 +28,7 @@ console.log(posts);
           <Grid container spacing={4}>
             {posts &&
               currentPosts.map((post) => (
-               <PostPreview post={post} key={post._id} username={post.username}/>
+               <PostPreview post={post} key={post._id} username={post.username} user={user}/>
               ))}
           </Grid>
           <Pagination
