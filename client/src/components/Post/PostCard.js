@@ -31,7 +31,7 @@ const PostCard = ({ post, theme }) => {
         <h3 className="bw">Tools</h3>
         <ListTools post={post} />
         <h3 className="bw">Collaborators</h3>
-        <Collaborators post={post} />  
+        <Collaborators post={post} user={user} />  
         <br />
         <CardFooter post={post} />
       </div>

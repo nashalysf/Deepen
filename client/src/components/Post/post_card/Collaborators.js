@@ -5,8 +5,9 @@ import Auth from "../../../utils/auth";
 import { Link } from "react-router-dom";
 import CollabButton from "../../Buttons/CollabButton";
 import { useNavigate } from "react-router-dom";
+import CollabForm from "../../../pages/CollabForm";
 
-const Collaborators = ({ post }) => {
+const Collaborators = ({ post, user}) => {
   const [addCollaborator] = useMutation(ADD_COLLABORATOR);
   const navigate = useNavigate();
   let { collaborators: collaboratorArray } = post;
@@ -35,7 +36,10 @@ const Collaborators = ({ post }) => {
     }
   };
   const createForm = () => {
-    navigate("/collab");
+    let useremail = user.email;
+  console.log(useremail);
+    <CollabForm user={user}/>
+    navigate("/collab",{state:{email:useremail}});
  };
 console.log(collaboratorArray);
   return (

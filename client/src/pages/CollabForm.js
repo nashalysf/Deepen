@@ -1,12 +1,14 @@
 import React from "react";
+import {useLocation} from 'react-router-dom';
 
-const CollabForm = (props) => {
-  console.log(props);
+const CollabForm = ({route, navigate}) => {
+const location = useLocation();
+const email = "mailto:".concat(location.state.email);
   return (
     <>
       <main>
         <form
-          action="mailto:you@yourdmainhere.com"
+          action={email}
           method="post"
           enctype="text/plain"
         >
