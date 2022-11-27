@@ -10,6 +10,7 @@ const ListLinks = (post) => {
     <div class="d-flex align-items-center flex-column">
       {otherArray.map((link) => (
         <a className= "bw" href={"https://"+link} target="_blank"  rel="noreferrer external">
+          <br />
           {link}
         </a>
       ))}
