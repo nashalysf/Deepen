@@ -30,9 +30,6 @@ const PostList = ({ posts, title }) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  /**---------------- Like ----------------**/
-  const [isClicked, setIsClicked] = useState(false);
-  const [addLike] = useMutation(ADD_LIKE);
   /**---------------- Post-> Description -> Read More ----------------**/
   const [readMore, setReadMore] = useState(false);
 
@@ -145,20 +142,6 @@ const PostList = ({ posts, title }) => {
       </div>
     </div>
   );
-  // function likeHandler(post) {
-  //   console.log(posts[0].likeCount);
-  //   try {
-  //     addLike({
-  //       variables: {
-  //         postId: post._id,
-  //         likeCount: post.likeCount + 1,
-  //       },
-  //     });
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-
-  // }
 };
 
 export default PostList;
