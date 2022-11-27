@@ -113,7 +113,7 @@ console.log(user._id);
     }
     
       <div className="flex-row justify-center ">
-        <div className="col-12 mb-3 col-lg-8">
+        <div className="col-lg-9">
           <PostList posts={user.posts} title={`${user.username}'s posts...`} />
         </div>
         <div>
