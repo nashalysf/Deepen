@@ -21,6 +21,7 @@ const PostForm = () => {
   const [description, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
   const [title, setTextTitle] = useState("");
+  const [links, setTextLinks] = useState("");
   const [tools, setTools] = useState([]);
   const toolsArray = [
     "Javascript",
@@ -82,17 +83,22 @@ const PostForm = () => {
     setTools(event.target.value);
   };
 
+  const handleChangeLinks = async (event) => {
+    setTextLinks(event.target.value);
+  };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await addPost({ variables: { description, title, tools } });
+      await addPost({ variables: { description, title, tools, links } });
       console.log("tools", tools);
       // clear form value
       setText("");
       setTextTitle("");
       setTools([]);
       setCharacterCount(0);
+      setTextLinks("");
     } catch (e) {
       console.error(e);
     }
@@ -148,9 +154,11 @@ const PostForm = () => {
               label="Links"
               multiline
               rows={4}
-              defaultValue=""
+              defaultValue="www.github.com"
               variant="standard"
               helperText="Input all the important links for your post."
+              value={links}
+              onChange={handleChangeLinks}
             />
           </div>
         </Box>

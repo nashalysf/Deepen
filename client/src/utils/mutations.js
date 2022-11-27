@@ -63,8 +63,8 @@ mutation addLike($postId: ID!, $likeCount: Int) {
 }
 `;
 export const ADD_POST = gql`
-  mutation addPost($description: String!, $title: String!, $tools: [String!]!) {
-    addPost(description: $description, title: $title, tools: $tools) {
+  mutation addPost($description: String!, $title: String!, $tools: [String!], $links: [String!]) {
+    addPost(description: $description, title: $title, tools: $tools, links: $links) {
       _id
       title
       description
@@ -73,6 +73,7 @@ export const ADD_POST = gql`
       commentCount
       likeCount
       tools
+      links
       collaborators
       comments {
         _id

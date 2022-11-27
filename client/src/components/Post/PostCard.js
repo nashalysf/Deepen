@@ -15,7 +15,7 @@ const PostCard = ({ post, theme }) => {
         <CardHeader post={post} />
         <CardBody post={post} theme={theme} />
         <h3 className="bw">Links</h3>
-        <ListLinks />
+        <ListLinks post={post}/>
         <h3 className="bw">Tools</h3>
         <ListTools post={post} />
         <h3 className="bw">Collaborators</h3>

@@ -48,10 +48,7 @@ const postSchema = new Schema(
       type: String,
     },
 
-    links: {
-      type: String,
-      required: false,
-    },
+    links: [String],
     likeCount: {
       type: Number,
       default: 0,
