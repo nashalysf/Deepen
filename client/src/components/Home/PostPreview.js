@@ -7,11 +7,9 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardHeader } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { red } from "@mui/material/colors";
-import Pagination from "../Pagination";
 import ShareIcon from "@mui/icons-material/Share";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import TagIcon from "@mui/icons-material/Tag";
@@ -27,7 +25,7 @@ const PostPreview = ({ post, username, user }) => {
     username = user.username;
   }
     
-    const { loading, data } = useQuery(username ? QUERY_USER: QUERY_ME, {
+    const { data } = useQuery(username ? QUERY_USER: QUERY_ME, {
         variables: { username: username },
     });
     const user1 = data?.me || data?.user || {};
