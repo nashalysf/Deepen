@@ -37,41 +37,10 @@ const PostList = ({ posts, title }) => {
   /**---------------- Post-> Description -> Read More ----------------**/
   const [readMore, setReadMore] = useState(false);
 
-  if (posts == null) {
-    return <h3>No Posts Yet</h3>;
-  }
-
-  if (!posts.length) {
+  if (posts == null || !posts.length) {
     return <h3 className="noPost">No Posts Yet</h3>;
   }
-  const handleClick = (post) => {
-    if (isClicked) {
-      try {
-        addLike({
-          variables: {
-            postId: post._id,
-            likeCount: post.likeCount + 1,
-          },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    } else {
-      try {
-        addLike({
-          variables: {
-            postId: post._id,
-            likeCount: post.likeCount - 1,
-          },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    setIsClicked(!isClicked);
-  };
 
-console.log(posts[0].likeCount);
   
   return (
     <div>
@@ -134,44 +103,34 @@ console.log(posts[0].likeCount);
                       <Typography>{post.tools}</Typography>
                     </CardContent>
                     <Box
-                    position="relative"
-  display="flex"
-  alignItems="center"
-  
->
-                    <CardActions >
-                     
-                      <IconButton
-                        aria-label="add to favorites"
-                        underline="hover"
-                        onClick={handleClick}
-                      >
-                        {post.likeCount}
-                        <FavoriteIcon fontSize="small" />
-                      </IconButton>
+                      position="relative"
+                      display="flex"
+                      alignItems="center">
+                      <CardActions >
+                        <LikeButton post={post} />
 
-                      <IconButton aria-label="collab" underline="hover">
-                        <GroupsIcon sx={{ fontSize: 25, marginLeft: "0px" }} />
-                      </IconButton>
+                        <IconButton aria-label="collab" underline="hover">
+                          <GroupsIcon sx={{ fontSize: 25, marginLeft: "0px" }} />
+                        </IconButton>
 
-                      <IconButton href={`/post/${post._id}`}>
-                        <VisibilityIcon
-                          sx={{
+                        <IconButton href={`/post/${post._id}`}>
+                         <VisibilityIcon
+                            sx={{
                             fontSize: 60,
                             marginLeft: "2px",
                             color: "black",
                           }}
-                        />
-                      </IconButton>
+                          />
+                        </IconButton>
 
-                      <IconButton aria-label="share" underline="hover">
-                        <ShareIcon sx={{ fontSize: 20, marginLeft: "0px" }} />
-                      </IconButton>
+                       <IconButton aria-label="share" underline="hover">
+                          <ShareIcon sx={{ fontSize: 20, marginLeft: "0px" }} />
+                        </IconButton>
 
-                      <IconButton aria-label="tags" underline="hover">
-                        <TagIcon fontSize="small" />
-                      </IconButton>
-                    </CardActions>
+                        <IconButton aria-label="tags" underline="hover">
+                          <TagIcon fontSize="small" />
+                        </IconButton>
+                      </CardActions>
                     </Box>
                   </Card>
                 </Grid>

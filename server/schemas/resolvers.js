@@ -117,8 +117,7 @@ const resolvers = {
         if (context.user) {
           const updatedPost = await Post.findOneAndUpdate(
             { _id: postId },
-            { $push: { likeCount: 1 } },
-            { new: true, runValidators: true }
+            { $set: { likeCount: likeCount++ } },
           );
       
           return updatedPost;
