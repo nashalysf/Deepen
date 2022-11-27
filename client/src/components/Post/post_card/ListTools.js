@@ -1,5 +1,4 @@
 import React from "react";
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -7,18 +6,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import FolderIcon from '@mui/icons-material/Folder';
 import DevIcon from "devicon-react-svg";
 
 const ListTools = (post) => {
-  console.log(post);
   let { tools: toolArray } =  post.post;
-  //create a array of icons with key value pairs
-  const iconArray = [
-  ]
-//toolarray to lowercase
   toolArray = toolArray.map((tool) => tool.toLowerCase());
-  console.log(toolArray[0]);
 
   return (
     <div  class="d-flex justify-content-center padding">
