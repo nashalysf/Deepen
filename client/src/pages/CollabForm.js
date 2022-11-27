@@ -1,49 +1,38 @@
-import { React } from "react";
+import React from "react";
 
 const CollabForm = () => {
-  
+ 
+
   return (
     <>
       <main>
-        <input className="collabCard">
-          <input
-            type="text"
-            name="title"
-            placeholder="Post Title"
-            id="collabTitle"
-            className="collabInput"
-            value="Project-Title"
-          ></input>
-          <form className="log-input ">
-            <input
-              className="collabEmail"
-              placeholder="Email"
-              name="email"
-              type="email"
-              id="userEmail"
-            />
-          </form>
-          <h2 id="collabUserName">User's full name</h2>
+        <div className="collabCard">
 
-          <textarea
-            type="text"
-            name="collaborate"
-            placeholder="How can you collab?"
-            id="collaborate"
-          ></textarea>
-          <div className="links gitlink">
-            <input
-              type="url"
-              name="links"
-              placeholder="GitHub"
-              id="collabLinks"
-              className="collabInput"
-            />
-          </div>
+        <h1> Collaboration Form </h1>
+        <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        placeholder="What's your name?">
+
         </input>
-        <button type="submit" id="submitCollab">
-          Send
-        </button>
+        <input 
+        type="email" 
+        id="collabEmail" 
+        placeholder="What's your email?" 
+        name="email">
+
+        </input>
+        <input 
+        type="text" 
+        id="GitHub" 
+        placeholder="What's your GitHub?" 
+        name="github">
+
+        </input>
+        <textarea id="collaborate" placeholder="How can you collaborate in this project?"></textarea>
+        <button type="submit" id="submitCollab">Submit</button>
+        </div>
       </main>
     </>
     

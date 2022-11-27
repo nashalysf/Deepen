@@ -16,7 +16,7 @@ function Nav(props) {
       <nav>
         <ul className="homeNav">
           <li>
-          <a data-testid="home" href="#home" onClick={() => setSearchSelected(false)}>Home</a>
+          <a data-testid="home" href=" " onClick={() => setSearchSelected(false)}>Home</a>
           </li>
           <li>
           <span onClick={() => setSearchSelected(true)}>Search</span>
