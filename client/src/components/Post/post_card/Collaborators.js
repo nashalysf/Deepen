@@ -4,10 +4,14 @@ import { useMutation } from "@apollo/client";
 import Auth from "../../../utils/auth";
 import { Link } from "react-router-dom";
 import CollabButton from "../../Buttons/CollabButton";
+import { useNavigate } from "react-router-dom";
+
 const Collaborators = ({ post }) => {
   const [addCollaborator] = useMutation(ADD_COLLABORATOR);
+  const navigate = useNavigate();
   let { collaborators: collaboratorArray } = post;
   let [userIsCreator, setUserIsCreator] = useState(false);
+  
 
   if(!userIsCreator){
     if(post.username === Auth.getProfile().data.username){
@@ -30,6 +34,9 @@ const Collaborators = ({ post }) => {
       }
     }
   };
+  const createForm = () => {
+    navigate("/collab");
+ };
 console.log(collaboratorArray);
   return (
     <div>
@@ -43,7 +50,10 @@ console.log(collaboratorArray);
           
         </button> 
       ))}
-      <button onClick={handleFollow}>Collaborate</button>
+      <div className="flex-row justify-center justify-space-between-md align-stretch">
+      <button className=" buttonAccept3" onClick={handleFollow}>Collaborate</button>
+      <button className=" buttonAccept3" onClick={createForm}>Reach Developer</button>
+      </div>
     </div>
   );
 };

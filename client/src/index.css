@@ -1663,3 +1663,13 @@ p.mb-0{
   display: inline-block;
   font-size: 16px;
 }
+.buttonAccept3 {
+  background-color: #020202; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
