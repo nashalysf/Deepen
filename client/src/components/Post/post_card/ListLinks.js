@@ -1,36 +1,18 @@
 import React from "react";
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-
+import Link from "@mui/material/Link";
 
 const ListLinks = (post) => {
-  let { links: linkArray } =  post.post;
-
+  let { links: linkArray } = post.post;
+  linkArray = linkArray.map((link) => link.split("\n"));
+  let otherArray = linkArray.flat();
 
   return (
-    <div  class="d-flex justify-content-center">
-    <Box sx={{ flexGrow: 1, maxWidth: 320 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <List sx={{ width: '100%', maxWidth: 320, bgcolor: 'background.paper' }}>
-              {linkArray.map((link) =>(
-                <ListItem>
-                   <ListItemText className="bw"
-                    primary={link}
-                  />
-                </ListItem>
-              ))}
-            </List>
-        </Grid>
-      </Grid>
-    </Box>
-
-    
-      
+    <div class="d-flex align-items-center flex-column">
+      {otherArray.map((link) => (
+        <a className= "bw" href={"https://"+link} target="_blank"  rel="noreferrer external">
+          {link}
+        </a>
+      ))}
     </div>
   );
 };

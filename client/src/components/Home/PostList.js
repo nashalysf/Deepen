@@ -95,7 +95,6 @@ const PostList = ({ posts, title }) => {
                           </Button>
                         )}
                       </Typography>
-                      <Typography>{post.tools}</Typography>
                     </CardContent>
                     <Box
                       position="relative"
