@@ -1,16 +1,12 @@
 import { React } from "react";
-
+//This component is used to navigate tabs in the home page
 function Nav(props) {
   const {
     categories = [],
     setCurrentCategory,
-    currentCategory,
-    searchSelected,
     setSearchSelected
   } = props;
-  function categorySelected(name) {
-    console.log(`${name} is clicked`);
-  }
+
   return (
     <header>
       <nav>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+//This component is used to accept collaborations. TO-DO: add a modal to confirm the collaboration
 const CollabButton = (userIsCreator) => {
   const [userBoolean, setUserBoolean] = useState(false);
   console.log(userIsCreator);

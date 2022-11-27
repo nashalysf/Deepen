@@ -20,6 +20,7 @@ import proposal from "../../images/png/project-proposal.png";
 import { QUERY_ME, QUERY_USER } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 
+//This component is used to display the post previews on the home page and profile page
 const PostPreview = ({ post, username, user }) => {
   if (username == null)  {
     username = user.username;

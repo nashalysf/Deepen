@@ -15,14 +15,14 @@ const SinglePost = (props) => {
   const posts = data?.posts || [];
   const postArray = [...posts.values()];
   let post = data?.post || {};
-  console.log(data);
+  
+  //Looking for the post that matches the id
   for (let index = 0; index < postArray.length; index++) {
     if (postId === postArray[index]._id) {
        post = postArray[index];
     }
   }
  
-   console.log(post);
   if (loading) {
     return <div>Loading...</div>;
   }

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
 
+//This comment form is used in the Post component to add comments to a post
 const CommentForm = ({ postId }) => {
   const [commentBody, setBody] = useState('');
   const [characterCount, setCharacterCount] = useState(0);

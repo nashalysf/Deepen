@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+//This component is used to display the list of followers
 const FollowerList = ({ followerCount, username, followers }) => {
 
   if (followers == null || followers.length === 0) {

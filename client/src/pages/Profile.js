@@ -35,13 +35,14 @@ const Profile = ({ props }) => {
   const [url, setUrl] = useState("");
   const [showUpload, setShowUpload] = useState(false);
 
+  // If condition is true, then the user is on their own profile page
   if (window.location.pathname.length < 9) {
     let profilePathName = window.location.pathname.substring(9);
     if (profilePathName !== Auth.getProfile().data.username) {
       userParam = profilePathName;
     }
-    }
-  
+  }
+
   // data from the `QUERY_USER` query is for the user whose profile is being viewed
   // data from the `QUERY_ME` query is for the logged-in user
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -49,9 +50,12 @@ const Profile = ({ props }) => {
   });
 
   const user = data?.me || data?.user || {};
+
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  // If the user is logged in, then the user can follow other users and navigate to their own profile page
   const token = localStorage.getItem("id_token");
   if (token === null) {
     return (
@@ -70,7 +74,12 @@ const Profile = ({ props }) => {
     }
   };
 
-
+  /**
+   * These functions are used to
+   * 1. Choose an image
+   * 2. Upload an image
+   * 3. Set the user's profile picture
+   */
   const handleImage = async () => {
     try {
       await addImage({
@@ -125,19 +134,18 @@ const Profile = ({ props }) => {
       <button className="editProfile" id="settings" onClick={handleUpload}>
         <img alt="profilePic" src={setting} />{" "}
       </button>
-      {showUpload && <div>
-        <input
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-        ></input>
-        <button onClick={uploadImage}>Upload</button>
-        <button className="btn btn-primary" onClick={handleImage}>
-        Set profile picture
-      </button>
-      </div>}
-
-      
-
+      {showUpload && (
+        <div>
+          <input
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          ></input>
+          <button onClick={uploadImage}>Upload</button>
+          <button className="btn btn-primary" onClick={handleImage}>
+            Set profile picture
+          </button>
+        </div>
+      )}
       <ProfileNav
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
@@ -148,7 +156,11 @@ const Profile = ({ props }) => {
 
       <div className="flex-row justify-center ">
         <div className="col-lg-9">
-          <PostList posts={user.posts} title={`${user.username}'s posts...`} user={user} />
+          <PostList
+            posts={user.posts}
+            title={`${user.username}'s posts...`}
+            user={user}
+          />
         </div>
         <div>
           <FollowerList

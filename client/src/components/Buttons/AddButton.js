@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import create from "../../pages/CollabForm";
 
+//This component is used to add a new post, from the home page and the profile page
 const AddButton = () => {
     const navigate = useNavigate();
     const [showTopBtn, setShowTopBtn] = useState(false);
+
     useEffect(() => {
-        
-                setShowTopBtn(true);
-        });
+        setShowTopBtn(true);
+    });
    
-    const goToTop = () => {
+    const createPost = () => {
        navigate("/create");
     };
     return (
@@ -20,7 +20,7 @@ const AddButton = () => {
             {showTopBtn && (
                 <IoIosAdd
                     className="icon-position2 icon-style"
-                    onClick={goToTop}
+                    onClick={createPost}
                 />
             )}{" "}
         </div>

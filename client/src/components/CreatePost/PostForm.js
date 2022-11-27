@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Switch from "@mui/material/Switch";
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
@@ -13,10 +12,7 @@ import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormLabel from "@mui/material/FormLabel";
-
+//This is the form that allows the user to create a post
 const PostForm = () => {
   const [description, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);

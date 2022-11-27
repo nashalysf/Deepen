@@ -1,5 +1,6 @@
 import React from 'react';
 
+//This component is to slice the array of posts into pages
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
 

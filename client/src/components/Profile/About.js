@@ -1,5 +1,6 @@
 import React from "react";
 
+//This component displays the about tab in the profile page
 const About = (props) => {
   const currentCategory = {
     name: "Jane Doe",

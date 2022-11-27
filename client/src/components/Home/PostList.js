@@ -3,6 +3,8 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Pagination from "../Pagination";
 import PostPreview from "./PostPreview";
+
+//This component is used to display the posts in the home page
 const PostList = ({ posts, title, user }) => {
   /**---------------- Pagination ----------------**/
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,15 +13,11 @@ const PostList = ({ posts, title, user }) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
  
   if (posts == null || !posts.length) {
     return <h3 className="noPost">No Posts Yet</h3>;
   }
  
-
-console.log(posts);
-  console.log(currentPosts)
   return (
     <div>
       <h3>{title}</h3>

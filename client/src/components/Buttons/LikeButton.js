@@ -8,7 +8,7 @@ const LikeButton = (post) => {
   const [likes, setLikes] = useState(post.post.likeCount);
   const [isClicked, setIsClicked] = useState(false);
   const [addLike] = useMutation(ADD_LIKE);
-  console.log(post);
+ 
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -29,11 +29,7 @@ const LikeButton = (post) => {
   };
 
   return (
-   
-      <form
-       
-        onSubmit={handleFormSubmit}
-      >
+      <form onSubmit={handleFormSubmit} >
         <IconButton
           aria-label="add to favorites"
           underline="hover"

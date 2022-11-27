@@ -5,36 +5,29 @@ import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 
 const Signup = () => {
+
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
-  // set state for form validation
   const [validated] = useState(false);
-  // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
-  const initialState = {
-    username: "",
-    email: "",
-    password: "",
-  };
-  const [userData, setUserData] = useState(initialState);
+  // Update state based on form input changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
-    setUserData({ ...userData, [name]: value });
   };
-
+  // Submit form with values from state
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check idispatch(register(userData))f form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+  // check idispatch(register(userData))f form has everything (as per react-bootstrap docs)
+  const form = event.currentTarget;
+  if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
@@ -49,7 +42,6 @@ const Signup = () => {
       console.error(err);
       setShowAlert(true);
     }
-
     setUserFormData({
       username: "",
       email: "",

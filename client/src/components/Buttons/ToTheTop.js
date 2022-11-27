@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaAngleUp } from "react-icons/fa";
 
+//This component is used to scroll to the top of the page
 const ToTheTopBtn = () => {
     const [showTopBtn, setShowTopBtn] = useState(false);
     useEffect(() => {

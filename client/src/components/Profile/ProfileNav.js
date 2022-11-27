@@ -1,5 +1,6 @@
 import React from "react";
 
+//This component is used to navigate tabs in the profile page
 const ProfileNav = (props) => {
   const {
     categories = [],
