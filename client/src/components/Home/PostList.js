@@ -19,8 +19,9 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import LikeButton from "../Buttons/LikeButton";
 import Box from "@mui/material/Button";
 import proposal from "../../images/png/project-proposal.png";
-
-
+import { QUERY_USER } from "../../utils/queries";
+import {useQuery} from "@apollo/client";
+import PostPreview from "./PostPreview";
 const PostList = ({ posts, title }) => {
   /**---------------- Pagination ----------------**/
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,14 +29,18 @@ const PostList = ({ posts, title }) => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   /**---------------- Post-> Description -> Read More ----------------**/
   const [readMore, setReadMore] = useState(false);
-
+ 
   if (posts == null || !posts.length) {
     return <h3 className="noPost">No Posts Yet</h3>;
   }
+ 
 
+console.log(posts);
   
   return (
     <div>
@@ -46,88 +51,7 @@ const PostList = ({ posts, title }) => {
           <Grid container spacing={4}>
             {posts &&
               currentPosts.map((post) => (
-                <Grid item key={post._id} xs={12} sm={6} md={4}>
-                  <Card
-                    sx={{
-                      height: "100%",
-                      width: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <CardHeader
-                      avatar={
-                        <Avatar
-                          sx={{ bgcolor: red[500] }}
-                          aria-label="recipe"
-                        ></Avatar>
-                      }
-                      action={<IconButton aria-label="settings"></IconButton>}
-                      title={post.title}
-                      subheader={post.createdAt}
-                    />
-                    <CardMedia
-                      component="img"
-                      height="194"
-                      sx={{
-                        // 16:9
-                        pt: "10%",
-                      }}
-                      image={proposal}
-                      alt="random"
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {post.title}
-                      </Typography>
-                      <Typography>
-                        {readMore
-                          ? post.description
-                          : `${post.description.substring(0, 60)}...`}
-                        {post.description.length > 100 && (
-                          <Button>
-                            <span
-                              className="readMore"
-                              onClick={() => setReadMore(!readMore)}
-                            >
-                              {readMore ? "Collapse" : "Read more"}
-                            </span>
-                          </Button>
-                        )}
-                      </Typography>
-                    </CardContent>
-                    <Box
-                      position="relative"
-                      display="flex"
-                      alignItems="center">
-                      <CardActions >
-                        <LikeButton post={post} />
-
-                        <IconButton aria-label="collab" underline="hover">
-                          <GroupsIcon sx={{ fontSize: 25, marginLeft: "0px" }} />
-                        </IconButton>
-
-                        <IconButton href={`/post/${post._id}`}>
-                         <VisibilityIcon
-                            sx={{
-                            fontSize: 60,
-                            marginLeft: "2px",
-                            color: "black",
-                          }}
-                          />
-                        </IconButton>
-
-                       <IconButton aria-label="share" underline="hover">
-                          <ShareIcon sx={{ fontSize: 20, marginLeft: "0px" }} />
-                        </IconButton>
-
-                        <IconButton aria-label="tags" underline="hover">
-                          <TagIcon fontSize="small" />
-                        </IconButton>
-                      </CardActions>
-                    </Box>
-                  </Card>
-                </Grid>
+               <PostPreview post={post} key={post._id} />
               ))}
           </Grid>
           <Pagination
