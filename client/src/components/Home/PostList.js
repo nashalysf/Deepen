@@ -18,6 +18,7 @@ import TagIcon from "@mui/icons-material/Tag";
 import GroupsIcon from "@mui/icons-material/Groups";
 import LikeButton from "../Buttons/LikeButton";
 import Box from "@mui/material/Button";
+import proposal from "../../images/png/project-proposal.png";
 
 
 const PostList = ({ posts, title }) => {
@@ -72,7 +73,7 @@ const PostList = ({ posts, title }) => {
                         // 16:9
                         pt: "10%",
                       }}
-                      image="https://source.unsplash.com/random"
+                      image={proposal}
                       alt="random"
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
