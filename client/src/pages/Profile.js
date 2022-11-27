@@ -42,8 +42,10 @@ const Profile = ({ props }) => {
     let profilePathName = window.location.pathname.substring(9);
     if (profilePathName !== Auth.getProfile().data.username) {
       userParam = profilePathName;
+      console.log(profilePathName);
     }
-  }
+    }
+  
   console.log(userParam);
   // data from the `QUERY_USER` query is for the user whose profile is being viewed
   // data from the `QUERY_ME` query is for the logged-in user
@@ -56,7 +58,7 @@ const Profile = ({ props }) => {
     return <div>Loading...</div>;
   }
   console.log(user);
-  console.log(user._id);
+  console.log(user.username);
   const token = localStorage.getItem("id_token");
   if (token === null) {
     return (

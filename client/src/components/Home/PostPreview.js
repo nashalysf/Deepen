@@ -19,17 +19,22 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import LikeButton from "../Buttons/LikeButton";
 import Box from "@mui/material/Button";
 import proposal from "../../images/png/project-proposal.png";
-import { QUERY_USER } from "../../utils/queries";
+import { QUERY_ME, QUERY_USER } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 
-const PostPreview = ({ post }) => {
-    const { loading, data } = useQuery(QUERY_USER, {
-        variables: { username: post.username },
+const PostPreview = ({ post, username }) => {
+  console.log(username);
+    const { loading, data } = useQuery(username ? QUERY_USER: QUERY_ME, {
+        variables: { username: username },
     });
-    const user = data?.user || {};
+    const user1 = data?.me || data?.user || {};
     const [readMore, setReadMore] = useState(false);
+    console.log(data);
+console.log(post);
+console.log(user1.username);
+console.log(user1.avatar);
 
-  return (
+return (
     <Grid item key={post._id} xs={12} sm={6} md={4}>
     <Card
       sx={{
@@ -43,11 +48,10 @@ const PostPreview = ({ post }) => {
       //render avatar with src  if post.user.avatar is not null
       
       avatar={  <Avatar
-      src={user.avatar}
+      src={user1.avatar}
       sx={{ bgcolor: red[500] }}
       aria-label="recipe"
     >
-      {post.username[0].toUpperCase()}
     </Avatar>}
 
         action={<IconButton aria-label="settings"></IconButton>}
