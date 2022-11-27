@@ -23,6 +23,7 @@ const typeDefs = gql`
     tools: [String]
     likeCount: Int
     commentCount: Int
+    collaborators: [String]
     comments: [Comments]
     user: [User]
   }
@@ -61,6 +62,7 @@ const typeDefs = gql`
     deleteUser(username: String!, password: String!): Auth
     deletePost(_id: ID!): Post
     addLike(postId: ID!, likeCount: Int): Post
+    addCollaborator(postId: ID!, username: String!): Post
   }
   type Auth {
     token: ID!

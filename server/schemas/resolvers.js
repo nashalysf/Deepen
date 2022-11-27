@@ -151,6 +151,19 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
       },
+      addCollaborator: async (parent, { postId, username }, context) => {
+        if (context.user) {
+          const updatedUser = await Post.findOneAndUpdate(
+            { _id: postId },
+            { $push: { collaborators: username} },
+            { new: true, runValidators: true }
+          ).populate('collaborators');
+      
+          return updatedUser;
+        }
+      
+        throw new AuthenticationError('You need to be logged in!');
+      }
       
   },
 };

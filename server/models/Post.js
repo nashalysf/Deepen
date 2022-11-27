@@ -57,6 +57,7 @@ const postSchema = new Schema(
       default: 0,
     },
     tools:[String],
+    collaborators: [String],
     comments: [Comments],
 
     likes: [likeSchema],

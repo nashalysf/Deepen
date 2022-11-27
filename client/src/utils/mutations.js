@@ -35,6 +35,16 @@ export const ADD_FOLLOWER = gql`
     }
   }
 `;
+
+export const ADD_COLLABORATOR = gql`
+mutation addCollaborator($postId: ID!, $username: String!) {
+  addCollaborator(postId: $postId, username: $username) {
+    _id
+    username
+    collaborators
+  }
+}
+`;
 export const ADD_LIKE = gql`
 mutation addLike($postId: ID!, $likeCount: Int) {
   addLike(postId: $postId, likeCount: $likeCount) {
@@ -63,6 +73,7 @@ export const ADD_POST = gql`
       commentCount
       likeCount
       tools
+      collaborators
       comments {
         _id
       }

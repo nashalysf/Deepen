@@ -11,6 +11,7 @@ export const QUERY_POSTS = gql`
       likeCount
       commentCount
       tools
+      collaborators
       comments {
         _id
         commentBody
@@ -55,6 +56,7 @@ export const QUERY_POST = gql`
       links: String
       likeCount
       commentCount
+      collaborators
       comments {
         _id
         createdAt

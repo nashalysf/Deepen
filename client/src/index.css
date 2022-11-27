@@ -37,8 +37,8 @@ body {
   
   font-size: 20px;
   color: var(--light);
-  background: url("./images/bg.min.jpg");
-  /* background: url('./images/bg.jpg'); */
+  /* background: url("./images/bg.min.jpg"); */
+  background: url('./images/bluebg.jpg');
 }
 ul li {
   list-style: none;
