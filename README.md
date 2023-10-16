@@ -58,8 +58,14 @@ ________________________________________________________________________________
 6. Added variables to a useQuery Hook to run queries with arguments. 
 7. Set up front-end functionality to create and log in a user using mutations with front-end authentication service to help manage a user’s logged-in status and user’s data on pages.
 
+## Contributing
+Contributions are welcome! Please contact me for more information.
+
+## Tests
+No tests are available at the moment. Feel free to contribute if you'd like to add testing.
+
 ## Questions?
-For any questions about this repo, please contact me at [nashalysf@gmail.com](mailto:nashalysf@gmail.com).
+For any questions about this repo, please contact me at [naferi.zoe@gmail.com](mailto:naferi.zoe@gmail.com).
 
 To view more of my works, please visit my GitHub: [nashalysf](https://github.com/nashalysf).
 
